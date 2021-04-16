@@ -48,10 +48,9 @@
 		A19CD26B262362F100733622 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A19CD26A262362F100733622 /* Alamofire */; };
 		A19CD26F26240D9900733622 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CD26E26240D9900733622 /* Router.swift */; };
 		A19CD27A2626B1D300733622 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = A19CD2792626B1D300733622 /* SwiftyJSON */; };
-		A19CD27E26274BA000733622 /* TokenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CD27D26274BA000733622 /* TokenDelegate.swift */; };
-		A19CD28126274C3D00733622 /* CoreDataTokenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CD28026274C3D00733622 /* CoreDataTokenDelegate.swift */; };
 		A19CD28426274C8C00733622 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CD28326274C8C00733622 /* CoreDataHelper.swift */; };
 		A19CD2972627557E00733622 /* VeloToDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A19CD2952627557E00733622 /* VeloToDataModel.xcdatamodeld */; };
+		A1CE5D132629B8C50061220E /* AuthenticationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5D122629B8C50061220E /* AuthenticationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,10 +95,9 @@
 		A19CD25D26234EA600733622 /* OAuthTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTokenResponse.swift; sourceTree = "<group>"; };
 		A19CD26026234F2A00733622 /* AuthorizationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationUtils.swift; sourceTree = "<group>"; };
 		A19CD26E26240D9900733622 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		A19CD27D26274BA000733622 /* TokenDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDelegate.swift; sourceTree = "<group>"; };
-		A19CD28026274C3D00733622 /* CoreDataTokenDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTokenDelegate.swift; sourceTree = "<group>"; };
 		A19CD28326274C8C00733622 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		A19CD2962627557E00733622 /* VeloToDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VeloToDataModel.xcdatamodel; sourceTree = "<group>"; };
+		A1CE5D122629B8C50061220E /* AuthenticationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,8 +213,7 @@
 				A19B23222622459000F1A017 /* StravaConfigurationProvider.swift */,
 				A19CD254262343A500733622 /* StravaClient.swift */,
 				A19CD26E26240D9900733622 /* Router.swift */,
-				A19CD27D26274BA000733622 /* TokenDelegate.swift */,
-				A19CD28026274C3D00733622 /* CoreDataTokenDelegate.swift */,
+				A1CE5D122629B8C50061220E /* AuthenticationHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -341,6 +338,7 @@
 				A19B23232622459000F1A017 /* StravaConfigurationProvider.swift in Sources */,
 				A19CD26126234F2A00733622 /* AuthorizationUtils.swift in Sources */,
 				A19CD26F26240D9900733622 /* Router.swift in Sources */,
+				A1CE5D132629B8C50061220E /* AuthenticationHelper.swift in Sources */,
 				A19B231F2622452E00F1A017 /* PropertiesReader.swift in Sources */,
 				A19CD255262343A500733622 /* StravaClient.swift in Sources */,
 				A19CD25E26234EA600733622 /* OAuthTokenResponse.swift in Sources */,
@@ -349,9 +347,7 @@
 				A166EEE626063D0C00DFF377 /* AppDelegate.swift in Sources */,
 				A166EF2B26064E5600DFF377 /* ActionCardsTableViewController.swift in Sources */,
 				A155E26E2612E99C00CEE968 /* UnauthenticationAlertController.swift in Sources */,
-				A19CD27E26274BA000733622 /* TokenDelegate.swift in Sources */,
 				A166EF2626064C2C00DFF377 /* AuthenticationViewController.swift in Sources */,
-				A19CD28126274C3D00733622 /* CoreDataTokenDelegate.swift in Sources */,
 				A1103ED22610E05500C6F51A /* ActionCardsRootViewController.swift in Sources */,
 				A166EEE826063D0C00DFF377 /* SceneDelegate.swift in Sources */,
 				A19CD2972627557E00733622 /* VeloToDataModel.xcdatamodeld in Sources */,

@@ -10,9 +10,6 @@ import SafariServices
 
 class AuthenticationViewController: UIViewController {
     
-    // todo: change to some cache
-    let tokenDelegate = CoreDataTokenDelegate()
-    
     @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func unwindWithSegueToAuthentication(_ segue: UIStoryboardSegue) {
@@ -20,7 +17,7 @@ class AuthenticationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let token = tokenDelegate.get() {
+        if let token = Authentication.token {
             print("Already authorized with \(token)")
             performSegue(withIdentifier: "toActionCards", sender: self)
         } else {
@@ -34,7 +31,6 @@ class AuthenticationViewController: UIViewController {
             switch result {
                 case .success(let token):
                     print("Authenticated successfully: \(token)")
-                    print("Stored Token: \(CoreDataTokenDelegate().get())")
                     self.performSegue(withIdentifier: "toActionCards", sender: self)
                 case .failure(let error):
                     print("Authentication error: \(error.localizedDescription)")

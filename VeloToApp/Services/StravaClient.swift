@@ -23,9 +23,7 @@ class StravaClient: NSObject {
     private let configuration: StravaConfigurationProvider
     private var currentAuthorizationHandler: AuthorizationHandler?
     private var authSession: ASWebAuthenticationSession?
-    
-    private let delegate = CoreDataTokenDelegate()
-    
+
     private let state: String
     
     override private init() {
@@ -82,7 +80,7 @@ extension StravaClient: ASWebAuthenticationPresentationContextProviding {
             try oauthRequest(Router.token(code: code))?.responseDecodable(of: OAuthTokenResponse.self) { response in
                 switch response.result {
                     case .success(let token):
-                        self.delegate.set(token)
+                        Authentication.set(token: token)
                         handler(.success(token))
                     case .failure(let error):
                         handler(.failure(error))
