@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,7 +38,19 @@
 		A166EF2E2606565400DFF377 /* ActionCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166EF2D2606565400DFF377 /* ActionCardTableViewCell.swift */; };
 		A166EF312606950100DFF377 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166EF302606950100DFF377 /* SettingsViewController.swift */; };
 		A16E649A2607C8F0004A8E8B /* ActionCardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16E64992607C8F0004A8E8B /* ActionCardDetailsViewController.swift */; };
-		A1CDC6DE261440C000A38990 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDC6DD261440C000A38990 /* AuthenticationService.swift */; };
+		A19B231F2622452E00F1A017 /* PropertiesReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19B231E2622452E00F1A017 /* PropertiesReader.swift */; };
+		A19B23232622459000F1A017 /* StravaConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19B23222622459000F1A017 /* StravaConfigurationProvider.swift */; };
+		A19B232626224A7400F1A017 /* StravaConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A19B232526224A7400F1A017 /* StravaConfig.plist */; };
+		A19CD255262343A500733622 /* StravaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CD254262343A500733622 /* StravaClient.swift */; };
+		A19CD258262343DB00733622 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A19CD257262343DB00733622 /* LICENSE */; };
+		A19CD26126234F2A00733622 /* AuthorizationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CD26026234F2A00733622 /* AuthorizationUtils.swift */; };
+		A19CD26B262362F100733622 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A19CD26A262362F100733622 /* Alamofire */; };
+		A19CD26F26240D9900733622 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CD26E26240D9900733622 /* Router.swift */; };
+		A19CD27A2626B1D300733622 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = A19CD2792626B1D300733622 /* SwiftyJSON */; };
+		A19CD28426274C8C00733622 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CD28326274C8C00733622 /* CoreDataHelper.swift */; };
+		A19CD2972627557E00733622 /* VeloToDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A19CD2952627557E00733622 /* VeloToDataModel.xcdatamodeld */; };
+		A1A38D84262B8AF0002153FA /* StravaResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A38D83262B8AF0002153FA /* StravaResponses.swift */; };
+		A1CE5D132629B8C50061220E /* AuthenticationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5D122629B8C50061220E /* AuthenticationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +87,17 @@
 		A166EF2D2606565400DFF377 /* ActionCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCardTableViewCell.swift; sourceTree = "<group>"; };
 		A166EF302606950100DFF377 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A16E64992607C8F0004A8E8B /* ActionCardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCardDetailsViewController.swift; sourceTree = "<group>"; };
-		A1CDC6DD261440C000A38990 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		A19B231E2622452E00F1A017 /* PropertiesReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesReader.swift; sourceTree = "<group>"; };
+		A19B23222622459000F1A017 /* StravaConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaConfigurationProvider.swift; sourceTree = "<group>"; };
+		A19B232526224A7400F1A017 /* StravaConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StravaConfig.plist; sourceTree = "<group>"; };
+		A19CD254262343A500733622 /* StravaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaClient.swift; sourceTree = "<group>"; };
+		A19CD257262343DB00733622 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A19CD26026234F2A00733622 /* AuthorizationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationUtils.swift; sourceTree = "<group>"; };
+		A19CD26E26240D9900733622 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		A19CD28326274C8C00733622 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		A19CD2962627557E00733622 /* VeloToDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VeloToDataModel.xcdatamodel; sourceTree = "<group>"; };
+		A1A38D83262B8AF0002153FA /* StravaResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaResponses.swift; sourceTree = "<group>"; };
+		A1CE5D122629B8C50061220E /* AuthenticationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19CD27A2626B1D300733622 /* SwiftyJSON in Frameworks */,
+				A19CD26B262362F100733622 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,15 +132,17 @@
 		A166EEE426063D0C00DFF377 /* VeloToApp */ = {
 			isa = PBXGroup;
 			children = (
+				A19B231D2622452100F1A017 /* Utils */,
+				A19B231B2622434D00F1A017 /* Model */,
+				A19B23192622428200F1A017 /* Services */,
+				A19B23182622425400F1A017 /* Storyboards */,
 				A166EF2826064C3200DFF377 /* Controllers */,
 				A166EEFB2606432300DFF377 /* Resources */,
 				A166EEE526063D0C00DFF377 /* AppDelegate.swift */,
 				A166EEE726063D0C00DFF377 /* SceneDelegate.swift */,
-				A166EEEB26063D0C00DFF377 /* Main.storyboard */,
 				A166EEEE26063D0C00DFF377 /* Assets.xcassets */,
-				A166EEF026063D0C00DFF377 /* LaunchScreen.storyboard */,
 				A166EEF326063D0C00DFF377 /* Info.plist */,
-				A1CDC6DD261440C000A38990 /* AuthenticationService.swift */,
+				A19CD2952627557E00733622 /* VeloToDataModel.xcdatamodeld */,
 			);
 			path = VeloToApp;
 			sourceTree = "<group>";
@@ -124,7 +150,9 @@
 		A166EEFB2606432300DFF377 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A19B232526224A7400F1A017 /* StravaConfig.plist */,
 				A166EEFC2606434300DFF377 /* roboto */,
+				A19CD257262343DB00733622 /* LICENSE */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -170,6 +198,44 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		A19B23182622425400F1A017 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A166EEEB26063D0C00DFF377 /* Main.storyboard */,
+				A166EEF026063D0C00DFF377 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A19B23192622428200F1A017 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A19B23222622459000F1A017 /* StravaConfigurationProvider.swift */,
+				A19CD254262343A500733622 /* StravaClient.swift */,
+				A19CD26E26240D9900733622 /* Router.swift */,
+				A1CE5D122629B8C50061220E /* AuthenticationHelper.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A19B231B2622434D00F1A017 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A1A38D83262B8AF0002153FA /* StravaResponses.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A19B231D2622452100F1A017 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A19B231E2622452E00F1A017 /* PropertiesReader.swift */,
+				A19CD26026234F2A00733622 /* AuthorizationUtils.swift */,
+				A19CD28326274C8C00733622 /* CoreDataHelper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,6 +252,10 @@
 			dependencies = (
 			);
 			name = VeloToApp;
+			packageProductDependencies = (
+				A19CD26A262362F100733622 /* Alamofire */,
+				A19CD2792626B1D300733622 /* SwiftyJSON */,
+			);
 			productName = VeloToApp;
 			productReference = A166EEE226063D0C00DFF377 /* VeloToApp.app */;
 			productType = "com.apple.product-type.application";
@@ -213,6 +283,10 @@
 				Base,
 			);
 			mainGroup = A166EED926063D0B00DFF377;
+			packageReferences = (
+				A19CD269262362F100733622 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A19CD2782626B1D300733622 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = A166EEE326063D0C00DFF377 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,6 +309,7 @@
 				A166EF222606434300DFF377 /* Roboto-Black.ttf in Resources */,
 				A166EF1B2606434300DFF377 /* RobotoCondensed-Regular.ttf in Resources */,
 				A166EF142606434300DFF377 /* Roboto-Regular.ttf in Resources */,
+				A19B232626224A7400F1A017 /* StravaConfig.plist in Resources */,
 				A166EF192606434300DFF377 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				A166EEF226063D0C00DFF377 /* LaunchScreen.storyboard in Resources */,
 				A166EF1F2606434300DFF377 /* Roboto-BlackItalic.ttf in Resources */,
@@ -244,6 +319,7 @@
 				A166EF1C2606434300DFF377 /* Roboto-BoldItalic.ttf in Resources */,
 				A166EF212606434300DFF377 /* Roboto-Thin.ttf in Resources */,
 				A166EF1D2606434300DFF377 /* Roboto-LightItalic.ttf in Resources */,
+				A19CD258262343DB00733622 /* LICENSE in Resources */,
 				A166EF172606434300DFF377 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				A166EF1A2606434300DFF377 /* Roboto-ThinItalic.ttf in Resources */,
 				A166EF152606434300DFF377 /* Roboto-MediumItalic.ttf in Resources */,
@@ -259,6 +335,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19B23232622459000F1A017 /* StravaConfigurationProvider.swift in Sources */,
+				A1A38D84262B8AF0002153FA /* StravaResponses.swift in Sources */,
+				A19CD26126234F2A00733622 /* AuthorizationUtils.swift in Sources */,
+				A19CD26F26240D9900733622 /* Router.swift in Sources */,
+				A1CE5D132629B8C50061220E /* AuthenticationHelper.swift in Sources */,
+				A19B231F2622452E00F1A017 /* PropertiesReader.swift in Sources */,
+				A19CD255262343A500733622 /* StravaClient.swift in Sources */,
+				A19CD28426274C8C00733622 /* CoreDataHelper.swift in Sources */,
 				A166EF2E2606565400DFF377 /* ActionCardTableViewCell.swift in Sources */,
 				A166EEE626063D0C00DFF377 /* AppDelegate.swift in Sources */,
 				A166EF2B26064E5600DFF377 /* ActionCardsTableViewController.swift in Sources */,
@@ -266,9 +350,9 @@
 				A166EF2626064C2C00DFF377 /* AuthenticationViewController.swift in Sources */,
 				A1103ED22610E05500C6F51A /* ActionCardsRootViewController.swift in Sources */,
 				A166EEE826063D0C00DFF377 /* SceneDelegate.swift in Sources */,
+				A19CD2972627557E00733622 /* VeloToDataModel.xcdatamodeld in Sources */,
 				A16E649A2607C8F0004A8E8B /* ActionCardDetailsViewController.swift in Sources */,
 				A166EF312606950100DFF377 /* SettingsViewController.swift in Sources */,
-				A1CDC6DE261440C000A38990 /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +508,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.veloto.VeloToApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -442,7 +526,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.veloto.VeloToApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -468,6 +552,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A19CD269262362F100733622 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.2;
+			};
+		};
+		A19CD2782626B1D300733622 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A19CD26A262362F100733622 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A19CD269262362F100733622 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		A19CD2792626B1D300733622 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A19CD2782626B1D300733622 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		A19CD2952627557E00733622 /* VeloToDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A19CD2962627557E00733622 /* VeloToDataModel.xcdatamodel */,
+			);
+			currentVersion = A19CD2962627557E00733622 /* VeloToDataModel.xcdatamodel */;
+			path = VeloToDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A166EEDA26063D0B00DFF377 /* Project object */;
 }

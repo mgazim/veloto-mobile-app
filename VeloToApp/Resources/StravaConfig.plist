@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>appUrl</key>
+	<string>strava://oauth/mobile/authorize</string>
+	<key>webUrl</key>
+	<string>https://www.strava.com/oauth/mobile/authorize</string>
+	<key>clientId</key>
+	<string>57578</string>
+	<key>clientSecret</key>
+	<string>46f5f3943a00cf4bd3df411daaaff36f61d6054c</string>
+	<key>redirectUrl</key>
+	<string>velotoapp://velotoapp.io</string>
+	<key>scope</key>
+	<string>read_all</string>
+	<key>apiUrl</key>
+	<string>https://www.strava.com/api/v3</string>
+	<key>authUrl</key>
+	<string>https://www.strava.com/oauth</string>
+</dict>
+</plist>

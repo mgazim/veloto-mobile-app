@@ -19,7 +19,7 @@
         <!--Authentication View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AuthenticationViewController" customModule="VeloToApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthenticationViewController" id="BYZ-38-t0r" customClass="AuthenticationViewController" customModule="VeloToApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,7 +49,7 @@ STRAVA</string>
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="VqJ-yL-E9e" kind="show" identifier="displayActionCards" id="AcU-J4-uqV"/>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vv0-5M-mSo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -65,10 +65,14 @@ STRAVA</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qIQ-FD-9rA"/>
+                    <connections>
+                        <outlet property="loginButton" destination="sos-YZ-9sb" id="JJq-og-CeY"/>
+                        <segue destination="VqJ-yL-E9e" kind="show" identifier="toActionCards" id="N73-Ri-NjG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="94"/>
+            <point key="canvasLocation" x="954" y="93"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="f8l-Bb-mPL">
@@ -288,7 +292,7 @@ STRAVA</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="0yM-z4-UFV" kind="unwind" unwindAction="unwindWithSegueToAuthentication:" id="eL3-lL-OwV"/>
+                                            <action selector="logoutButtonTapped:" destination="LW1-kO-Zye" eventType="touchUpInside" id="ZgZ-Vy-biv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heD-hO-tU3">
@@ -363,6 +367,9 @@ STRAVA</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jIG-bO-otZ"/>
+                    <connections>
+                        <segue destination="0yM-z4-UFV" kind="unwind" identifier="logout" unwindAction="unwindWithSegueToAuthentication:" id="dEn-LH-WTf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emf-8j-aV3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="0yM-z4-UFV" userLabel="Exit" sceneMemberID="exit"/>
@@ -372,7 +379,7 @@ STRAVA</string>
         <!--Action Cards Root View Controller-->
         <scene sceneID="zOg-si-jHm">
             <objects>
-                <viewController id="VqJ-yL-E9e" customClass="ActionCardsRootViewController" customModule="VeloToApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActionCardsRootViewController" id="VqJ-yL-E9e" customClass="ActionCardsRootViewController" customModule="VeloToApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C91-wK-xDW">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
