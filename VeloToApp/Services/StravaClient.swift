@@ -15,7 +15,7 @@ import Alamofire
 
 class StravaClient: NSObject {
     
-    public typealias AuthorizationHandler = (Result<OAuthTokenResponse, Error>) -> ()
+    public typealias AuthorizationHandler = (Result<OAuthTokenResponse, Swift.Error>) -> ()
     
     // Shared instance
     static var client = StravaClient()
@@ -23,7 +23,7 @@ class StravaClient: NSObject {
     private let configuration: StravaConfigurationProvider
     private var currentAuthorizationHandler: AuthorizationHandler?
     private var authSession: ASWebAuthenticationSession?
-
+    
     private let state: String
     
     override private init() {
@@ -80,7 +80,7 @@ extension StravaClient: ASWebAuthenticationPresentationContextProviding {
             try oauthRequest(Router.token(code: code))?.responseDecodable(of: OAuthTokenResponse.self) { response in
                 switch response.result {
                     case .success(let token):
-                        Authentication.set(token: token)
+                        Authentication.updateCurrentToken(token: token)
                         handler(.success(token))
                     case .failure(let error):
                         handler(.failure(error))
@@ -90,6 +90,42 @@ extension StravaClient: ASWebAuthenticationPresentationContextProviding {
             handler(.failure(error))
         }
     }
+    
+    public func refreshAccessToken(_ refreshToken: String, handler: @escaping AuthorizationHandler) {
+        do {
+            try oauthRequest(Router.refresh(refreshToken: refreshToken))?.responseDecodable(of: OAuthTokenResponse.self) { response in
+                switch response.result {
+                    case .success(let token):
+                        handler(.success(token))
+                    case .failure(let error):
+                        handler(.failure(error))
+                }
+            }
+        } catch let error as NSError {
+            handler(.failure(error))
+        }
+    }
+    
+    public func request<T: Decodable>(_ route: Router, success: @escaping (((T)?) -> Void), failure: @escaping (NSError) -> Void) {
+        do {
+            try oauthRequest(route)?.responseDecodable(of: T.self) { response in
+                // HTTP Status codes above 400 are errors
+                if let statusCode = response.response?.statusCode, (400..<500).contains(statusCode) {
+                    failure(self.generateError(failureReason: "Strava API Error", response: response.response))
+                } else {
+                    switch response.result {
+                        case .success(let decodable):
+                            success(decodable)
+                        case .failure(let error):
+                            failure(self.generateError(cause: error))
+                    }
+                }
+            }
+        } catch let error as NSError {
+            failure(error)
+        }
+    }
+    
 }
 
 extension StravaClient {
@@ -130,6 +166,14 @@ extension StravaClient {
         let errorDomain = "io.velotoapp"
         let userInfo = [NSLocalizedFailureReasonErrorKey: failureReason]
         let code = response?.statusCode ?? 0
+        let returnError = NSError(domain: errorDomain, code: code, userInfo: userInfo)
+        return returnError
+    }
+    
+    private func generateError(cause: AFError) -> NSError {
+        let errorDomain = "io.velotoapp"
+        let userInfo = [NSLocalizedFailureReasonErrorKey: cause.failureReason ?? "Unknown reason"]
+        let code = cause.responseCode ?? 0
         let returnError = NSError(domain: errorDomain, code: code, userInfo: userInfo)
         return returnError
     }

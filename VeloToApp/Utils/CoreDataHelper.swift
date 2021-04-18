@@ -38,6 +38,16 @@ struct CoreDataHelper {
         save()
     }
     
+    static func deleteAll(of entityName: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try context.execute(batchDeleteRequest)
+        } catch let error {
+            print("Error: Unable to remove entities of '\(entityName)': \(error.localizedDescription)")
+        }
+    }
+    
     static func retrieveAll<T: NSManagedObject>(name: String) -> [T]? {
         do {
             let request = NSFetchRequest<T>(entityName: name)

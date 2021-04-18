@@ -15,20 +15,39 @@ enum Router {
     
     case token(code: String)
     
+    case refresh(refreshToken: String)
+    
+    case deauthorize(accessToken: String)
+    
 }
 
 extension Router: URLRequestConvertible {
     
     func asURLRequest() throws -> URLRequest {
         let config = self.requestConfig
-        var base = StravaConfigurationProvider.config.apiUrl()!
 
+        var base: URL {
+            switch self {
+                case .token, .refresh, .deauthorize:
+                    return StravaConfigurationProvider.config.authUrl()!
+                default:
+                    return StravaConfigurationProvider.config.apiUrl()!
+            }
+        }
+        
         var urlRequest = URLRequest(url: base.appendingPathComponent(config.path))
         urlRequest.httpMethod = config.method.rawValue
         
-        /*if let token = StravaClient.sharedInstance.token?.accessToken {
+        var setToken: Bool {
+            switch self {
+                case .token, .refresh, .deauthorize: return false
+                default: return true
+            }
+        }
+
+        if setToken, let token = Authentication.token {
             urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }*/
+        }
         
         if let params = config.params, params.count > 0 {
             switch config.method {
@@ -48,7 +67,12 @@ extension Router: URLRequestConvertible {
     fileprivate var requestConfig: (path: String, params: Dictionary<String, Any>?, method: Alamofire.HTTPMethod) {
         switch self {
             case .token(let code):
-                return ("/oauth/token", buildTokenParameters(code), .post)
+                return ("/token", buildTokenParameters(code), .post)
+            case .refresh(let refreshToken):
+                return ("/token", buildRefreshParams(refreshToken), .post)
+            case .deauthorize(let token):
+                let params = ["access_token" : token]
+                return ("/deauthorize", params, .post)
         }
     }
     
@@ -57,6 +81,15 @@ extension Router: URLRequestConvertible {
             "client_id" : StravaConfigurationProvider.config.clientId() ?? 0,
             "client_secret" : StravaConfigurationProvider.config.clientSecret() ?? "",
             "code" : code
+        ]
+    }
+    
+    private func buildRefreshParams(_ refreshToken: String) -> [String: Any]  {
+        return [
+            "client_id" : StravaConfigurationProvider.config.clientId() ?? 0,
+            "client_secret" : StravaConfigurationProvider.config.clientSecret() ?? "",
+            "grant_type" : "refresh_token",
+            "refresh_token" : refreshToken
         ]
     }
 }

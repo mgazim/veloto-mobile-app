@@ -33,6 +33,7 @@ class AuthenticationViewController: UIViewController {
                     print("Authenticated successfully: \(token)")
                     self.performSegue(withIdentifier: "toActionCards", sender: self)
                 case .failure(let error):
+                    // todo: change to proper message
                     print("Authentication error: \(error.localizedDescription)")
                     let alert = UIAlertController(title: "Error",
                                                   message: error.localizedDescription,
@@ -43,9 +44,4 @@ class AuthenticationViewController: UIViewController {
         })
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Preparing \(segue)")
-        guard let identifier = segue.identifier else { return }
-        print("Id: \(identifier)")
-    }
 }

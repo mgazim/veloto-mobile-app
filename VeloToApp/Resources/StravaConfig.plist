@@ -17,6 +17,6 @@
 	<key>apiUrl</key>
 	<string>https://www.strava.com/api/v3</string>
 	<key>authUrl</key>
-	<string>https://www.strava.com/oauth/token</string>
+	<string>https://www.strava.com/oauth</string>
 </dict>
 </plist>

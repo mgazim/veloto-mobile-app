@@ -26,25 +26,38 @@ public struct AuthenticationHelper {
         _oauthToken = token
     }
     
-    static func set(token: OAuthTokenResponse) {
+    static func updateCurrentToken(token: OAuthTokenResponse) {
+        // Need to clean up all the tokens first
+        CoreDataHelper.deleteAll(of: "OAuthToken")
+
         let cdToken = CoreDataHelper.new(name: "OAuthToken") as OAuthToken
         cdToken.accessToken = token.accessToken
         cdToken.refreshToken = token.refreshToken
-        //cdToken.expiresAt = token?.expiresAt
+        cdToken.expiresAt = Date(timeIntervalSince1970: Double(token.expiresAt))
         CoreDataHelper.save()
         setOAuthToken(token: cdToken)
     }
-
-    static func unauthenticate() {
-        if let token = _oauthToken {
-            CoreDataHelper.delete(entity: token)
+    
+    static func deauthorize() {
+        if let toRemove = _oauthToken {
+            let accessToken = token ?? ""
+            print("Deauthenticating: \(accessToken)")
+            StravaClient.client.request(Router.deauthorize(accessToken: accessToken),
+                success: { (response: DeauthorizeResponse?) in
+                    print("Deauthorized successfully: \(response?.accessToken ?? "empty")")
+                }, failure: { (error: NSError) in
+                    print("Error: cannot deauthorize")
+                    debugPrint("\(error)")
+                }
+            )
+            CoreDataHelper.delete(entity: toRemove)
             setOAuthToken(token: nil)
             print("Token cleared up")
         } else {
             print("Error: no token!")
         }
     }
-
+    
 }
 
 extension AuthenticationHelper {
@@ -64,12 +77,24 @@ extension AuthenticationHelper {
     private static func refresh() -> String? {
         if _oauthToken == nil {
             if let cdToken = get() {
-                _oauthToken = cdToken
+                setOAuthToken(token: cdToken)
+                if (_oauthToken?.expiresAt)! < Date() {
+                    StravaClient.client.refreshAccessToken((_oauthToken?.refreshToken)!) {
+                        result in
+                        switch result {
+                            case .success(let tokenResponse):
+                                Authentication.updateCurrentToken(token: tokenResponse)
+                                print("Refreshed token successfully")
+                            case .failure(let error):
+                                // todo: handle properly
+                                print("Error: cannot refresh: \(error.localizedDescription)")
+                        }
+                    }
+                }
             } else {
                 _oauthToken = nil
             }
         }
-        // todo: add refreshing
         return _oauthToken?.accessToken
     }
     

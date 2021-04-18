@@ -11,7 +11,7 @@ class UnauthenticationAlertController: UIViewController {
         
     @IBAction func logoutButtonTapped(_ sender: Any) {
         print("Logout tapped")
-        Authentication.unauthenticate()
+        Authentication.deauthorize()
         performSegue(withIdentifier: "logout", sender: self)
     }
 
