@@ -28,12 +28,22 @@ public struct AuthenticationHelper {
     
     static func updateCurrentToken(token: OAuthTokenResponse) {
         // Need to clean up all the tokens first
-        CoreDataHelper.deleteAll(of: "OAuthToken")
+        OAuthCoreDataWrapper.deleteAll()
 
-        let cdToken = CoreDataHelper.new(name: "OAuthToken") as OAuthToken
+        let cdToken = OAuthCoreDataWrapper.new()
         cdToken.accessToken = token.accessToken
         cdToken.refreshToken = token.refreshToken
         cdToken.expiresAt = Date(timeIntervalSince1970: Double(token.expiresAt))
+
+        if let athlete = AthleteCoreDataWrapper.find(by: token.athlete.id) {
+            athlete.token = cdToken
+        } else {
+            let athlete = AthleteCoreDataWrapper.new()
+            athlete.id = Int32(token.athlete.id)
+            athlete.firstname = token.athlete.firstname
+            athlete.lastname = token.athlete.lastname
+        }
+
         CoreDataHelper.save()
         setOAuthToken(token: cdToken)
     }
@@ -50,7 +60,7 @@ public struct AuthenticationHelper {
                     debugPrint("\(error)")
                 }
             )
-            CoreDataHelper.delete(entity: toRemove)
+            OAuthCoreDataWrapper.delete(entity: toRemove)
             setOAuthToken(token: nil)
             print("Token cleared up")
         } else {
@@ -63,7 +73,7 @@ public struct AuthenticationHelper {
 extension AuthenticationHelper {
     
     private static func get() -> OAuthToken? {
-        guard let objects = CoreDataHelper.retrieveAll(name: "OAuthToken"),
+        guard let objects = OAuthCoreDataWrapper.retrieveAll(),
               !objects.isEmpty else {
             print("No authentication token")
             return nil
@@ -71,7 +81,7 @@ extension AuthenticationHelper {
         if objects.count > 1 {
             // todo: check for this inconsistency
         }
-        return objects[0] as? OAuthToken
+        return objects[0]
     }
     
     private static func refresh() -> String? {

@@ -20,8 +20,24 @@ struct CoreDataHelper {
         return container.viewContext
     }()
     
-    static func new<T: NSManagedObject>(name: String) -> T {
-        return NSEntityDescription.insertNewObject(forEntityName: name, into: context) as! T
+    static func new<T: NSManagedObject>(entityName: String) -> T {
+        return NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as! T
+    }
+
+    static func findOne<T: NSManagedObject>(_ entityName: String, with predicate: String, arguments: [Any]?) -> T? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: predicate, argumentArray: arguments)
+        do {
+            let result = try context.fetch(fetchRequest)
+            if result.count == 1 {
+                return result[0] as? T
+            } else {
+                return nil
+            }
+        } catch let error {
+            print("Error: Cannot retrieve object \(error.localizedDescription)")
+        }
+        return nil
     }
     
     static func save() {

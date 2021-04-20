@@ -18,13 +18,13 @@ struct Fault: Decodable {
     let errors: [Error]
 }
 
-struct OAuthTokenResponse: Codable {
+struct OAuthTokenResponse: Decodable {
     let tokenType: String
     let accessToken: String
     let refreshToken: String
     let expiresIn: Int
     let expiresAt: Int
-    // todo: Add Athlete info
+    let athlete: SummaryAthlete
 
     private enum CodingKeys: String, CodingKey {
         case tokenType = "token_type"
@@ -32,6 +32,7 @@ struct OAuthTokenResponse: Codable {
         case refreshToken = "refresh_token"
         case expiresIn = "expires_in"
         case expiresAt = "expires_at"
+        case athlete = "athlete"
     }
 }
 
@@ -40,5 +41,21 @@ struct DeauthorizeResponse: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"
+    }
+}
+
+struct SummaryAthlete: Decodable {
+    let id: Int
+    let firstname: String
+    let lastname: String
+    let city: String
+    let state: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case firstname = "firstname"
+        case lastname = "lastname"
+        case city = "city"
+        case state = "state"
     }
 }
