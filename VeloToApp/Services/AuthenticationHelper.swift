@@ -36,12 +36,15 @@ public struct AuthenticationHelper {
         cdToken.expiresAt = Date(timeIntervalSince1970: Double(token.expiresAt))
 
         if let athlete = AthleteCoreDataWrapper.find(by: token.athlete.id) {
+            print("Athelte [\(token.athlete.id)] already exists: \(athlete)")
             athlete.token = cdToken
         } else {
             let athlete = AthleteCoreDataWrapper.new()
             athlete.id = Int32(token.athlete.id)
             athlete.firstname = token.athlete.firstname
             athlete.lastname = token.athlete.lastname
+            athlete.token = cdToken
+            print("New athlet created: \(athlete)")
         }
 
         CoreDataHelper.save()

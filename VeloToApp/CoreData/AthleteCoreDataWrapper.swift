@@ -26,7 +26,7 @@ struct AthleteCoreDataWrapper: CoreDataWrapper {
     }
     
     static func find(by uniqueField: Any) -> Athlete? {
-        return CoreDataHelper.findOne(entityName, with: "id == $@", arguments: [uniqueField]) as? Athlete
+        return CoreDataHelper.findOne(entityName, with: "id == %@", arguments: [uniqueField]) as? Athlete
     }
     
     static func retrieveAll() -> [Athlete]? {
