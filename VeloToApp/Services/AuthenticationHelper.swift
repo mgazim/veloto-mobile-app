@@ -25,7 +25,7 @@ public struct AuthenticationHelper {
     private static func setOAuthToken(token: OAuthToken?) {
         _oauthToken = token
     }
-    
+
     static func updateCurrentToken(token: OAuthTokenResponse) {
         // Need to clean up all the tokens first
         OAuthCoreDataWrapper.deleteAll()
@@ -47,6 +47,21 @@ public struct AuthenticationHelper {
             print("New athlet created: \(athlete)")
         }
 
+        CoreDataHelper.save()
+        setOAuthToken(token: cdToken)
+    }
+    
+    static func updateCurrentToken(token: OAuthTokenRefreshResponse) {
+        // Need to clean up all the tokens first
+        OAuthCoreDataWrapper.deleteAll()
+
+        let cdToken = OAuthCoreDataWrapper.new()
+        cdToken.accessToken = token.accessToken
+        cdToken.refreshToken = token.refreshToken
+        cdToken.expiresAt = Date(timeIntervalSince1970: Double(token.expiresAt))
+
+        // todo: add athlete as relationship
+        
         CoreDataHelper.save()
         setOAuthToken(token: cdToken)
     }

@@ -16,6 +16,7 @@ import Alamofire
 class StravaClient: NSObject {
     
     public typealias AuthorizationHandler = (Result<OAuthTokenResponse, Swift.Error>) -> ()
+    public typealias RefreshHandler = (Result<OAuthTokenRefreshResponse, Swift.Error>) -> ()
     
     // Shared instance
     static var client = StravaClient()
@@ -91,9 +92,9 @@ extension StravaClient: ASWebAuthenticationPresentationContextProviding {
         }
     }
     
-    public func refreshAccessToken(_ refreshToken: String, handler: @escaping AuthorizationHandler) {
+    public func refreshAccessToken(_ refreshToken: String, handler: @escaping RefreshHandler) {
         do {
-            try oauthRequest(Router.refresh(refreshToken: refreshToken))?.responseDecodable(of: OAuthTokenResponse.self) { response in
+            try oauthRequest(Router.refresh(refreshToken: refreshToken))?.responseDecodable(of: OAuthTokenRefreshResponse.self) { response in
                 switch response.result {
                     case .success(let token):
                         handler(.success(token))

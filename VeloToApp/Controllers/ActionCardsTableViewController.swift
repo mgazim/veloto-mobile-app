@@ -11,11 +11,7 @@ class ActionCardsTableViewController: UITableViewController {
 
     var selectedRow: Int?
     
-    var actionCards = [ActionCard]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var actionCards = [ActionCard]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +25,7 @@ class ActionCardsTableViewController: UITableViewController {
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
         actionCards = ActionCardsCoreDataWrapper.retrieveAll() ?? []
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -56,11 +53,11 @@ class ActionCardsTableViewController: UITableViewController {
             let toRemove = self.actionCards[indexPath.row]
             ActionCardsCoreDataWrapper.delete(entity: toRemove)
             self.actionCards = ActionCardsCoreDataWrapper.retrieveAll() ?? []
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
             completionHandler(true)
         }
         deleteAction.image = UIImage(systemName: "trash")
         deleteAction.backgroundColor = UIColor(red: 0.824, green: 0.133, blue: 0.153, alpha: 1)
-        
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
@@ -74,7 +71,7 @@ class ActionCardsTableViewController: UITableViewController {
         let actionCard = actionCards[indexPath.row]
         cell.actionNameLabel.text = actionCard.name
         cell.commentLabel.text = "Some comment"
-        cell.kmLabel.text = "\(actionCard.checkValue ?? "unknown") km"
+        cell.kmLabel.text = "\(actionCard.checkValue ?? "unknown") км"
         return cell
     }
     
