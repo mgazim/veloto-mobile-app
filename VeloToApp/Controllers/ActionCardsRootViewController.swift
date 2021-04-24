@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ActionCardsRootViewController: UIViewController, SegueHandler {
+class ActionCardsRootViewController: UIViewController {
     
     func segueToNext(identifier: String) {
         self.performSegue(withIdentifier: identifier, sender: self)
@@ -19,8 +19,6 @@ class ActionCardsRootViewController: UIViewController, SegueHandler {
         }
         if identifier == "embedActionCardsTable" {
             print("embedActionCardsTable in action!")
-            let dvc = segue.destination as! ActionCardsTableViewController
-            dvc.settingsDelegate = self
         }
     }
     

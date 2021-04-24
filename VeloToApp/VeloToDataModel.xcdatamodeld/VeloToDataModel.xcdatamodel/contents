@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ActionCard" representedClassName="ActionCard" syncable="YES" codeGenerationType="class">
+        <attribute name="checkValue" optional="YES" attributeType="String"/>
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Athlete" representedClassName="Athlete" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="firstname" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String"/>
+        <attribute name="overallDistance" optional="YES" attributeType="String"/>
         <relationship name="token" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OAuthToken"/>
     </entity>
     <entity name="OAuthToken" representedClassName="OAuthToken" syncable="YES" codeGenerationType="class">
@@ -13,7 +19,8 @@
         <attribute name="refreshToken" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Athlete" positionX="-23.12890625" positionY="68.1953125" width="128" height="104"/>
+        <element name="ActionCard" positionX="81" positionY="81" width="128" height="74"/>
+        <element name="Athlete" positionX="-23.12890625" positionY="68.1953125" width="128" height="119"/>
         <element name="OAuthToken" positionX="176.546875" positionY="5.3359375" width="128" height="74"/>
     </elements>
 </model>
