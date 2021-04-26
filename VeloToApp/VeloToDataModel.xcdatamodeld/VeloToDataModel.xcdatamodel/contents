@@ -11,16 +11,17 @@
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String"/>
         <attribute name="overallDistance" optional="YES" attributeType="String"/>
-        <relationship name="token" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OAuthToken"/>
+        <relationship name="token" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OAuthToken" inverseName="athlete" inverseEntity="OAuthToken"/>
     </entity>
     <entity name="OAuthToken" representedClassName="OAuthToken" syncable="YES" codeGenerationType="class">
         <attribute name="accessToken" optional="YES" attributeType="String"/>
         <attribute name="expiresAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="refreshToken" optional="YES" attributeType="String"/>
+        <relationship name="athlete" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Athlete" inverseName="token" inverseEntity="Athlete"/>
     </entity>
     <elements>
-        <element name="ActionCard" positionX="81" positionY="81" width="128" height="74"/>
-        <element name="Athlete" positionX="-23.12890625" positionY="68.1953125" width="128" height="119"/>
-        <element name="OAuthToken" positionX="176.546875" positionY="5.3359375" width="128" height="74"/>
+        <element name="ActionCard" positionX="241.2578125" positionY="227.734375" width="128" height="74"/>
+        <element name="Athlete" positionX="-146.875" positionY="49.625" width="128" height="133"/>
+        <element name="OAuthToken" positionX="181.25" positionY="60.5234375" width="128" height="103"/>
     </elements>
 </model>

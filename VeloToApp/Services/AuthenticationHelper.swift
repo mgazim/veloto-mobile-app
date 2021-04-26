@@ -52,15 +52,16 @@ public struct AuthenticationHelper {
     }
     
     static func updateCurrentToken(token: OAuthTokenRefreshResponse) {
+        let athlete = _oauthToken?.athlete
+
         // Need to clean up all the tokens first
         OAuthCoreDataWrapper.deleteAll()
-
+        
         let cdToken = OAuthCoreDataWrapper.new()
         cdToken.accessToken = token.accessToken
         cdToken.refreshToken = token.refreshToken
         cdToken.expiresAt = Date(timeIntervalSince1970: Double(token.expiresAt))
-
-        // todo: add athlete as relationship
+        cdToken.athlete = athlete
         
         CoreDataHelper.save()
         setOAuthToken(token: cdToken)
@@ -89,22 +90,10 @@ public struct AuthenticationHelper {
 }
 
 extension AuthenticationHelper {
-    
-    private static func get() -> OAuthToken? {
-        guard let objects = OAuthCoreDataWrapper.retrieveAll(),
-              !objects.isEmpty else {
-            print("No authentication token")
-            return nil
-        }
-        if objects.count > 1 {
-            // todo: check for this inconsistency
-        }
-        return objects[0]
-    }
-    
+
     private static func refresh() -> String? {
         if _oauthToken == nil {
-            if let cdToken = get() {
+            if let cdToken = OAuthCoreDataWrapper.currentToken() {
                 setOAuthToken(token: cdToken)
                 if (_oauthToken?.expiresAt)! < Date() {
                     StravaClient.client.refreshAccessToken((_oauthToken?.refreshToken)!) {

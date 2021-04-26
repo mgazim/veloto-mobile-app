@@ -34,4 +34,16 @@ struct OAuthCoreDataWrapper: CoreDataWrapper {
         return CoreDataHelper.retrieveAll(name: entityName)
     }
     
+    static func currentToken() -> OAuthToken? {
+        guard let objects = OAuthCoreDataWrapper.retrieveAll(),
+              !objects.isEmpty else {
+            print("No authentication token")
+            return nil
+        }
+        if objects.count > 1 {
+            // todo: check for this inconsistency
+        }
+        return objects[0]
+    }
+    
 }
