@@ -16,22 +16,14 @@ class ActionCardsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let currentAthlete = Authentication.athlete() {
-            self.actionCards = ActionCardsCoreDataWrapper.retrieveAllForAthleteID(id: currentAthlete.id) ?? []
-        } else {
-            print("Something went wrong...")
-        }
+        self.actionCards = self.getActionCardsForCurrentAthlete()
         // Disabling selection for cells
         let view = self.view as! UITableView
         view.allowsSelection = false
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
-        if let currentAthlete = Authentication.athlete() {
-            self.actionCards = ActionCardsCoreDataWrapper.retrieveAllForAthleteID(id: currentAthlete.id) ?? []
-        } else {
-            print("Something went wrong...")
-        }
+        self.actionCards = self.getActionCardsForCurrentAthlete()
         tableView.reloadData()
     }
     
@@ -59,7 +51,7 @@ class ActionCardsTableViewController: UITableViewController {
             print("Delete clicked")
             let toRemove = self.actionCards[indexPath.row]
             ActionCardsCoreDataWrapper.delete(entity: toRemove)
-            self.actionCards = ActionCardsCoreDataWrapper.retrieveAll() ?? []
+            self.actionCards = self.getActionCardsForCurrentAthlete()
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             completionHandler(true)
         }
@@ -100,6 +92,15 @@ class ActionCardsTableViewController: UITableViewController {
                 print("Create action card button tapped")
             default:
                 print("Unexpected segue identifier \(identifier)")
+        }
+    }
+    
+    private func getActionCardsForCurrentAthlete() -> [ActionCard] {
+        if let currentAthlete = Authentication.athlete() {
+            return ActionCardsCoreDataWrapper.retrieveAllForAthleteID(id: currentAthlete.id) ?? []
+        } else {
+            print("Error: No authenticated athlete to get cards for")
+            return []
         }
     }
     
