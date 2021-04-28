@@ -489,12 +489,12 @@ STRAVA</string>
         <scene sceneID="fFY-8F-bju">
             <objects>
                 <viewController id="mV4-NW-OpT" customClass="ActionCardDetailsViewController" customModule="VeloToApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="MI2-bm-woa">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="486"/>
+                    <view key="view" contentMode="scaleToFill" id="MI2-bm-woa">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-SA-xye">
-                                <rect key="frame" x="0.0" y="510" width="390" height="280"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-SA-xye">
+                                <rect key="frame" x="0.0" y="500" width="390" height="290"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AH-V1-P92">
                                         <rect key="frame" x="345" y="15" width="30" height="30"/>
@@ -503,13 +503,13 @@ STRAVA</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="через каждые" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0au-BE-zVk">
-                                        <rect key="frame" x="30" y="85.333333333333371" width="330" height="21"/>
+                                        <rect key="frame" x="30" y="70" width="330" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Число" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KXN-Fn-wwm">
-                                        <rect key="frame" x="30" y="136.33333333333337" width="90" height="25.333333333333343"/>
+                                        <rect key="frame" x="30" y="106" width="90" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="su0-Ks-Bnd"/>
                                         </constraints>
@@ -518,13 +518,13 @@ STRAVA</string>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="километров" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abx-Zd-ISf">
-                                        <rect key="frame" x="140" y="137.66666666666663" width="115" height="24"/>
+                                        <rect key="frame" x="130" y="107" width="114.33333333333331" height="24"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4on-Ne-SEH">
-                                        <rect key="frame" x="122.66666666666669" y="200" width="145" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4on-Ne-SEH">
+                                        <rect key="frame" x="122.66666666666669" y="210" width="145" height="50"/>
                                         <color key="backgroundColor" red="0.50196081400000003" green="0.59607845540000004" blue="0.77647060160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="145" id="KFp-h1-bHS"/>
@@ -546,27 +546,36 @@ STRAVA</string>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя карточки" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZH-Qq-HPT">
-                                        <rect key="frame" x="30" y="30" width="285" height="25.333333333333329"/>
+                                        <rect key="frame" x="30" y="30" width="285" height="25"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Комментарий" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LTf-4L-wlE">
+                                        <rect key="frame" x="30" y="146" width="330" height="19.333333333333343"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="4on-Ne-SEH" firstAttribute="centerX" secondItem="YUj-SA-xye" secondAttribute="centerX" id="7U2-x2-QbV"/>
                                     <constraint firstItem="9AH-V1-P92" firstAttribute="top" secondItem="YUj-SA-xye" secondAttribute="top" constant="15" id="80s-Kq-mnv"/>
-                                    <constraint firstItem="abx-Zd-ISf" firstAttribute="leading" secondItem="KXN-Fn-wwm" secondAttribute="trailing" constant="20" id="9d1-RC-1Qk"/>
+                                    <constraint firstItem="abx-Zd-ISf" firstAttribute="leading" secondItem="KXN-Fn-wwm" secondAttribute="trailing" constant="10" id="9d1-RC-1Qk"/>
                                     <constraint firstAttribute="trailing" secondItem="9AH-V1-P92" secondAttribute="trailing" constant="15" id="AjO-i4-2k5"/>
                                     <constraint firstAttribute="bottom" secondItem="4on-Ne-SEH" secondAttribute="bottom" constant="30" id="IPE-AB-ttM"/>
                                     <constraint firstAttribute="trailing" secondItem="0au-BE-zVk" secondAttribute="trailing" constant="30" id="LAz-RP-Bsh"/>
                                     <constraint firstItem="abx-Zd-ISf" firstAttribute="bottom" secondItem="KXN-Fn-wwm" secondAttribute="bottom" id="O4N-1D-JHL"/>
                                     <constraint firstItem="KXN-Fn-wwm" firstAttribute="leading" secondItem="YUj-SA-xye" secondAttribute="leading" constant="30" id="RzY-Rc-cnK"/>
+                                    <constraint firstAttribute="trailing" secondItem="LTf-4L-wlE" secondAttribute="trailing" constant="30" id="Wiw-eX-Ils"/>
+                                    <constraint firstItem="LTf-4L-wlE" firstAttribute="top" secondItem="KXN-Fn-wwm" secondAttribute="bottom" constant="15" id="Y6k-Kt-pHQ"/>
                                     <constraint firstItem="NZH-Qq-HPT" firstAttribute="top" secondItem="YUj-SA-xye" secondAttribute="top" constant="30" id="bW0-iV-S12"/>
+                                    <constraint firstItem="LTf-4L-wlE" firstAttribute="leading" secondItem="YUj-SA-xye" secondAttribute="leading" constant="30" id="cnC-8s-012"/>
                                     <constraint firstItem="NZH-Qq-HPT" firstAttribute="leading" secondItem="YUj-SA-xye" secondAttribute="leading" constant="30" id="esz-UC-xxm"/>
                                     <constraint firstItem="0au-BE-zVk" firstAttribute="leading" secondItem="YUj-SA-xye" secondAttribute="leading" constant="30" id="f2q-07-Ibj"/>
-                                    <constraint firstItem="KXN-Fn-wwm" firstAttribute="top" secondItem="0au-BE-zVk" secondAttribute="bottom" constant="30" id="g2o-ff-Yyq"/>
-                                    <constraint firstItem="0au-BE-zVk" firstAttribute="top" secondItem="NZH-Qq-HPT" secondAttribute="bottom" constant="30" id="n3I-8q-30O"/>
+                                    <constraint firstItem="KXN-Fn-wwm" firstAttribute="top" secondItem="0au-BE-zVk" secondAttribute="bottom" constant="15" id="g2o-ff-Yyq"/>
+                                    <constraint firstItem="0au-BE-zVk" firstAttribute="top" secondItem="NZH-Qq-HPT" secondAttribute="bottom" constant="15" id="n3I-8q-30O"/>
                                     <constraint firstItem="9AH-V1-P92" firstAttribute="leading" secondItem="NZH-Qq-HPT" secondAttribute="trailing" constant="30" id="tWe-vC-tXI"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -583,7 +592,7 @@ STRAVA</string>
                             <constraint firstItem="YUj-SA-xye" firstAttribute="leading" secondItem="H5R-6o-DDB" secondAttribute="leading" id="BU2-BD-oDW"/>
                             <constraint firstItem="YUj-SA-xye" firstAttribute="trailing" secondItem="H5R-6o-DDB" secondAttribute="trailing" id="Ehy-sj-xyn"/>
                             <constraint firstAttribute="bottom" secondItem="YUj-SA-xye" secondAttribute="bottom" id="MAa-SL-UuX"/>
-                            <constraint firstItem="YUj-SA-xye" firstAttribute="top" secondItem="H5R-6o-DDB" secondAttribute="top" constant="510" id="WxV-vP-ZpH"/>
+                            <constraint firstItem="YUj-SA-xye" firstAttribute="top" secondItem="H5R-6o-DDB" secondAttribute="top" constant="500" id="WxV-vP-ZpH"/>
                             <constraint firstItem="YUj-SA-xye" firstAttribute="centerX" secondItem="H5R-6o-DDB" secondAttribute="centerX" id="hl5-wT-7O7"/>
                         </constraints>
                     </view>
@@ -591,12 +600,13 @@ STRAVA</string>
                     <connections>
                         <outlet property="actionCardName" destination="NZH-Qq-HPT" id="Ket-sW-iUf"/>
                         <outlet property="checkValueField" destination="KXN-Fn-wwm" id="ZPy-PU-EK0"/>
+                        <outlet property="commentTextField" destination="LTf-4L-wlE" id="dxP-68-4PE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWp-rc-RFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="oX6-U7-rTQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1845" y="1431"/>
+            <point key="canvasLocation" x="1844.6153846153845" y="1430.3317535545023"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RU1-AL-uAq">
@@ -690,7 +700,7 @@ STRAVA</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Kfi-0S-CXn"/>
+        <segue reference="ZMa-AD-NYf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>

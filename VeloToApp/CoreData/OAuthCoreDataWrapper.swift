@@ -41,7 +41,9 @@ struct OAuthCoreDataWrapper: CoreDataWrapper {
             return nil
         }
         if objects.count > 1 {
-            // todo: check for this inconsistency
+            print("Found more than one token! Removing all to re-authenticate")
+            deleteAll()
+            return nil
         }
         return objects[0]
     }

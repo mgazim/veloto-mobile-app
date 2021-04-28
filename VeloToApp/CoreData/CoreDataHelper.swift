@@ -62,6 +62,7 @@ struct CoreDataHelper {
         } catch let error {
             print("Error: Unable to remove entities of '\(entityName)': \(error.localizedDescription)")
         }
+        save()
     }
     
     static func retrieveAll<T: NSManagedObject>(name: String) -> [T]? {
@@ -73,4 +74,16 @@ struct CoreDataHelper {
             return nil
         }
     }
+    
+    static func retrieveAll<T: NSManagedObject>(name: String, with predicate: String, arguments: [Any]?) -> [T]? {
+        do {
+            let request = NSFetchRequest<T>(entityName: name)
+            request.predicate = NSPredicate(format: predicate, argumentArray: arguments)
+            return try context.fetch(request)
+        } catch let error {
+            print("Unable to fetch Notes: \(error.localizedDescription)")
+            return nil
+        }
+    }
+
 }

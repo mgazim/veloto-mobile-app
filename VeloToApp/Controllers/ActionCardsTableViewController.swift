@@ -8,7 +8,7 @@
 import UIKit
 
 class ActionCardsTableViewController: UITableViewController {
-
+    
     var selectedRow: Int?
     
     var actionCards = [ActionCard]()
@@ -16,15 +16,22 @@ class ActionCardsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.actionCards = ActionCardsCoreDataWrapper.retrieveAll() ?? []
-        
+        if let currentAthlete = Authentication.athlete() {
+            self.actionCards = ActionCardsCoreDataWrapper.retrieveAllForAthleteID(id: currentAthlete.id) ?? []
+        } else {
+            print("Something went wrong...")
+        }
         // Disabling selection for cells
         let view = self.view as! UITableView
         view.allowsSelection = false
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
-        actionCards = ActionCardsCoreDataWrapper.retrieveAll() ?? []
+        if let currentAthlete = Authentication.athlete() {
+            self.actionCards = ActionCardsCoreDataWrapper.retrieveAllForAthleteID(id: currentAthlete.id) ?? []
+        } else {
+            print("Something went wrong...")
+        }
         tableView.reloadData()
     }
     
@@ -70,7 +77,8 @@ class ActionCardsTableViewController: UITableViewController {
         
         let actionCard = actionCards[indexPath.row]
         cell.actionNameLabel.text = actionCard.name
-        cell.commentLabel.text = "Some comment"
+        cell.commentLabel.text = actionCard.comment
+        // todo : get rid of Russian!
         cell.kmLabel.text = "\(actionCard.checkValue ?? "unknown") км"
         return cell
     }
@@ -94,5 +102,5 @@ class ActionCardsTableViewController: UITableViewController {
                 print("Unexpected segue identifier \(identifier)")
         }
     }
-
+    
 }

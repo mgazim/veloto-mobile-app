@@ -12,4 +12,5 @@ class ActionCardTableViewCell: UITableViewCell {
     @IBOutlet weak var actionNameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var kmLabel: UILabel!
+
 }

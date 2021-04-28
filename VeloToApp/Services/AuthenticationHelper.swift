@@ -25,6 +25,14 @@ public struct AuthenticationHelper {
     private static func setOAuthToken(token: OAuthToken?) {
         _oauthToken = token
     }
+    
+    static func athlete() -> Athlete? {
+        guard let token = _oauthToken else {
+            print("No OAuthToken instance!")
+            return nil
+        }
+        return token.athlete
+    }
 
     static func updateCurrentToken(token: OAuthTokenResponse) {
         // Need to clean up all the tokens first
@@ -52,19 +60,26 @@ public struct AuthenticationHelper {
     }
     
     static func updateCurrentToken(token: OAuthTokenRefreshResponse) {
-        let athlete = _oauthToken?.athlete
-
-        // Need to clean up all the tokens first
-        OAuthCoreDataWrapper.deleteAll()
-        
-        let cdToken = OAuthCoreDataWrapper.new()
-        cdToken.accessToken = token.accessToken
-        cdToken.refreshToken = token.refreshToken
-        cdToken.expiresAt = Date(timeIntervalSince1970: Double(token.expiresAt))
-        cdToken.athlete = athlete
-        
-        CoreDataHelper.save()
-        setOAuthToken(token: cdToken)
+        if let athlete = athlete() {
+            if let currentToken = athlete.token {
+                print("Removing current token for [athlete:\(athlete.id)]: \(token)")
+                OAuthCoreDataWrapper.delete(entity: currentToken)
+            } else {
+                print("Not token for [athlete:\(athlete.id)]")
+            }
+            let cdToken = OAuthCoreDataWrapper.new()
+            cdToken.accessToken = token.accessToken
+            cdToken.refreshToken = token.refreshToken
+            cdToken.expiresAt = Date(timeIntervalSince1970: Double(token.expiresAt))
+            cdToken.athlete = athlete
+            
+            CoreDataHelper.save()
+            setOAuthToken(token: cdToken)
+        } else {
+            // Should never happen
+            OAuthCoreDataWrapper.deleteAll()
+            fatalError("No Athlete found during refreshing!")
+        }
     }
     
     static func deauthorize() {
