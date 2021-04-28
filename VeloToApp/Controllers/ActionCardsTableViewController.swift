@@ -83,6 +83,7 @@ class ActionCardsTableViewController: UITableViewController {
             case "edit":
                 print("Edit action card tapped")
                 guard let index = self.selectedRow else {
+                    print("Error: No row to edit!")
                     return
                 }
                 let actionCard = actionCards[index]
