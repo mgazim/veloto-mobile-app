@@ -47,11 +47,18 @@ class StravaConfigurationProvider {
         return clientSecret
     }
     
-    func redirectUrl() -> URL? {
-        guard let redirectUrl = stravaConfiguration?.redirectUrl else {
+    func callbackScheme() -> String? {
+        guard let callbackScheme = stravaConfiguration?.callbackScheme else {
             return nil
         }
-        return URL(string: redirectUrl)
+        return callbackScheme
+    }
+    
+    func redirectAddress() -> String? {
+        guard let redirectUrl = stravaConfiguration?.redirectAddress else {
+            return nil
+        }
+        return redirectUrl
     }
     
     func scope() -> String? {
@@ -81,7 +88,8 @@ struct StravaConfiguration: Codable {
     let appUrl: String
     let clientId: String
     let clientSecret: String
-    let redirectUrl: String
+    let callbackScheme: String
+    let redirectAddress: String
     let scope: String
     let apiUrl: String
     let authUrl: String

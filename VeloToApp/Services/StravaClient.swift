@@ -50,9 +50,7 @@ extension StravaClient: ASWebAuthenticationPresentationContextProviding {
             UIApplication.shared.open(appUrl, options: [:], completionHandler: nil)
         } else {
             print("Using ASWebAuthSession: \(webUrl)")
-            let redirectUrl = configuration.redirectUrl()?.absoluteString
-            print("Redirect: \(redirectUrl!)")
-            authSession = ASWebAuthenticationSession(url: webUrl, callbackURLScheme: redirectUrl) { (url, error) in
+            authSession = ASWebAuthenticationSession(url: webUrl, callbackURLScheme: configuration.callbackScheme()) { (url, error) in
                 if let url = url, error == nil {
                     print("Received redirectUrl: \(url)")
                     self.handleAuthorizationRedirect(url, handler: resultHandler)
@@ -144,22 +142,24 @@ extension StravaClient {
     private func buildAppAuthenticationUrl() -> URL? {
         guard let url = configuration.appUrl(),
               let clientId = configuration.clientId(),
-              let redirectUrl = configuration.redirectUrl(),
+              let callbackScheme = configuration.callbackScheme(),
+              let redirectAddress = configuration.redirectAddress(),
               let scope = configuration.scope() else {
             return nil
         }
-        let authUrl = "\(url.absoluteString)?client_id=\(clientId)&redirect_uri=\(redirectUrl.absoluteString)&response_type=code&scope=\(scope)&state=\(state)"
+        let authUrl = "\(url.absoluteString)?client_id=\(clientId)&redirect_uri=\(callbackScheme)://\(redirectAddress)&response_type=code&scope=\(scope)&state=\(state)"
         return URL(string: authUrl)
     }
     
     private func buildWebAuthenticationUrl() -> URL? {
         guard let url = configuration.webUrl(),
               let clientId = configuration.clientId(),
-              let redirectUrl = configuration.redirectUrl(),
+              let callbackScheme = configuration.callbackScheme(),
+              let redirectAddress = configuration.redirectAddress(),
               let scope = configuration.scope() else {
             return nil
         }
-        let authUrl = "\(url.absoluteString)?client_id=\(clientId)&redirect_uri=\(redirectUrl.absoluteString)&response_type=code&scope=\(scope)&state=\(state)"
+        let authUrl = "\(url.absoluteString)?client_id=\(clientId)&redirect_uri=\(callbackScheme)://\(redirectAddress)&response_type=code&scope=\(scope)&state=\(state)"
         return URL(string: authUrl)
     }
     
