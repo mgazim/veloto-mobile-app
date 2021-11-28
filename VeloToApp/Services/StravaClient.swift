@@ -79,7 +79,6 @@ extension StravaClient: ASWebAuthenticationPresentationContextProviding {
             try oauthRequest(Router.token(code: code))?.responseDecodable(of: OAuthTokenResponse.self) { response in
                 switch response.result {
                     case .success(let token):
-                        Authentication.updateCurrentToken(token: token)
                         handler(.success(token))
                     case .failure(let error):
                         handler(.failure(error))

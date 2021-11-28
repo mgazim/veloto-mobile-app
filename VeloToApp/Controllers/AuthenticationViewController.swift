@@ -17,8 +17,8 @@ class AuthenticationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let token = Authentication.token {
-            print("Already authorized with \(token)")
+        if let athlete = AthleteCoreDataWrapper.get() {
+            print("Already authorized with \(athlete)")
             performSegue(withIdentifier: "toActionCards", sender: self)
         } else {
             print("Need to be authenticated")
@@ -30,18 +30,47 @@ class AuthenticationViewController: UIViewController {
         StravaClient.client.authorize(resultHandler: { (result) in
             switch result {
                 case .success(let token):
-                    print("Authenticated successfully: \(token)")
-                    self.performSegue(withIdentifier: "toActionCards", sender: self)
+                    print("Authenticated successfully: \(token), sending to server")
+                    let serverRequest = CreateUserRequest(id: token.athlete.id, accessToken: token.accessToken, refreshToken: token.refreshToken, expiresAt: token.expiresAt, apns: "apns_token")
+                    ServerClient.shared.createUser(serverRequest) { result in
+                        switch result {
+                            case .success(let athlete):
+                                print(athlete)
+                                let coreAthlete = AthleteCoreDataWrapper.new()
+                                coreAthlete.id = athlete.userId
+                                coreAthlete.overallDistance = athlete.mileage
+                                CoreDataHelper.save()
+                                for task in athlete.tasks {
+                                    let coreTask = ActionCardsCoreDataWrapper.new()
+                                    coreTask.athlete = coreAthlete
+                                    coreTask.name = task.name
+                                    coreTask.comment = task.comment
+                                    coreTask.checkValue = task.every
+                                    coreTask.left = task.every
+                                }
+                                CoreDataHelper.save()
+                                self.performSegue(withIdentifier: "toActionCards", sender: self)
+                            case .failure(let error):
+                                print(error)
+                                self.showError(title: "Authentication failed", message: error.localizedDescription)
+                        }
+                    }
                 case .failure(let error):
                     // todo: change to proper message
                     print("Authentication error: \(error.localizedDescription)")
-                    let alert = UIAlertController(title: "Error",
-                                                  message: error.localizedDescription,
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    self.present(alert, animated: true)
+                    self.showError(title: "Authentication failed", message: error.localizedDescription)
             }
         })
     }
-    
+
+}
+
+extension AuthenticationViewController {
+    fileprivate func showError(title: String, message: String) {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
 }

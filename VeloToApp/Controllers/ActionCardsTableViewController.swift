@@ -71,7 +71,8 @@ class ActionCardsTableViewController: UITableViewController {
         cell.actionNameLabel.text = actionCard.name
         cell.commentLabel.text = actionCard.comment
         // todo : get rid of Russian!
-        cell.kmLabel.text = "\(actionCard.checkValue ?? "unknown") км"
+        let kmLeft = actionCard.left / 1000
+        cell.kmLabel.text = "\(kmLeft) км"
         return cell
     }
     
@@ -97,7 +98,7 @@ class ActionCardsTableViewController: UITableViewController {
     }
     
     private func getActionCardsForCurrentAthlete() -> [ActionCard] {
-        if let currentAthlete = Authentication.athlete() {
+        if let currentAthlete = AthleteCoreDataWrapper.get() {
             return ActionCardsCoreDataWrapper.retrieveAllForAthleteID(id: currentAthlete.id) ?? []
         } else {
             print("Error: No authenticated athlete to get cards for")

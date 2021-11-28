@@ -7,7 +7,7 @@
 
 import Foundation
 
-public typealias Authentication = AuthenticationHelper
+/*public typealias Authentication = AuthenticationHelper
 
 public struct AuthenticationHelper {
     
@@ -130,4 +130,4 @@ extension AuthenticationHelper {
         return _oauthToken?.accessToken
     }
     
-}
+}*/

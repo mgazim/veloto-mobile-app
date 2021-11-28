@@ -25,6 +25,19 @@ struct AthleteCoreDataWrapper: CoreDataWrapper {
         CoreDataHelper.deleteAll(of: entityName)
     }
     
+    static func get() -> Athlete? {
+        if let athletes = retrieveAll() {
+            if athletes.count > 1 {
+                print("Something went wrong so we have two athlets, re-authenticate")
+                deleteAll()
+                return nil
+            } else {
+                return athletes.first
+            }
+        }
+        return nil
+    }
+    
     static func find(by uniqueField: Any) -> Athlete? {
         return CoreDataHelper.findOne(entityName, with: "id == %@", arguments: [uniqueField]) as? Athlete
     }

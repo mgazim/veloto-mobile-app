@@ -45,9 +45,9 @@ extension Router: URLRequestConvertible {
             }
         }
 
-        if setToken, let token = Authentication.token {
+        /*if setToken, let token = Authentication.token {
             urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
+        }*/
         
         if let params = config.params, params.count > 0 {
             switch config.method {

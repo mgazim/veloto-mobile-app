@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OAuthCoreDataWrapper: CoreDataWrapper {
+/*struct OAuthCoreDataWrapper: CoreDataWrapper {
     
     typealias T = OAuthToken
     
@@ -48,4 +48,4 @@ struct OAuthCoreDataWrapper: CoreDataWrapper {
         return objects[0]
     }
     
-}
+}*/

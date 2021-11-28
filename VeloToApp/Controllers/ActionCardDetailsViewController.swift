@@ -24,7 +24,7 @@ class ActionCardDetailsViewController: UIViewController {
         
         if let actionCard = actionCard {
             actionCardName.text = actionCard.name
-            checkValueField.text = actionCard.checkValue
+            checkValueField.text = String(actionCard.checkValue / 1000)
             commentTextField.text = actionCard.comment
         } else {
             actionCardName.text = ""
@@ -40,14 +40,18 @@ class ActionCardDetailsViewController: UIViewController {
                 print("Save new button tapped")
                 let newActionCard = ActionCardsCoreDataWrapper.new()
                 newActionCard.name = actionCardName.text ?? ""
-                newActionCard.checkValue = checkValueField.text ?? "0"
+                let meters = ParseUtils.toInt64(checkValueField.text) * 1000
+                newActionCard.checkValue = meters
+                newActionCard.left = meters
                 newActionCard.comment = commentTextField.text ?? ""
-                newActionCard.athlete = Authentication.athlete()
+                newActionCard.athlete = AthleteCoreDataWrapper.get()
                 CoreDataHelper.save()
             case "save" where actionCard != nil:
                 print("Editing existing action card")
                 actionCard?.name = actionCardName.text ?? ""
-                actionCard?.checkValue = checkValueField.text ?? "0"
+                let meters = ParseUtils.toInt64(checkValueField.text) * 1000
+                actionCard?.checkValue = meters
+                actionCard?.left = meters
                 actionCard?.comment = commentTextField.text ?? ""
                 CoreDataHelper.save()
             case "close":
