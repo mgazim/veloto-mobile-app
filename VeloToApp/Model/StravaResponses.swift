@@ -22,8 +22,8 @@ struct OAuthTokenResponse: Decodable {
     let tokenType: String
     let accessToken: String
     let refreshToken: String
-    let expiresIn: Int
-    let expiresAt: Int
+    let expiresIn: Int64
+    let expiresAt: Int64
     let athlete: SummaryAthlete
 
     private enum CodingKeys: String, CodingKey {
@@ -40,8 +40,8 @@ struct OAuthTokenRefreshResponse: Decodable {
     let tokenType: String
     let accessToken: String
     let refreshToken: String
-    let expiresIn: Int
-    let expiresAt: Int
+    let expiresIn: Int64
+    let expiresAt: Int64
 
     private enum CodingKeys: String, CodingKey {
         case tokenType = "token_type"
@@ -61,7 +61,7 @@ struct DeauthorizeResponse: Decodable {
 }
 
 struct SummaryAthlete: Decodable {
-    let id: Int
+    let id: Int64
     let firstname: String
     let lastname: String
     let city: String

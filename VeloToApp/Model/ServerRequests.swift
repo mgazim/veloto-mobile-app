@@ -8,14 +8,14 @@
 import Foundation
 
 struct CreateUserRequest: Encodable {
-    let stravaId: Int
+    let stravaId: Int64
     let accessToken: String
     let refreshToken: String
-    let expiresAt: Int
+    let expiresAt: Int64
     let apnsToken: String
     
-    init(id: Int, accessToken: String, refreshToken: String, expiresAt: Int, apns: String) {
-        self.stravaId = id
+    init(stravaId: Int64, accessToken: String, refreshToken: String, expiresAt: Int64, apns: String) {
+        self.stravaId = stravaId
         self.accessToken = accessToken
         self.refreshToken = refreshToken
         self.expiresAt = expiresAt
@@ -28,5 +28,17 @@ struct CreateUserRequest: Encodable {
         case refreshToken = "refresh_token"
         case expiresAt = "access_expires_at"
         case apnsToken = "apns_token"
+    }
+}
+
+struct CreateTaskRequest: Encodable {
+    let name: String
+    let every: Int64
+    let comment: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case every = "every"
+        case comment = "comment"
     }
 }

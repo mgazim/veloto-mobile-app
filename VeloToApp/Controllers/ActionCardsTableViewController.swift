@@ -15,7 +15,7 @@ class ActionCardsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // TODO: Add activity indicator here
         self.actionCards = self.getActionCardsForCurrentAthlete()
         // Disabling selection for cells
         let view = self.view as! UITableView
@@ -101,6 +101,7 @@ class ActionCardsTableViewController: UITableViewController {
         if let currentAthlete = AthleteCoreDataWrapper.get() {
             return ActionCardsCoreDataWrapper.retrieveAllForAthleteID(id: currentAthlete.id) ?? []
         } else {
+            // TODO: Unwind to authentication page
             print("Error: No authenticated athlete to get cards for")
             return []
         }

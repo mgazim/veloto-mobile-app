@@ -10,16 +10,34 @@ import Alamofire
 
 enum ServerRouter<T: Encodable> {
     
-    case create_user(body: T)
+    case create_user(body: CreateUserRequest)
     
+    case all_tasks(_ userId: Int64)
+    
+    case create_task(userId: Int64, body: CreateTaskRequest)
+    
+    case delete_task(userId: Int64, taskId: Int64)
+    
+    case update_task(userId: Int64, taskId: Int64, body: CreateTaskRequest)
 }
 
-extension ServerRouter: URLRequestConvertible {
+// TODO: Remove it when you know how to code properly...
+struct Dummy: Encodable {}
+
+extension ServerRouter : URLRequestConvertible {
     
-    fileprivate var requestConfig: (path: String, body: T, method: Alamofire.HTTPMethod) {
+    fileprivate var requestConfig: (path: String, body: Encodable?, params: [String: Any]?, method: Alamofire.HTTPMethod) {
         switch self {
             case .create_user(let body):
-                return ("/users", body, .post)
+                return ("/users", body, [:], .post)
+            case .all_tasks(let id):
+                return ("/tasks", nil, ["user_id": id], .get)
+            case .create_task(let userId, let body):
+                return ("/tasks", body, ["user_id" : userId], .post)
+            case .delete_task(let userId, let taskId):
+                return ("/tasks/\(taskId)", nil, ["user_id" : userId], .delete)
+            case .update_task(let userId, let taskId, let body):
+                return ("/tasks/\(taskId)", body, ["user_id" : userId], .put)
         }
     }
     
@@ -31,8 +49,14 @@ extension ServerRouter: URLRequestConvertible {
         var urlRequest = URLRequest(url: baseUrl.appendingPathComponent(config.path))
         urlRequest.httpMethod = config.method.rawValue
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpBody = try JSONEncoder().encode(config.body)
-        return try JSONEncoding.default.encode(urlRequest)
+        if let body = config.body {
+            urlRequest.httpBody = try JSONEncoder().encode(body as! T)
+        }
+        if let params = config.params {
+            return try JSONEncoding.default.encode(urlRequest, with: params)
+        } else {
+            return try JSONEncoding.default.encode(urlRequest)
+        }
     }
     
 

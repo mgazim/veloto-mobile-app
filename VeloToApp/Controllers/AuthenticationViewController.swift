@@ -18,7 +18,7 @@ class AuthenticationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let athlete = AthleteCoreDataWrapper.get() {
-            print("Already authorized with \(athlete)")
+            print("Already authorized with \(athlete), getting up-to-date actions")
             performSegue(withIdentifier: "toActionCards", sender: self)
         } else {
             print("Need to be authenticated")
@@ -31,13 +31,14 @@ class AuthenticationViewController: UIViewController {
             switch result {
                 case .success(let token):
                     print("Authenticated successfully: \(token), sending to server")
-                    let serverRequest = CreateUserRequest(id: token.athlete.id, accessToken: token.accessToken, refreshToken: token.refreshToken, expiresAt: token.expiresAt, apns: "apns_token")
+                    let serverRequest = CreateUserRequest(stravaId: token.athlete.id, accessToken: token.accessToken, refreshToken: token.refreshToken, expiresAt: token.expiresAt, apns: "apns_token")
                     ServerClient.shared.createUser(serverRequest) { result in
                         switch result {
                             case .success(let athlete):
                                 print(athlete)
                                 let coreAthlete = AthleteCoreDataWrapper.new()
                                 coreAthlete.id = athlete.userId
+                                coreAthlete.stravaId = token.athlete.id
                                 coreAthlete.overallDistance = athlete.mileage
                                 CoreDataHelper.save()
                                 for task in athlete.tasks {

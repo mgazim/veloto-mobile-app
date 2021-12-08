@@ -19,6 +19,22 @@ struct CreateUserResponse: Decodable {
     }
 }
 
+struct TasksResponse: Decodable {
+    let tasks: [TaskResponse]
+    
+    private enum CodingKeys: String, CodingKey {
+        case tasks = "tasks"
+    }
+}
+
+struct CreateTaskResponse: Decodable {
+    let id: Int64
+    
+    private enum CodingKeys: String, CodingKey {
+        case id = "task"
+    }
+}
+
 struct TaskResponse: Decodable {
     let name: String
     let every: Int64
@@ -28,5 +44,13 @@ struct TaskResponse: Decodable {
         case name = "name"
         case every = "every"
         case comment = "comment"
+    }
+}
+
+struct DeleteTaskResponse: Decodable {
+    let result: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case result = "result"
     }
 }
