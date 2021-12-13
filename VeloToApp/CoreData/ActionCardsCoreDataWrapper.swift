@@ -33,9 +33,5 @@ struct ActionCardsCoreDataWrapper: CoreDataWrapper {
     static func retrieveAll() -> [ActionCard]? {
         return CoreDataHelper.retrieveAll(name: entityName)
     }
-    
-    static func retrieveAllForAthleteID(id athlete: Int64) -> [ActionCard]? {
-        return CoreDataHelper.retrieveAll(name: entityName, with: "athlete.id == %@", arguments: [athlete])
-    }
 
 }

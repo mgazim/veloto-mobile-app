@@ -99,7 +99,7 @@ class ActionCardsTableViewController: UITableViewController {
     
     private func getActionCardsForCurrentAthlete() -> [ActionCard] {
         if let currentAthlete = AthleteCoreDataWrapper.get() {
-            return ActionCardsCoreDataWrapper.retrieveAllForAthleteID(id: currentAthlete.id) ?? []
+            return ActionCardsCoreDataWrapper.retrieveAll() ?? []
         } else {
             // TODO: Unwind to authentication page
             print("Error: No authenticated athlete to get cards for")

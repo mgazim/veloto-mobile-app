@@ -5,7 +5,6 @@
         <attribute name="comment" optional="YES" attributeType="String"/>
         <attribute name="left" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="athlete" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Athlete" inverseName="actionCards" inverseEntity="Athlete"/>
     </entity>
     <entity name="Athlete" representedClassName="Athlete" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>
@@ -14,10 +13,9 @@
         <attribute name="lastname" optional="YES" attributeType="String"/>
         <attribute name="overallDistance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="stravaId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="actionCards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActionCard" inverseName="athlete" inverseEntity="ActionCard"/>
     </entity>
     <elements>
-        <element name="ActionCard" positionX="-92.359375" positionY="323.5859375" width="128" height="104"/>
-        <element name="Athlete" positionX="-107.2734375" positionY="87.83984375" width="128" height="134"/>
+        <element name="ActionCard" positionX="-92.359375" positionY="323.5859375" width="128" height="89"/>
+        <element name="Athlete" positionX="-107.2734375" positionY="87.83984375" width="128" height="119"/>
     </elements>
 </model>

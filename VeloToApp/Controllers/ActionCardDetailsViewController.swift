@@ -44,7 +44,6 @@ class ActionCardDetailsViewController: UIViewController {
                 newActionCard.checkValue = meters
                 newActionCard.left = meters
                 newActionCard.comment = commentTextField.text ?? ""
-                newActionCard.athlete = AthleteCoreDataWrapper.get()
                 CoreDataHelper.save()
             case "save" where actionCard != nil:
                 print("Editing existing action card")

@@ -29,7 +29,7 @@ extension ServerRouter : URLRequestConvertible {
     fileprivate var requestConfig: (path: String, body: Encodable?, params: [String: Any]?, method: Alamofire.HTTPMethod) {
         switch self {
             case .create_user(let body):
-                return ("/users", body, [:], .post)
+                return ("/users", body, nil, .post)
             case .all_tasks(let id):
                 return ("/tasks", nil, ["user_id": id], .get)
             case .create_task(let userId, let body):
@@ -48,12 +48,12 @@ extension ServerRouter : URLRequestConvertible {
         let config = self.requestConfig
         var urlRequest = URLRequest(url: baseUrl.appendingPathComponent(config.path))
         urlRequest.httpMethod = config.method.rawValue
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         if let body = config.body {
             urlRequest.httpBody = try JSONEncoder().encode(body as! T)
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         if let params = config.params {
-            return try JSONEncoding.default.encode(urlRequest, with: params)
+            return try URLEncoding.default.encode(urlRequest, with: params)
         } else {
             return try JSONEncoding.default.encode(urlRequest)
         }

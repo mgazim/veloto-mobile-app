@@ -14,7 +14,7 @@ struct CreateUserRequest: Encodable {
     let expiresAt: Int64
     let apnsToken: String
     
-    init(stravaId: Int64, accessToken: String, refreshToken: String, expiresAt: Int64, apns: String) {
+    private init(stravaId: Int64, accessToken: String, refreshToken: String, expiresAt: Int64, apns: String) {
         self.stravaId = stravaId
         self.accessToken = accessToken
         self.refreshToken = refreshToken
@@ -28,6 +28,10 @@ struct CreateUserRequest: Encodable {
         case refreshToken = "refresh_token"
         case expiresAt = "access_expires_at"
         case apnsToken = "apns_token"
+    }
+    
+    public static func of(_ token: OAuthTokenResponse) -> CreateUserRequest {
+        return CreateUserRequest(stravaId: token.athlete.id, accessToken: token.accessToken, refreshToken: token.refreshToken, expiresAt: token.expiresAt, apns: "apns_token")
     }
 }
 

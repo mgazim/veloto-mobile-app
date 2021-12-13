@@ -19,20 +19,35 @@ class AuthenticationViewController: UIViewController {
         super.viewDidLoad()
         if let athlete = AthleteCoreDataWrapper.get() {
             print("Already authorized with \(athlete), getting up-to-date actions")
-            performSegue(withIdentifier: "toActionCards", sender: self)
+            ServerClient.shared.getAllTasksForUser(athlete.id) { (response) in
+                switch response {
+                    case .success(let result):
+                        print("Received tasks \(result)")
+                        ActionCardsCoreDataWrapper.deleteAll()
+                        for task in result.tasks {
+                            _ = TaskResponse.toCore(from: task)
+                        }
+                        CoreDataHelper.save()
+                        self.performSegue(withIdentifier: "toActionCards", sender: self)
+                    case .failure(let error):
+                        self.showError(title: "Updating Tasks", message: "Error: \(error.localizedDescription)")
+                }
+            }
         } else {
             print("Need to be authenticated")
         }
     }
     
+    // TODO: Think of the User flow here
     @IBAction func loginButtonTapped(_ sender: Any) {
         print("Login button tapped")
         StravaClient.client.authorize(resultHandler: { (result) in
             switch result {
                 case .success(let token):
-                    print("Authenticated successfully: \(token), sending to server")
-                    let serverRequest = CreateUserRequest(stravaId: token.athlete.id, accessToken: token.accessToken, refreshToken: token.refreshToken, expiresAt: token.expiresAt, apns: "apns_token")
-                    ServerClient.shared.createUser(serverRequest) { result in
+                    print("Authenticated successfully")
+                    let serverRequest = CreateUserRequest.of(token)
+                    print("CreateUserRequest: \(serverRequest)")
+                    ServerClient.shared.createUser(serverRequest) { (result) in
                         switch result {
                             case .success(let athlete):
                                 print(athlete)
@@ -42,12 +57,7 @@ class AuthenticationViewController: UIViewController {
                                 coreAthlete.overallDistance = athlete.mileage
                                 CoreDataHelper.save()
                                 for task in athlete.tasks {
-                                    let coreTask = ActionCardsCoreDataWrapper.new()
-                                    coreTask.athlete = coreAthlete
-                                    coreTask.name = task.name
-                                    coreTask.comment = task.comment
-                                    coreTask.checkValue = task.every
-                                    coreTask.left = task.every
+                                    _ = TaskResponse.toCore(from: task)
                                 }
                                 CoreDataHelper.save()
                                 self.performSegue(withIdentifier: "toActionCards", sender: self)

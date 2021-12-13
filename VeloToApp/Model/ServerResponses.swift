@@ -45,6 +45,15 @@ struct TaskResponse: Decodable {
         case every = "every"
         case comment = "comment"
     }
+    
+    public static func toCore(from task: TaskResponse) -> ActionCard {
+        let core = ActionCardsCoreDataWrapper.new()
+        core.name = task.name
+        core.comment = task.comment
+        core.checkValue = task.every
+        core.left = task.every
+        return core
+    }
 }
 
 struct DeleteTaskResponse: Decodable {
