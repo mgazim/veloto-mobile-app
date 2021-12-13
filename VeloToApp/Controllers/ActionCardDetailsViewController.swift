@@ -15,7 +15,7 @@ class ActionCardDetailsViewController: UIViewController {
     
     @IBOutlet weak var commentTextField: UITextField!
 
-    var actionCard: ActionCard?
+    var actionCard: AthleteTask?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class ActionCardDetailsViewController: UIViewController {
         switch identifier {
             case "save" where actionCard == nil:
                 print("Save new button tapped")
-                let newActionCard = ActionCardsCoreDataWrapper.new()
+                let newActionCard = AthleteTaskCoreDataWrapper.new()
                 newActionCard.name = actionCardName.text ?? ""
                 let meters = ParseUtils.toInt64(checkValueField.text) * 1000
                 newActionCard.checkValue = meters

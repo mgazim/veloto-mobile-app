@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ActionCard" representedClassName="ActionCard" syncable="YES" codeGenerationType="class">
-        <attribute name="checkValue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="comment" optional="YES" attributeType="String"/>
-        <attribute name="left" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-    </entity>
     <entity name="Athlete" representedClassName="Athlete" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="firstname" optional="YES" attributeType="String"/>
@@ -14,8 +8,14 @@
         <attribute name="overallDistance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="stravaId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="AthleteTask" representedClassName="AthleteTask" syncable="YES" codeGenerationType="class">
+        <attribute name="checkValue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="left" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
-        <element name="ActionCard" positionX="-92.359375" positionY="323.5859375" width="128" height="89"/>
         <element name="Athlete" positionX="-107.2734375" positionY="87.83984375" width="128" height="119"/>
+        <element name="AthleteTask" positionX="-92.359375" positionY="323.5859375" width="128" height="89"/>
     </elements>
 </model>

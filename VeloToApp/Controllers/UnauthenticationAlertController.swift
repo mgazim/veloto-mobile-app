@@ -13,6 +13,7 @@ class UnauthenticationAlertController: UIViewController {
         print("Logout tapped")
         //Authentication.deauthorize()
         AthleteCoreDataWrapper.deleteAll()
+        AthleteTaskCoreDataWrapper.deleteAll()
         performSegue(withIdentifier: "logout", sender: self)
     }
 

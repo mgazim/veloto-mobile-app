@@ -23,11 +23,7 @@ class AuthenticationViewController: UIViewController {
                 switch response {
                     case .success(let result):
                         print("Received tasks \(result)")
-                        ActionCardsCoreDataWrapper.deleteAll()
-                        for task in result.tasks {
-                            _ = TaskResponse.toCore(from: task)
-                        }
-                        CoreDataHelper.save()
+                        AthleteTaskCoreDataWrapper.retainAll(of: result.tasks)
                         self.performSegue(withIdentifier: "toActionCards", sender: self)
                     case .failure(let error):
                         self.showError(title: "Updating Tasks", message: "Error: \(error.localizedDescription)")
@@ -51,15 +47,8 @@ class AuthenticationViewController: UIViewController {
                         switch result {
                             case .success(let athlete):
                                 print(athlete)
-                                let coreAthlete = AthleteCoreDataWrapper.new()
-                                coreAthlete.id = athlete.userId
-                                coreAthlete.stravaId = token.athlete.id
-                                coreAthlete.overallDistance = athlete.mileage
-                                CoreDataHelper.save()
-                                for task in athlete.tasks {
-                                    _ = TaskResponse.toCore(from: task)
-                                }
-                                CoreDataHelper.save()
+                                AthleteCoreDataWrapper.persistNew(from: athlete, with: token.athlete.id)
+                                AthleteTaskCoreDataWrapper.persistAll(of: athlete.tasks)
                                 self.performSegue(withIdentifier: "toActionCards", sender: self)
                             case .failure(let error):
                                 print(error)
@@ -78,9 +67,7 @@ class AuthenticationViewController: UIViewController {
 
 extension AuthenticationViewController {
     fileprivate func showError(title: String, message: String) {
-        let alert = UIAlertController(title: title,
-                                      message: message,
-                                      preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
     }

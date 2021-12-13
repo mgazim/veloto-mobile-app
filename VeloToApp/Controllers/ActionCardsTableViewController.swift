@@ -11,7 +11,7 @@ class ActionCardsTableViewController: UITableViewController {
     
     var selectedRow: Int?
     
-    var actionCards = [ActionCard]()
+    var actionCards = [AthleteTask]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class ActionCardsTableViewController: UITableViewController {
         let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { (action, view, completionHandler) in
             print("Delete clicked")
             let toRemove = self.actionCards[indexPath.row]
-            ActionCardsCoreDataWrapper.delete(entity: toRemove)
+            AthleteTaskCoreDataWrapper.delete(entity: toRemove)
             self.actionCards = self.getActionCardsForCurrentAthlete()
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             completionHandler(true)
@@ -97,12 +97,12 @@ class ActionCardsTableViewController: UITableViewController {
         }
     }
     
-    private func getActionCardsForCurrentAthlete() -> [ActionCard] {
-        if let currentAthlete = AthleteCoreDataWrapper.get() {
-            return ActionCardsCoreDataWrapper.retrieveAll() ?? []
+    private func getActionCardsForCurrentAthlete() -> [AthleteTask] {
+        if AthleteCoreDataWrapper.get() != nil {
+            return AthleteTaskCoreDataWrapper.retrieveAll() ?? []
         } else {
             // TODO: Unwind to authentication page
-            print("Error: No authenticated athlete to get cards for")
+            print("Error: No authenticated athlete")
             return []
         }
     }

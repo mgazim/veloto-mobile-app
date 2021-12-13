@@ -59,7 +59,7 @@
 		A1A5E275274D867F003038AA /* ServerResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A5E274274D867F003038AA /* ServerResponses.swift */; };
 		A1B700F9275D18530018FEF1 /* ServerCommunicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B700F8275D18530018FEF1 /* ServerCommunicationHelper.swift */; };
 		A1D36E4C274E35D20052043A /* ParseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D36E4B274E35D20052043A /* ParseUtils.swift */; };
-		A1F92C1A2634362B0050B7EE /* ActionCardsCoreDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F92C192634362B0050B7EE /* ActionCardsCoreDataWrapper.swift */; };
+		A1F92C1A2634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F92C192634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,7 +115,7 @@
 		A1A5E274274D867F003038AA /* ServerResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponses.swift; sourceTree = "<group>"; };
 		A1B700F8275D18530018FEF1 /* ServerCommunicationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunicationHelper.swift; sourceTree = "<group>"; };
 		A1D36E4B274E35D20052043A /* ParseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseUtils.swift; sourceTree = "<group>"; };
-		A1F92C192634362B0050B7EE /* ActionCardsCoreDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCardsCoreDataWrapper.swift; sourceTree = "<group>"; };
+		A1F92C192634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteTaskCoreDataWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,7 +266,7 @@
 				A19CD28326274C8C00733622 /* CoreDataHelper.swift */,
 				A19C23A4262EA40300895039 /* CoreDataWrapper.swift */,
 				A19C23A9262EA91800895039 /* AthleteCoreDataWrapper.swift */,
-				A1F92C192634362B0050B7EE /* ActionCardsCoreDataWrapper.swift */,
+				A1F92C192634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -379,7 +379,7 @@
 				A19CD255262343A500733622 /* StravaClient.swift in Sources */,
 				A19CD28426274C8C00733622 /* CoreDataHelper.swift in Sources */,
 				A15A716A274B650100032F51 /* ServerRouter.swift in Sources */,
-				A1F92C1A2634362B0050B7EE /* ActionCardsCoreDataWrapper.swift in Sources */,
+				A1F92C1A2634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift in Sources */,
 				A1B700F9275D18530018FEF1 /* ServerCommunicationHelper.swift in Sources */,
 				A19C23A5262EA40300895039 /* CoreDataWrapper.swift in Sources */,
 				A1D36E4C274E35D20052043A /* ParseUtils.swift in Sources */,

@@ -11,7 +11,7 @@ class ServerCommunicationHelper {
     
     typealias ViewAction = (Result<Any, Swift.Error>) -> Void
     
-    public static func createNewActionCard(_ actionCard: ActionCard, action: ViewAction) {
+    public static func createNewActionCard(_ actionCard: AthleteTask, action: ViewAction) {
         
     }
     

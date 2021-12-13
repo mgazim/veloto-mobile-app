@@ -13,6 +13,14 @@ struct AthleteCoreDataWrapper: CoreDataWrapper {
     
     static let entityName = "Athlete"
     
+    static func persistNew(from response: CreateUserResponse, with stravaId: Int64) {
+        let entity = AthleteCoreDataWrapper.new()
+        entity.id = response.userId
+        entity.stravaId = stravaId
+        entity.overallDistance = response.mileage
+        CoreDataHelper.save()
+    }
+    
     static func new() -> Athlete {
         return CoreDataHelper.new(entityName: entityName)
     }
