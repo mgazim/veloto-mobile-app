@@ -57,7 +57,6 @@
 		A19CD2972627557E00733622 /* VeloToDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A19CD2952627557E00733622 /* VeloToDataModel.xcdatamodeld */; };
 		A1A38D84262B8AF0002153FA /* StravaResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A38D83262B8AF0002153FA /* StravaResponses.swift */; };
 		A1A5E275274D867F003038AA /* ServerResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A5E274274D867F003038AA /* ServerResponses.swift */; };
-		A1B700F9275D18530018FEF1 /* ServerCommunicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B700F8275D18530018FEF1 /* ServerCommunicationHelper.swift */; };
 		A1D36E4C274E35D20052043A /* ParseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D36E4B274E35D20052043A /* ParseUtils.swift */; };
 		A1F92C1A2634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F92C192634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift */; };
 /* End PBXBuildFile section */
@@ -113,7 +112,6 @@
 		A19CD2962627557E00733622 /* VeloToDataModel.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = VeloToDataModel.xcdatamodel; sourceTree = "<group>"; };
 		A1A38D83262B8AF0002153FA /* StravaResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaResponses.swift; sourceTree = "<group>"; };
 		A1A5E274274D867F003038AA /* ServerResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponses.swift; sourceTree = "<group>"; };
-		A1B700F8275D18530018FEF1 /* ServerCommunicationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunicationHelper.swift; sourceTree = "<group>"; };
 		A1D36E4B274E35D20052043A /* ParseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseUtils.swift; sourceTree = "<group>"; };
 		A1F92C192634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteTaskCoreDataWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,7 +234,6 @@
 				A11D75BF2744C6E2004D87A8 /* ServerClient.swift */,
 				A11D75C52744CBB2004D87A8 /* ServerConfigurationProvider.swift */,
 				A15A7169274B650100032F51 /* ServerRouter.swift */,
-				A1B700F8275D18530018FEF1 /* ServerCommunicationHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -380,7 +377,6 @@
 				A19CD28426274C8C00733622 /* CoreDataHelper.swift in Sources */,
 				A15A716A274B650100032F51 /* ServerRouter.swift in Sources */,
 				A1F92C1A2634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift in Sources */,
-				A1B700F9275D18530018FEF1 /* ServerCommunicationHelper.swift in Sources */,
 				A19C23A5262EA40300895039 /* CoreDataWrapper.swift in Sources */,
 				A1D36E4C274E35D20052043A /* ParseUtils.swift in Sources */,
 				A11D75C62744CBB2004D87A8 /* ServerConfigurationProvider.swift in Sources */,

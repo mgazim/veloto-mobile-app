@@ -36,13 +36,17 @@ struct CreateTaskResponse: Decodable {
 }
 
 struct TaskResponse: Decodable {
+    let id: Int64
     let name: String
     let every: Int64
+    let remain: Int64
     let comment: String?
     
     private enum CodingKeys: String, CodingKey {
+        case id = "id"
         case name = "name"
         case every = "every"
+        case remain = "remain"
         case comment = "comment"
     }
 }

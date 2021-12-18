@@ -9,13 +9,14 @@
         <attribute name="stravaId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="AthleteTask" representedClassName="AthleteTask" syncable="YES" codeGenerationType="class">
-        <attribute name="checkValue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="comment" optional="YES" attributeType="String"/>
-        <attribute name="left" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="every" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="remain" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="Athlete" positionX="-107.2734375" positionY="87.83984375" width="128" height="119"/>
-        <element name="AthleteTask" positionX="-92.359375" positionY="323.5859375" width="128" height="89"/>
+        <element name="AthleteTask" positionX="-92.359375" positionY="323.5859375" width="128" height="104"/>
     </elements>
 </model>

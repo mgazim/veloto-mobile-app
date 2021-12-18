@@ -25,7 +25,6 @@ enum ServerRouter<T: Encodable> {
 struct Dummy: Encodable {}
 
 extension ServerRouter : URLRequestConvertible {
-    
     fileprivate var requestConfig: (path: String, body: Encodable?, params: [String: Any]?, method: Alamofire.HTTPMethod) {
         switch self {
             case .create_user(let body):
@@ -46,17 +45,19 @@ extension ServerRouter : URLRequestConvertible {
             fatalError("No base url for server")
         }
         let config = self.requestConfig
-        var urlRequest = URLRequest(url: baseUrl.appendingPathComponent(config.path))
+        var components = URLComponents(url: baseUrl.appendingPathComponent(config.path), resolvingAgainstBaseURL: false)!
+        if let params = config.params {
+            components.queryItems = params.map { (key, value) in
+                URLQueryItem(name: key, value: String(describing: value))
+            }
+        }
+        var urlRequest = URLRequest(url: components.url!)
         urlRequest.httpMethod = config.method.rawValue
         if let body = config.body {
             urlRequest.httpBody = try JSONEncoder().encode(body as! T)
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
-        if let params = config.params {
-            return try URLEncoding.default.encode(urlRequest, with: params)
-        } else {
-            return try JSONEncoding.default.encode(urlRequest)
-        }
+        return urlRequest
     }
     
 

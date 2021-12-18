@@ -15,10 +15,21 @@ struct AthleteTaskCoreDataWrapper: CoreDataWrapper {
     
     static func persistNew(from response: TaskResponse) {
         let entity = new()
+        entity.id = response.id
         entity.name = response.name
         entity.comment = response.comment
-        entity.checkValue = response.every
-        entity.left = entity.checkValue
+        entity.every = response.every
+        entity.remain = entity.remain
+        CoreDataHelper.save()
+    }
+    
+    static func persistNew(id: Int64, name: String, every: Int64, remain: Int64, comment: String) {
+        let entity = new()
+        entity.id = id
+        entity.name = name
+        entity.comment = comment
+        entity.every = every
+        entity.remain = remain
         CoreDataHelper.save()
     }
     
@@ -43,13 +54,20 @@ struct AthleteTaskCoreDataWrapper: CoreDataWrapper {
         CoreDataHelper.delete(entity: entity)
     }
     
+    static func deleteById(_ id: Int64) {
+        if let entity = find(by: id) {
+            delete(entity: entity)
+        } else {
+            print("Didn't find entity: \(id)")
+        }
+    }
+    
     static func deleteAll() {
         CoreDataHelper.deleteAll(of: entityName)
     }
     
-    // todo: use really unique field
     static func find(by uniqueField: Any) -> AthleteTask? {
-        return CoreDataHelper.findOne(entityName, with: "name == %@", arguments: [uniqueField])
+        return CoreDataHelper.findOne(entityName, with: "id == %@", arguments: [uniqueField])
     }
     
     static func retrieveAll() -> [AthleteTask]? {

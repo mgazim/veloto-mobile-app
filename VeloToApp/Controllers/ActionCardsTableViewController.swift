@@ -50,9 +50,17 @@ class ActionCardsTableViewController: UITableViewController {
         let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { (action, view, completionHandler) in
             print("Delete clicked")
             let toRemove = self.actionCards[indexPath.row]
-            AthleteTaskCoreDataWrapper.delete(entity: toRemove)
-            self.actionCards = self.getActionCardsForCurrentAthlete()
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            let athlete = AthleteCoreDataWrapper.get()!
+            ServerClient.shared.deleteTaskOfUser(userId: athlete.id, taskId: toRemove.id) { (result) in
+                switch result {
+                    case .success(_):
+                        AthleteTaskCoreDataWrapper.deleteById(toRemove.id)
+                        self.actionCards = self.getActionCardsForCurrentAthlete()
+                        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    case .failure(let error):
+                        print("Error removing: \(error.localizedDescription)")
+                }
+            }
             completionHandler(true)
         }
         deleteAction.image = UIImage(systemName: "trash")
@@ -71,8 +79,8 @@ class ActionCardsTableViewController: UITableViewController {
         cell.actionNameLabel.text = actionCard.name
         cell.commentLabel.text = actionCard.comment
         // todo : get rid of Russian!
-        let kmLeft = actionCard.left / 1000
-        cell.kmLabel.text = "\(kmLeft) км"
+        let kmRemain = actionCard.remain / 1000
+        cell.kmLabel.text = "\(kmRemain) км"
         return cell
     }
     
@@ -89,7 +97,7 @@ class ActionCardsTableViewController: UITableViewController {
                 }
                 let actionCard = actionCards[index]
                 let destination = segue.destination as! ActionCardDetailsViewController
-                destination.actionCard = actionCard
+                destination.athleteTask = actionCard
             case "addActionCard":
                 print("Create action card button tapped")
             default:
