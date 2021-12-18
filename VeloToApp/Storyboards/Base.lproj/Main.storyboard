@@ -99,35 +99,8 @@ STRAVA</string>
                                     <segue destination="C3K-8I-2bt" kind="unwind" unwindAction="unwindWithSegue:" id="GXp-Xc-2Qm"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UHm-mD-vxa" userLabel="BikeView">
-                                <rect key="frame" x="20" y="201" width="350" height="81"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВЕЛОСИПЕД" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3T-w0-pkF">
-                                        <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="23.666666666666668"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мой велосипед" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG8-RT-Kin">
-                                        <rect key="frame" x="0.0" y="28.666666666666657" width="132" height="23.666666666666671"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пробег – 175 км" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfd-P0-x3B">
-                                        <rect key="frame" x="0.0" y="57.333333333333307" width="139" height="23.666666666666664"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Yfd-P0-x3B" firstAttribute="height" secondItem="d3T-w0-pkF" secondAttribute="height" id="1WT-KR-Zt0"/>
-                                    <constraint firstItem="bG8-RT-Kin" firstAttribute="height" secondItem="d3T-w0-pkF" secondAttribute="height" id="R29-id-AOm"/>
-                                </constraints>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YE-EC-MDS" userLabel="NotificationsView">
-                                <rect key="frame" x="20" y="342" width="350" height="159"/>
+                                <rect key="frame" x="20" y="181" width="350" height="320"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="УВЕДОМЛЕНИЯ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIV-UU-AU1">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="23.666666666666668"/>
@@ -136,13 +109,13 @@ STRAVA</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIa-WA-89d">
-                                        <rect key="frame" x="0.0" y="30.666666666666686" width="40.666666666666664" height="21.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="30.666666666666657" width="40.666666666666664" height="21.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9r-WV-gy2">
-                                        <rect key="frame" x="0.0" y="71.666666666666686" width="54" height="21.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="71.666666666666657" width="54" height="21.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -154,16 +127,16 @@ STRAVA</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LyS-C9-cyr">
-                                        <rect key="frame" x="301" y="25.666666666666686" width="51" height="31"/>
+                                        <rect key="frame" x="301" y="25.666666666666657" width="51" height="31"/>
                                     </switch>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xvy-5X-yau">
-                                        <rect key="frame" x="301" y="66.666666666666686" width="51" height="31"/>
+                                        <rect key="frame" x="301" y="66.666666666666657" width="51" height="31"/>
                                     </switch>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dvJ-gF-0wF">
                                         <rect key="frame" x="301" y="107.66666666666669" width="51" height="31"/>
                                     </switch>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите адрес" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vjc-vV-Emk">
-                                        <rect key="frame" x="59" y="70.666666666666686" width="237" height="23"/>
+                                        <rect key="frame" x="59" y="70.666666666666657" width="237" height="23"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
@@ -203,10 +176,10 @@ STRAVA</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1k-30-j4e" userLabel="LogoutView">
-                                <rect key="frame" x="16" y="561" width="358" height="52"/>
+                                <rect key="frame" x="20" y="663" width="350" height="77"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Приложение не сможет работать :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jo9-cy-Vyf">
-                                        <rect key="frame" x="0.0" y="36" width="358" height="21.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="36" width="350" height="21.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -229,25 +202,24 @@ STRAVA</string>
                                     <constraint firstItem="TMq-X3-wp7" firstAttribute="top" secondItem="B1k-30-j4e" secondAttribute="top" id="J6T-B9-5rX"/>
                                     <constraint firstItem="Jo9-cy-Vyf" firstAttribute="top" secondItem="TMq-X3-wp7" secondAttribute="bottom" id="Jic-XL-z6a"/>
                                     <constraint firstAttribute="trailing" secondItem="Jo9-cy-Vyf" secondAttribute="trailing" id="LVt-fT-3cV"/>
+                                    <constraint firstAttribute="width" constant="350" id="eRj-Ai-r5o"/>
+                                    <constraint firstAttribute="height" constant="77" id="s6U-op-2lH"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eyU-IU-dQc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eyU-IU-dQc" firstAttribute="trailing" secondItem="B1k-30-j4e" secondAttribute="trailing" constant="16" id="1Ob-aE-QS5"/>
                             <constraint firstItem="B8f-Ok-aad" firstAttribute="top" secondItem="eyU-IU-dQc" secondAttribute="top" constant="70" id="6X4-bz-CUx"/>
-                            <constraint firstItem="UHm-mD-vxa" firstAttribute="top" secondItem="B8f-Ok-aad" secondAttribute="bottom" constant="40" id="A2o-gY-wWP"/>
-                            <constraint firstItem="eyU-IU-dQc" firstAttribute="trailing" secondItem="UHm-mD-vxa" secondAttribute="trailing" constant="20" id="AIn-k7-JCh"/>
-                            <constraint firstItem="B1k-30-j4e" firstAttribute="leading" secondItem="eyU-IU-dQc" secondAttribute="leading" constant="16" id="B7B-W5-pXD"/>
-                            <constraint firstItem="B1k-30-j4e" firstAttribute="top" secondItem="5YE-EC-MDS" secondAttribute="bottom" constant="60" id="IWg-p5-zFu"/>
-                            <constraint firstItem="5YE-EC-MDS" firstAttribute="centerX" secondItem="UHm-mD-vxa" secondAttribute="centerX" id="RkI-kw-4UN"/>
+                            <constraint firstItem="5YE-EC-MDS" firstAttribute="top" secondItem="B8f-Ok-aad" secondAttribute="bottom" constant="20" id="7aF-Bq-Y45"/>
+                            <constraint firstItem="eyU-IU-dQc" firstAttribute="bottom" secondItem="B1k-30-j4e" secondAttribute="bottom" constant="70" id="A0i-Ko-y2z"/>
+                            <constraint firstItem="eyU-IU-dQc" firstAttribute="trailing" secondItem="B1k-30-j4e" secondAttribute="trailing" constant="20" id="Bq0-8L-lxP"/>
+                            <constraint firstItem="5YE-EC-MDS" firstAttribute="leading" secondItem="eyU-IU-dQc" secondAttribute="leading" constant="20" id="QuF-MP-t4E"/>
                             <constraint firstItem="eyU-IU-dQc" firstAttribute="trailing" secondItem="HaI-bF-PKR" secondAttribute="trailing" constant="20" id="RoL-FJ-csM"/>
-                            <constraint firstItem="5YE-EC-MDS" firstAttribute="leading" secondItem="UHm-mD-vxa" secondAttribute="leading" id="YK8-zG-go3"/>
-                            <constraint firstItem="5YE-EC-MDS" firstAttribute="top" secondItem="UHm-mD-vxa" secondAttribute="bottom" constant="60" id="eK3-Hh-lS6"/>
-                            <constraint firstItem="UHm-mD-vxa" firstAttribute="leading" secondItem="eyU-IU-dQc" secondAttribute="leading" constant="20" id="geq-eg-OKm"/>
-                            <constraint firstItem="eyU-IU-dQc" firstAttribute="bottom" secondItem="B1k-30-j4e" secondAttribute="bottom" constant="197" id="nnE-br-8PG"/>
+                            <constraint firstItem="B1k-30-j4e" firstAttribute="leading" secondItem="eyU-IU-dQc" secondAttribute="leading" constant="20" id="as5-gG-fOf"/>
+                            <constraint firstItem="eyU-IU-dQc" firstAttribute="trailing" secondItem="5YE-EC-MDS" secondAttribute="trailing" constant="20" id="hMw-hO-XyZ"/>
                             <constraint firstItem="eyU-IU-dQc" firstAttribute="bottom" secondItem="5YE-EC-MDS" secondAttribute="bottom" constant="309" id="pm6-pq-vct"/>
+                            <constraint firstItem="eyU-IU-dQc" firstAttribute="trailing" secondItem="B1k-30-j4e" secondAttribute="trailing" constant="20" id="psm-Ib-n5D"/>
                             <constraint firstItem="B8f-Ok-aad" firstAttribute="leading" secondItem="eyU-IU-dQc" secondAttribute="leading" constant="20" id="wjV-55-TCS"/>
                             <constraint firstItem="HaI-bF-PKR" firstAttribute="centerY" secondItem="B8f-Ok-aad" secondAttribute="centerY" id="yss-ZC-mGq"/>
                         </constraints>
@@ -257,7 +229,7 @@ STRAVA</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgM-VQ-cNj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="C3K-8I-2bt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2757" y="94"/>
+            <point key="canvasLocation" x="2756.9230769230767" y="93.838862559241704"/>
         </scene>
         <!--Unauthentication Alert Controller-->
         <scene sceneID="RIL-j3-a7a">
