@@ -74,12 +74,13 @@ class ActionCardsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionCardCell", for: indexPath) as! ActionCardTableViewCell
-        
         let actionCard = actionCards[indexPath.row]
         cell.actionNameLabel.text = actionCard.name
         cell.commentLabel.text = actionCard.comment
+        // On server side we store the amount of km to pass to trigger card activation.
+        // Thus need to display the difference between total and "remain"
+        let kmRemain = (actionCard.every - actionCard.remain) / 1000
         // todo : get rid of Russian!
-        let kmRemain = actionCard.remain / 1000
         cell.kmLabel.text = "\(kmRemain) км"
         return cell
     }
