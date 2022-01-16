@@ -73,5 +73,10 @@ struct AthleteTaskCoreDataWrapper: CoreDataWrapper {
     static func retrieveAll() -> [AthleteTask]? {
         return CoreDataHelper.retrieveAll(name: entityName)
     }
+    
+    static func cleanRemain(_ task: AthleteTask) {
+        task.remain = 0
+        CoreDataHelper.save()
+    }
 
 }

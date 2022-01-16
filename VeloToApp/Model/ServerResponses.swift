@@ -58,3 +58,11 @@ struct DeleteTaskResponse: Decodable {
         case result = "result"
     }
 }
+
+struct CleanTaskResponse: Decodable {
+    let result: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case result = "result"
+    }
+}

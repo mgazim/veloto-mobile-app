@@ -39,6 +39,17 @@ class ActionCardsTableViewController: UITableViewController {
         
         let zeroOutAction = UIContextualAction(style: .normal, title: "Обнулить") { (action, view, completionHandler) in
             print("Zero out clicked")
+            let toZeroOut = self.actionCards[indexPath.row]
+            let athlete = AthleteCoreDataWrapper.get()!
+            ServerClient.shared.cleanRemainForTask(userId: athlete.id, taskId: toZeroOut.id) { (result) in
+                switch result {
+                    case .success(_):
+                        AthleteTaskCoreDataWrapper.cleanRemain(toZeroOut)
+                        tableView.reloadData()
+                    case .failure(let error):
+                        print("Error removing: \(error.localizedDescription)")
+                }
+            }
             completionHandler(true)
         }
         zeroOutAction.image = UIImage(systemName: "checkmark")

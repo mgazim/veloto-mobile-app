@@ -19,6 +19,9 @@ enum ServerRouter<T: Encodable> {
     case delete_task(userId: Int64, taskId: Int64)
     
     case update_task(userId: Int64, taskId: Int64, body: CreateTaskRequest)
+    
+    case clean_remain(userId: Int64, taskId: Int64)
+
 }
 
 // TODO: Remove it when you know how to code properly...
@@ -37,6 +40,8 @@ extension ServerRouter : URLRequestConvertible {
                 return ("/tasks/\(taskId)", nil, ["user_id" : userId], .delete)
             case .update_task(let userId, let taskId, let body):
                 return ("/tasks/\(taskId)", body, ["user_id" : userId], .put)
+            case .clean_remain(let userId, let taskId):
+                return ("/tasks/\(taskId)/remain", nil, ["user_id" : userId], .patch)
         }
     }
     

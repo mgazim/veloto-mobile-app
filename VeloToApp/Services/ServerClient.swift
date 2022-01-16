@@ -15,6 +15,7 @@ class ServerClient {
     public typealias CreateTaskHandler = (Result<CreateTaskResponse, Swift.Error>) -> ()
     public typealias DeleteTaskHandler = (Result<DeleteTaskResponse, Swift.Error>) -> ()
     public typealias UpdateTaskHandler = (Result<CreateTaskResponse, Swift.Error>) -> ()
+    public typealias CleanRemainForTaskHandler = (Result<CleanTaskResponse, Swift.Error>) -> ()
 
     static var shared = ServerClient()
     
@@ -82,6 +83,21 @@ class ServerClient {
     public func updateTaskOfUser(userId: Int64, taskId: Int64, body: CreateTaskRequest, handler: @escaping UpdateTaskHandler) {
         do {
             try request(ServerRouter<CreateTaskRequest>.update_task(userId: userId, taskId: taskId, body: body))?.responseDecodable(of: CreateTaskResponse.self) { response in
+                switch response.result {
+                    case .success(let result):
+                        handler(.success(result))
+                    case .failure(let error):
+                        handler(.failure(error))
+                }
+            }
+        } catch let error as NSError {
+            handler(.failure(error))
+        }
+    }
+    
+    public func cleanRemainForTask(userId: Int64, taskId: Int64, handler: @escaping CleanRemainForTaskHandler) {
+        do {
+            try request(ServerRouter<Dummy>.clean_remain(userId: userId, taskId: taskId))?.responseDecodable(of: CleanTaskResponse.self) { response in
                 switch response.result {
                     case .success(let result):
                         handler(.success(result))
