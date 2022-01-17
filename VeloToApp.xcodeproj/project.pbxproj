@@ -59,6 +59,8 @@
 		A1A38D84262B8AF0002153FA /* StravaResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A38D83262B8AF0002153FA /* StravaResponses.swift */; };
 		A1A5E275274D867F003038AA /* ServerResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A5E274274D867F003038AA /* ServerResponses.swift */; };
 		A1D36E4C274E35D20052043A /* ParseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D36E4B274E35D20052043A /* ParseUtils.swift */; };
+		A1D4B9822795C529003648FF /* loading-gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = A1D4B9812795C529003648FF /* loading-gif.gif */; };
+		A1D4B9842795C5B7003648FF /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D4B9832795C5B7003648FF /* LoadingViewController.swift */; };
 		A1F92C1A2634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F92C192634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +117,8 @@
 		A1A38D83262B8AF0002153FA /* StravaResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaResponses.swift; sourceTree = "<group>"; };
 		A1A5E274274D867F003038AA /* ServerResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponses.swift; sourceTree = "<group>"; };
 		A1D36E4B274E35D20052043A /* ParseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseUtils.swift; sourceTree = "<group>"; };
+		A1D4B9812795C529003648FF /* loading-gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading-gif.gif"; sourceTree = "<group>"; };
+		A1D4B9832795C5B7003648FF /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		A1F92C192634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteTaskCoreDataWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +163,7 @@
 				A166EEFB2606432300DFF377 /* Resources */,
 				A166EEE526063D0C00DFF377 /* AppDelegate.swift */,
 				A166EEE726063D0C00DFF377 /* SceneDelegate.swift */,
+				A1D4B9812795C529003648FF /* loading-gif.gif */,
 				A166EEEE26063D0C00DFF377 /* Assets.xcassets */,
 				A166EEF326063D0C00DFF377 /* Info.plist */,
 				A19CD2952627557E00733622 /* VeloToDataModel.xcdatamodeld */,
@@ -215,6 +220,7 @@
 				A16E64992607C8F0004A8E8B /* ActionCardDetailsViewController.swift */,
 				A1103ED12610E05500C6F51A /* ActionCardsRootViewController.swift */,
 				A155E26D2612E99C00CEE968 /* UnauthenticationAlertController.swift */,
+				A1D4B9832795C5B7003648FF /* LoadingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				A166EF132606434300DFF377 /* RobotoCondensed-Light.ttf in Resources */,
 				A166EEEF26063D0C00DFF377 /* Assets.xcassets in Resources */,
 				A166EF1C2606434300DFF377 /* Roboto-BoldItalic.ttf in Resources */,
+				A1D4B9822795C529003648FF /* loading-gif.gif in Resources */,
 				A166EF212606434300DFF377 /* Roboto-Thin.ttf in Resources */,
 				A166EF1D2606434300DFF377 /* Roboto-LightItalic.ttf in Resources */,
 				A19CD258262343DB00733622 /* LICENSE in Resources */,
@@ -394,6 +401,7 @@
 				A166EF2626064C2C00DFF377 /* AuthenticationViewController.swift in Sources */,
 				A1103ED22610E05500C6F51A /* ActionCardsRootViewController.swift in Sources */,
 				A166EEE826063D0C00DFF377 /* SceneDelegate.swift in Sources */,
+				A1D4B9842795C5B7003648FF /* LoadingViewController.swift in Sources */,
 				A19CD2972627557E00733622 /* VeloToDataModel.xcdatamodeld in Sources */,
 				A16E649A2607C8F0004A8E8B /* ActionCardDetailsViewController.swift in Sources */,
 				A166EF312606950100DFF377 /* SettingsViewController.swift in Sources */,

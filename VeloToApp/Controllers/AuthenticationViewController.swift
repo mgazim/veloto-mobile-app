@@ -37,30 +37,7 @@ class AuthenticationViewController: UIViewController {
     // TODO: Think of the User flow here
     @IBAction func loginButtonTapped(_ sender: Any) {
         print("Login button tapped")
-        StravaClient.client.authorize(resultHandler: { (result) in
-            switch result {
-                case .success(let token):
-                    print("Authenticated successfully")
-                    let serverRequest = CreateUserRequest.of(token)
-                    print("CreateUserRequest: \(serverRequest)")
-                    ServerClient.shared.createUser(serverRequest) { (result) in
-                        switch result {
-                            case .success(let athlete):
-                                print(athlete)
-                                AthleteCoreDataWrapper.persistNew(from: athlete, with: token.athlete.id)
-                                AthleteTaskCoreDataWrapper.persistAll(of: athlete.tasks)
-                                self.performSegue(withIdentifier: "toActionCards", sender: self)
-                            case .failure(let error):
-                                print(error)
-                                self.showError(title: "Authentication failed", message: error.localizedDescription)
-                        }
-                    }
-                case .failure(let error):
-                    // todo: change to proper message
-                    print("Authentication error: \(error.localizedDescription)")
-                    self.showError(title: "Authentication failed", message: error.localizedDescription)
-            }
-        })
+        performSegue(withIdentifier: "toLoadingView", sender: self)
     }
 
 }
