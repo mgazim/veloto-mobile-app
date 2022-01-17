@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A1103ED22610E05500C6F51A /* ActionCardsRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1103ED12610E05500C6F51A /* ActionCardsRootViewController.swift */; };
+		A11212D127956B9100EDA006 /* MasterModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11212D027956B9100EDA006 /* MasterModalViewController.swift */; };
 		A11D75C02744C6E3004D87A8 /* ServerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D75BF2744C6E2004D87A8 /* ServerClient.swift */; };
 		A11D75C22744C70D004D87A8 /* ServerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D75C12744C70D004D87A8 /* ServerRequests.swift */; };
 		A11D75C42744CB63004D87A8 /* ServerConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A11D75C32744CB63004D87A8 /* ServerConfig.plist */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		A1103ED12610E05500C6F51A /* ActionCardsRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCardsRootViewController.swift; sourceTree = "<group>"; };
+		A11212D027956B9100EDA006 /* MasterModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterModalViewController.swift; sourceTree = "<group>"; };
 		A11D75BF2744C6E2004D87A8 /* ServerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerClient.swift; sourceTree = "<group>"; };
 		A11D75C12744C70D004D87A8 /* ServerRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRequests.swift; sourceTree = "<group>"; };
 		A11D75C32744CB63004D87A8 /* ServerConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServerConfig.plist; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		A166EF2826064C3200DFF377 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A11212D027956B9100EDA006 /* MasterModalViewController.swift */,
 				A166EF2526064C2C00DFF377 /* AuthenticationViewController.swift */,
 				A166EF2A26064E5600DFF377 /* ActionCardsTableViewController.swift */,
 				A166EF2D2606565400DFF377 /* ActionCardTableViewCell.swift */,
@@ -376,6 +379,7 @@
 				A19CD255262343A500733622 /* StravaClient.swift in Sources */,
 				A19CD28426274C8C00733622 /* CoreDataHelper.swift in Sources */,
 				A15A716A274B650100032F51 /* ServerRouter.swift in Sources */,
+				A11212D127956B9100EDA006 /* MasterModalViewController.swift in Sources */,
 				A1F92C1A2634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift in Sources */,
 				A19C23A5262EA40300895039 /* CoreDataWrapper.swift in Sources */,
 				A1D36E4C274E35D20052043A /* ParseUtils.swift in Sources */,

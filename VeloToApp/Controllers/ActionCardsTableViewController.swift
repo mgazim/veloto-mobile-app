@@ -45,7 +45,7 @@ class ActionCardsTableViewController: UITableViewController {
                 switch result {
                     case .success(_):
                         AthleteTaskCoreDataWrapper.cleanRemain(toZeroOut)
-                        tableView.reloadData()
+                        self.updateTableRows()
                     case .failure(let error):
                         print("Error removing: \(error.localizedDescription)")
                 }
@@ -97,6 +97,9 @@ class ActionCardsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if var controller = segue.destination as? ModalViewController {
+            controller.masterDelegate = self
+        }
         guard let identifier = segue.identifier else {
             return
         }
@@ -127,4 +130,15 @@ class ActionCardsTableViewController: UITableViewController {
         }
     }
     
+    fileprivate func updateTableRows() {
+        self.actionCards = self.getActionCardsForCurrentAthlete()
+        UIView.transition(with: tableView, duration: 0.25, options: .transitionCrossDissolve, animations: { self.tableView.reloadData() }, completion: nil)
+    }
+    
+}
+
+extension ActionCardsTableViewController: ModalViewControllerDelegate {
+    func updateInModalViewController(_ sender: ModalViewController) {
+        updateTableRows()
+    }
 }

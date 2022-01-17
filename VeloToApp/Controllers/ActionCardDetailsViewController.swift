@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ActionCardDetailsViewController: UIViewController {
+class ActionCardDetailsViewController: UIViewController, ModalViewController {
+    
+    var masterDelegate: ModalViewControllerDelegate?
     
     @IBOutlet weak var actionCardName: UITextField!
     
@@ -47,7 +49,9 @@ class ActionCardDetailsViewController: UIViewController {
                         case .success(let response):
                             let id = response.id
                             print("Created new task with id \(id)")
-                            AthleteTaskCoreDataWrapper.persistNew(id: id, name: name, every: meters, remain: meters, comment: comment)
+                            // TODO: Ask server to return whole object on create
+                            AthleteTaskCoreDataWrapper.persistNew(id: id, name: name, every: meters, remain: 0, comment: comment)
+                            self.masterDelegate?.updateInModalViewController(self)
                         case .failure(let error):
                             // TODO: Show alert!
                             print("Error saving task: \(error)")
@@ -66,8 +70,8 @@ class ActionCardDetailsViewController: UIViewController {
                             // TODO: Cover case when remain > every after update
                             self.athleteTask?.every = every
                             self.athleteTask?.comment = comment
-                            // TODO: Make auto-updatable
                             CoreDataHelper.save()
+                            self.masterDelegate?.updateInModalViewController(self)
                         case .failure(let error):
                             print("Error: \(error.localizedDescription)")
                     }
