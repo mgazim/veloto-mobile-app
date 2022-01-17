@@ -445,11 +445,11 @@ STRAVA</string>
             <objects>
                 <viewController id="mV4-NW-OpT" customClass="ActionCardDetailsViewController" customModule="VeloToApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MI2-bm-woa">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="471"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-SA-xye">
-                                <rect key="frame" x="0.0" y="500" width="390" height="290"/>
+                                <rect key="frame" x="0.0" y="181" width="390" height="290"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AH-V1-P92">
                                         <rect key="frame" x="345" y="15" width="30" height="30"/>
@@ -598,7 +598,7 @@ STRAVA</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="4xd-EC-635">
-                                            <rect key="frame" x="20" y="11" width="316.66666666666669" height="43"/>
+                                            <rect key="frame" x="20" y="11" width="317" height="43"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action Card Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udU-TJ-lpL">
                                                     <rect key="frame" x="0.0" y="0.0" width="146.33333333333334" height="21"/>
@@ -617,8 +617,8 @@ STRAVA</string>
                                                 <constraint firstItem="fR3-7h-m9a" firstAttribute="height" secondItem="udU-TJ-lpL" secondAttribute="height" id="Xey-N5-gmc"/>
                                             </constraints>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="км" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILT-bE-XuU">
-                                            <rect key="frame" x="346.66666666666669" y="16" width="23.333333333333314" height="33"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ТО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILT-bE-XuU">
+                                            <rect key="frame" x="347" y="16" width="23" height="33"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -656,7 +656,7 @@ STRAVA</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZMa-AD-NYf"/>
+        <segue reference="Kfi-0S-CXn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
