@@ -30,15 +30,13 @@ extension Router: URLRequestConvertible {
             switch self {
                 case .token, .refresh, .deauthorize:
                     return StravaConfigurationProvider.config.authUrl()!
-                default:
-                    return StravaConfigurationProvider.config.apiUrl()!
             }
         }
         
         var urlRequest = URLRequest(url: base.appendingPathComponent(config.path))
         urlRequest.httpMethod = config.method.rawValue
         
-        var setToken: Bool {
+        /*var setToken: Bool {
             switch self {
                 case .token, .refresh, .deauthorize: return false
                 default: return true
@@ -47,7 +45,7 @@ extension Router: URLRequestConvertible {
 
         if setToken, let token = Authentication.token {
             urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
+        }*/
         
         if let params = config.params, params.count > 0 {
             switch config.method {

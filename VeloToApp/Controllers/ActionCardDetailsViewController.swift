@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ActionCardDetailsViewController: UIViewController {
+class ActionCardDetailsViewController: UIViewController, ModalViewController {
+    
+    var masterDelegate: ModalViewControllerDelegate?
     
     @IBOutlet weak var actionCardName: UITextField!
     
@@ -15,16 +17,15 @@ class ActionCardDetailsViewController: UIViewController {
     
     @IBOutlet weak var commentTextField: UITextField!
 
-    var actionCard: ActionCard?
+    var athleteTask: AthleteTask?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.modalPresentationStyle = .popover
         commentTextField.delegate = self
-        
-        if let actionCard = actionCard {
+        if let actionCard = athleteTask {
             actionCardName.text = actionCard.name
-            checkValueField.text = actionCard.checkValue
+            checkValueField.text = String(actionCard.every / 1000)
             commentTextField.text = actionCard.comment
         } else {
             actionCardName.text = ""
@@ -35,21 +36,46 @@ class ActionCardDetailsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
+        let athlete = AthleteCoreDataWrapper.get()!
         switch identifier {
-            case "save" where actionCard == nil:
+            case "save" where athleteTask == nil:
                 print("Save new button tapped")
-                let newActionCard = ActionCardsCoreDataWrapper.new()
-                newActionCard.name = actionCardName.text ?? ""
-                newActionCard.checkValue = checkValueField.text ?? "0"
-                newActionCard.comment = commentTextField.text ?? ""
-                newActionCard.athlete = Authentication.athlete()
-                CoreDataHelper.save()
-            case "save" where actionCard != nil:
-                print("Editing existing action card")
-                actionCard?.name = actionCardName.text ?? ""
-                actionCard?.checkValue = checkValueField.text ?? "0"
-                actionCard?.comment = commentTextField.text ?? ""
-                CoreDataHelper.save()
+                let name = actionCardName.text ?? ""
+                let comment = commentTextField.text ?? ""
+                let meters = ParseUtils.toInt64(checkValueField.text) * 1000
+                let payload = CreateTaskRequest(name: name, every: meters, comment: comment)
+                ServerClient.shared.createTaskOfUser(userId: athlete.id, body: payload) { (result) in
+                    switch result {
+                        case .success(let response):
+                            let id = response.id
+                            print("Created new task with id \(id)")
+                            // TODO: Ask server to return whole object on create
+                            AthleteTaskCoreDataWrapper.persistNew(id: id, name: name, every: meters, remain: 0, comment: comment)
+                            self.masterDelegate?.updateInModalViewController(self)
+                        case .failure(let error):
+                            // TODO: Show alert!
+                            print("Error saving task: \(error)")
+                    }
+                }
+            case "save" where athleteTask != nil:
+                print("Editing existing athlete task")
+                let name = actionCardName.text ?? ""
+                let every = ParseUtils.toInt64(checkValueField.text) * 1000
+                let comment = commentTextField.text ?? ""
+                let request = CreateTaskRequest(name: name, every: every, comment: comment)
+                ServerClient.shared.updateTaskOfUser(userId: athlete.id, taskId: athleteTask!.id, body: request) { (result) in
+                    switch result {
+                        case .success(_):
+                            self.athleteTask?.name = name
+                            // TODO: Cover case when remain > every after update
+                            self.athleteTask?.every = every
+                            self.athleteTask?.comment = comment
+                            CoreDataHelper.save()
+                            self.masterDelegate?.updateInModalViewController(self)
+                        case .failure(let error):
+                            print("Error: \(error.localizedDescription)")
+                    }
+                }
             case "close":
                 print("Close button tapped")
             default:

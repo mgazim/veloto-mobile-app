@@ -8,18 +8,23 @@
 import UIKit
 
 class ActionCardsRootViewController: UIViewController {
-    
-    func segueToNext(identifier: String) {
-        self.performSegue(withIdentifier: identifier, sender: self)
-    }
- 
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {
             return
         }
-        if identifier == "embedActionCardsTable" {
-            print("embedActionCardsTable in action!")
+        switch identifier {
+            case "addActionCard":
+                print("In add action")
+                if var controller = segue.destination as? ModalViewController {
+                    let tableViewController = self.children.first(where: { $0 is ActionCardsTableViewController }) as! ModalViewControllerDelegate
+                    controller.masterDelegate = tableViewController
+                }
+            case "embedActionCardsTable":
+                print("embedActionCardsTable in action!")
+            default:
+                print("Unknown identifier")
         }
     }
-    
+
 }

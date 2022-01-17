@@ -11,11 +11,11 @@ class ActionCardsTableViewController: UITableViewController {
     
     var selectedRow: Int?
     
-    var actionCards = [ActionCard]()
+    var actionCards = [AthleteTask]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // TODO: Add activity indicator here
         self.actionCards = self.getActionCardsForCurrentAthlete()
         // Disabling selection for cells
         let view = self.view as! UITableView
@@ -39,6 +39,17 @@ class ActionCardsTableViewController: UITableViewController {
         
         let zeroOutAction = UIContextualAction(style: .normal, title: "Обнулить") { (action, view, completionHandler) in
             print("Zero out clicked")
+            let toZeroOut = self.actionCards[indexPath.row]
+            let athlete = AthleteCoreDataWrapper.get()!
+            ServerClient.shared.cleanRemainForTask(userId: athlete.id, taskId: toZeroOut.id) { (result) in
+                switch result {
+                    case .success(_):
+                        AthleteTaskCoreDataWrapper.cleanRemain(toZeroOut)
+                        self.updateTableRows()
+                    case .failure(let error):
+                        print("Error removing: \(error.localizedDescription)")
+                }
+            }
             completionHandler(true)
         }
         zeroOutAction.image = UIImage(systemName: "checkmark")
@@ -50,9 +61,17 @@ class ActionCardsTableViewController: UITableViewController {
         let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { (action, view, completionHandler) in
             print("Delete clicked")
             let toRemove = self.actionCards[indexPath.row]
-            ActionCardsCoreDataWrapper.delete(entity: toRemove)
-            self.actionCards = self.getActionCardsForCurrentAthlete()
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            let athlete = AthleteCoreDataWrapper.get()!
+            ServerClient.shared.deleteTaskOfUser(userId: athlete.id, taskId: toRemove.id) { (result) in
+                switch result {
+                    case .success(_):
+                        AthleteTaskCoreDataWrapper.deleteById(toRemove.id)
+                        self.actionCards = self.getActionCardsForCurrentAthlete()
+                        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    case .failure(let error):
+                        print("Error removing: \(error.localizedDescription)")
+                }
+            }
             completionHandler(true)
         }
         deleteAction.image = UIImage(systemName: "trash")
@@ -66,16 +85,21 @@ class ActionCardsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionCardCell", for: indexPath) as! ActionCardTableViewCell
-        
         let actionCard = actionCards[indexPath.row]
         cell.actionNameLabel.text = actionCard.name
         cell.commentLabel.text = actionCard.comment
+        // On server side we store the amount of km to pass to trigger card activation.
+        // Thus need to display the difference between total and "remain"
+        let kmRemain = (actionCard.every - actionCard.remain) / 1000
         // todo : get rid of Russian!
-        cell.kmLabel.text = "\(actionCard.checkValue ?? "unknown") км"
+        cell.kmLabel.text = "\(kmRemain) км"
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if var controller = segue.destination as? ModalViewController {
+            controller.masterDelegate = self
+        }
         guard let identifier = segue.identifier else {
             return
         }
@@ -88,7 +112,7 @@ class ActionCardsTableViewController: UITableViewController {
                 }
                 let actionCard = actionCards[index]
                 let destination = segue.destination as! ActionCardDetailsViewController
-                destination.actionCard = actionCard
+                destination.athleteTask = actionCard
             case "addActionCard":
                 print("Create action card button tapped")
             default:
@@ -96,13 +120,25 @@ class ActionCardsTableViewController: UITableViewController {
         }
     }
     
-    private func getActionCardsForCurrentAthlete() -> [ActionCard] {
-        if let currentAthlete = Authentication.athlete() {
-            return ActionCardsCoreDataWrapper.retrieveAllForAthleteID(id: currentAthlete.id) ?? []
+    private func getActionCardsForCurrentAthlete() -> [AthleteTask] {
+        if AthleteCoreDataWrapper.get() != nil {
+            return AthleteTaskCoreDataWrapper.retrieveAll() ?? []
         } else {
-            print("Error: No authenticated athlete to get cards for")
+            // TODO: Unwind to authentication page
+            print("Error: No authenticated athlete")
             return []
         }
     }
     
+    fileprivate func updateTableRows() {
+        self.actionCards = self.getActionCardsForCurrentAthlete()
+        UIView.transition(with: tableView, duration: 0.25, options: .transitionCrossDissolve, animations: { self.tableView.reloadData() }, completion: nil)
+    }
+    
+}
+
+extension ActionCardsTableViewController: ModalViewControllerDelegate {
+    func updateInModalViewController(_ sender: ModalViewController) {
+        updateTableRows()
+    }
 }

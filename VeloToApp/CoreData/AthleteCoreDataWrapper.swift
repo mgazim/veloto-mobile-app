@@ -13,6 +13,14 @@ struct AthleteCoreDataWrapper: CoreDataWrapper {
     
     static let entityName = "Athlete"
     
+    static func persistNew(from response: CreateUserResponse, with stravaId: Int64) {
+        let entity = AthleteCoreDataWrapper.new()
+        entity.id = response.userId
+        entity.stravaId = stravaId
+        entity.overallDistance = response.mileage
+        CoreDataHelper.save()
+    }
+    
     static func new() -> Athlete {
         return CoreDataHelper.new(entityName: entityName)
     }
@@ -23,6 +31,19 @@ struct AthleteCoreDataWrapper: CoreDataWrapper {
     
     static func deleteAll() {
         CoreDataHelper.deleteAll(of: entityName)
+    }
+    
+    static func get() -> Athlete? {
+        if let athletes = retrieveAll() {
+            if athletes.count > 1 {
+                print("Something went wrong so we have two athlets, re-authenticate")
+                deleteAll()
+                return nil
+            } else {
+                return athletes.first
+            }
+        }
+        return nil
     }
     
     static func find(by uniqueField: Any) -> Athlete? {
