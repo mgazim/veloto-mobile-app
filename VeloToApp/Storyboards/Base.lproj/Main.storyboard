@@ -432,6 +432,7 @@ STRAVA</string>
                     </view>
                     <navigationItem key="navigationItem" id="mt2-Y8-IBc"/>
                     <connections>
+                        <outlet property="distanceLabel" destination="d69-Mi-Bja" id="LMb-Un-ymq"/>
                         <segue destination="mV4-NW-OpT" kind="showDetail" identifier="displayActionCardDetailsRoot" id="ZMa-AD-NYf"/>
                     </connections>
                 </viewController>
@@ -445,11 +446,11 @@ STRAVA</string>
             <objects>
                 <viewController id="mV4-NW-OpT" customClass="ActionCardDetailsViewController" customModule="VeloToApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MI2-bm-woa">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="471"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-SA-xye">
-                                <rect key="frame" x="0.0" y="181" width="390" height="290"/>
+                                <rect key="frame" x="0.0" y="500" width="390" height="290"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AH-V1-P92">
                                         <rect key="frame" x="345" y="15" width="30" height="30"/>
@@ -656,7 +657,7 @@ STRAVA</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Kfi-0S-CXn"/>
+        <segue reference="NHv-lk-duh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
