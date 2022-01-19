@@ -73,7 +73,7 @@
 		A11D75C52744CBB2004D87A8 /* ServerConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfigurationProvider.swift; sourceTree = "<group>"; };
 		A155E26D2612E99C00CEE968 /* UnauthenticationAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticationAlertController.swift; sourceTree = "<group>"; };
 		A15A7169274B650100032F51 /* ServerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRouter.swift; sourceTree = "<group>"; };
-		A166EEE226063D0C00DFF377 /* VeloToApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeloToApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A166EEE226063D0C00DFF377 /* Veloto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veloto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A166EEE526063D0C00DFF377 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A166EEE726063D0C00DFF377 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A166EEEC26063D0C00DFF377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		A166EEE326063D0C00DFF377 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A166EEE226063D0C00DFF377 /* VeloToApp.app */,
+				A166EEE226063D0C00DFF377 /* Veloto.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,9 +280,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A166EEE126063D0C00DFF377 /* VeloToApp */ = {
+		A166EEE126063D0C00DFF377 /* Veloto */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A166EEF626063D0C00DFF377 /* Build configuration list for PBXNativeTarget "VeloToApp" */;
+			buildConfigurationList = A166EEF626063D0C00DFF377 /* Build configuration list for PBXNativeTarget "Veloto" */;
 			buildPhases = (
 				A166EEDE26063D0C00DFF377 /* Sources */,
 				A166EEDF26063D0C00DFF377 /* Frameworks */,
@@ -292,13 +292,13 @@
 			);
 			dependencies = (
 			);
-			name = VeloToApp;
+			name = Veloto;
 			packageProductDependencies = (
 				A19CD26A262362F100733622 /* Alamofire */,
 				A19CD2792626B1D300733622 /* SwiftyJSON */,
 			);
 			productName = VeloToApp;
-			productReference = A166EEE226063D0C00DFF377 /* VeloToApp.app */;
+			productReference = A166EEE226063D0C00DFF377 /* Veloto.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -315,7 +315,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A166EEDD26063D0B00DFF377 /* Build configuration list for PBXProject "VeloToApp" */;
+			buildConfigurationList = A166EEDD26063D0B00DFF377 /* Build configuration list for PBXProject "Veloto" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -332,7 +332,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A166EEE126063D0C00DFF377 /* VeloToApp */,
+				A166EEE126063D0C00DFF377 /* Veloto */,
 			);
 		};
 /* End PBXProject section */
@@ -559,7 +559,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.veloto.VeloToApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "veloto-application";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -579,7 +579,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.veloto.VeloToApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "veloto-application";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -589,7 +589,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A166EEDD26063D0B00DFF377 /* Build configuration list for PBXProject "VeloToApp" */ = {
+		A166EEDD26063D0B00DFF377 /* Build configuration list for PBXProject "Veloto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A166EEF426063D0C00DFF377 /* Debug */,
@@ -598,7 +598,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A166EEF626063D0C00DFF377 /* Build configuration list for PBXNativeTarget "VeloToApp" */ = {
+		A166EEF626063D0C00DFF377 /* Build configuration list for PBXNativeTarget "Veloto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A166EEF726063D0C00DFF377 /* Debug */,
