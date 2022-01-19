@@ -21,7 +21,14 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: .keyboardWillShow, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
+        NotificationCenter.default.addObserver(self, selector: .keyboardWillHide, name: UIResponder.keyboardWillHideNotification, object: self.view.window)
+        
         self.modalPresentationStyle = .popover
+        actionCardName.delegate = self
+        checkValueField.delegate = self
+        checkValueField.addDoneCancelToolbar(onDone: (target: self, action: .tapDone))
         commentTextField.delegate = self
         if let actionCard = athleteTask {
             actionCardName.text = actionCard.name
@@ -32,6 +39,11 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
             checkValueField.text = ""
             commentTextField.text = ""
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: self.view.window)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,11 +94,59 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
                 print("Unexpected segue identifier \(identifier)")
         }
     }
+
+    @objc fileprivate func keyboardWillShow(notification: NSNotification) {
+        let userInfo: [AnyHashable : Any] = notification.userInfo!
+        if let keyboardSize = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
     
+    @objc fileprivate func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    @objc fileprivate func checkValueFieldDoneButtonTapped() {
+        checkValueField.resignFirstResponder()
+    }
+
+}
+
+private extension UITextField {
+    func addDoneCancelToolbar(onDone: (target: Any, action: Selector)? = nil) {
+        let onDone = onDone ?? (target: self, action: .doneButtonTapped)
+        let toolbar: UIToolbar = UIToolbar()
+        toolbar.barStyle = .default
+        toolbar.items = [
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
+            // TODO: Fix Russian
+            UIBarButtonItem(title: "Готово", style: .done, target: onDone.target, action: onDone.action)
+        ]
+        toolbar.sizeToFit()
+        self.inputAccessoryView = toolbar
+    }
+}
+
+private extension Selector {
+    static let tapDone = #selector(ActionCardDetailsViewController.checkValueFieldDoneButtonTapped)
+    static let doneButtonTapped = #selector(ActionCardDetailsViewController.checkValueFieldDoneButtonTapped)
+    static let keyboardWillShow = #selector(ActionCardDetailsViewController.keyboardWillShow(notification:))
+    static let keyboardWillHide = #selector(ActionCardDetailsViewController.keyboardWillHide(notification:))
 }
 
 extension ActionCardDetailsViewController: UITextFieldDelegate {
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+// TODO: investigate and add limits
+class TextLimitDelegate: NSObject, UITextViewDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return self.textLimit(existingText: textField.text, newText: string, limit: 35)
     }
@@ -96,5 +156,4 @@ extension ActionCardDetailsViewController: UITextFieldDelegate {
         let isAtLimit = text.count + newText.count <= limit
         return isAtLimit
     }
-    
 }
