@@ -17,18 +17,18 @@ class ActionCardsTableViewController: UITableViewController {
         super.viewDidLoad()
         // TODO: Add activity indicator here
         self.actionCards = self.getActionCardsForCurrentAthlete()
+        actionCards.sort(by: { ($0.every - $0.remain) < ($1.every - $1.remain) })
         // Disabling selection for cells
         let view = self.view as! UITableView
         view.allowsSelection = false
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
-        self.actionCards = self.getActionCardsForCurrentAthlete()
-        tableView.reloadData()
+        updateTableRows()
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let editAction = UIContextualAction(style: .normal, title: "Настроить") { (action, view, completionHandler) in
+        let editAction = UIContextualAction(style: .normal, title: "") { (action, view, completionHandler) in
             print("Edit clicked")
             self.selectedRow = indexPath.row
             self.performSegue(withIdentifier: "edit", sender: action)
@@ -37,7 +37,7 @@ class ActionCardsTableViewController: UITableViewController {
         editAction.image = UIImage(systemName: "gear")
         editAction.backgroundColor = UIColor(red: 0.965, green: 0.557, blue: 0.322, alpha: 1)
         
-        let zeroOutAction = UIContextualAction(style: .normal, title: "Обнулить") { (action, view, completionHandler) in
+        let zeroOutAction = UIContextualAction(style: .normal, title: "") { (action, view, completionHandler) in
             print("Zero out clicked")
             let toZeroOut = self.actionCards[indexPath.row]
             let athlete = AthleteCoreDataWrapper.get()!
@@ -58,7 +58,7 @@ class ActionCardsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { (action, view, completionHandler) in
+        let deleteAction = UIContextualAction(style: .destructive, title: "") { (action, view, completionHandler) in
             print("Delete clicked")
             let toRemove = self.actionCards[indexPath.row]
             let athlete = AthleteCoreDataWrapper.get()!
@@ -91,8 +91,13 @@ class ActionCardsTableViewController: UITableViewController {
         // On server side we store the amount of km to pass to trigger card activation.
         // Thus need to display the difference between total and "remain"
         let kmRemain = (actionCard.every - actionCard.remain) / 1000
-        // todo : get rid of Russian!
-        cell.kmLabel.text = "\(kmRemain) км"
+        if kmRemain > 0 {
+            cell.kmLabel.text = "\(kmRemain)"
+            cell.kmLabel.textColor = .black
+        } else {
+            cell.kmLabel.text = "ТО"
+            cell.kmLabel.textColor = .systemRed
+        }
         return cell
     }
     
@@ -131,7 +136,8 @@ class ActionCardsTableViewController: UITableViewController {
     }
     
     fileprivate func updateTableRows() {
-        self.actionCards = self.getActionCardsForCurrentAthlete()
+        actionCards = self.getActionCardsForCurrentAthlete()
+        actionCards.sort(by: { ($0.every - $0.remain) < ($1.every - $1.remain) })
         UIView.transition(with: tableView, duration: 0.25, options: .transitionCrossDissolve, animations: { self.tableView.reloadData() }, completion: nil)
     }
     
