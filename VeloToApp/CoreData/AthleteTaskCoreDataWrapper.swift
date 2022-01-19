@@ -19,7 +19,7 @@ struct AthleteTaskCoreDataWrapper: CoreDataWrapper {
         entity.name = response.name
         entity.comment = response.comment
         entity.every = response.every
-        entity.remain = entity.remain
+        entity.remain = response.remain
         CoreDataHelper.save()
     }
     
