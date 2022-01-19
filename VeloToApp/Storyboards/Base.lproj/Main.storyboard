@@ -85,7 +85,7 @@ STRAVA</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВЕЛО ТО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8f-Ok-aad">
-                                <rect key="frame" x="20" y="70" width="175" height="47"/>
+                                <rect key="frame" x="20" y="70" width="164.66666666666666" height="47"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="40"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -100,7 +100,7 @@ STRAVA</string>
                                     <segue destination="C3K-8I-2bt" kind="unwind" unwindAction="unwindWithSegue:" id="GXp-Xc-2Qm"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YE-EC-MDS" userLabel="NotificationsView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YE-EC-MDS" userLabel="NotificationsView">
                                 <rect key="frame" x="20" y="137" width="350" height="310"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="УВЕДОМЛЕНИЯ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIV-UU-AU1">
@@ -116,7 +116,7 @@ STRAVA</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9r-WV-gy2">
-                                        <rect key="frame" x="0.0" y="71.666666666666657" width="56.333333333333336" height="21"/>
+                                        <rect key="frame" x="0.0" y="71.666666666666657" width="54" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -137,13 +137,13 @@ STRAVA</string>
                                         <rect key="frame" x="301" y="107.66666666666666" width="51" height="31"/>
                                     </switch>
                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите адрес" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vjc-vV-Emk">
-                                        <rect key="frame" x="61.333333333333329" y="70.666666666666657" width="234.66666666666669" height="23"/>
+                                        <rect key="frame" x="59" y="70.666666666666657" width="237" height="23"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDM-HU-LXU">
-                                        <rect key="frame" x="0.0" y="133.66666666666669" width="226.33333333333334" height="23.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="133.66666666666669" width="227.33333333333334" height="23.666666666666657"/>
                                         <string key="text">Дополнительные уведомления будут приходить
 незадолго до необходимости обслуживания</string>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
@@ -186,7 +186,7 @@ STRAVA</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMq-X3-wp7">
-                                        <rect key="frame" x="0.0" y="0.0" width="186" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="183" height="36"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                         <state key="normal" title="ВЫЙТИ ИЗ STRAVA">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -244,7 +244,7 @@ STRAVA</string>
                                 <rect key="frame" x="0.0" y="510" width="390" height="280"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВЫЙТИ ИЗ STRAVA?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLv-o4-CFl">
-                                        <rect key="frame" x="30" y="30" width="216" height="26"/>
+                                        <rect key="frame" x="30.000000000000014" y="30" width="211.33333333333337" height="26"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="22"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -292,7 +292,7 @@ STRAVA</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbu-RS-iiw">
-                                        <rect key="frame" x="30" y="71" width="330" height="56"/>
+                                        <rect key="frame" x="30" y="71" width="330" height="56.333333333333343"/>
                                         <string key="text">Через STRAVA приложение отслеживает пробег вашего велосипеда и напоминает 
 о техническом обслуживании.</string>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
@@ -300,7 +300,7 @@ STRAVA</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhC-F9-DF6">
-                                        <rect key="frame" x="30" y="142" width="330" height="42"/>
+                                        <rect key="frame" x="30" y="142.33333333333337" width="330" height="42.333333333333343"/>
                                         <string key="text">Без связи с аккаунтом приложение
 не сможет работать</string>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
@@ -359,13 +359,13 @@ STRAVA</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВЕЛО ТО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6p-xZ-0eT">
-                                <rect key="frame" x="20" y="70" width="175" height="47"/>
+                                <rect key="frame" x="20" y="70" width="164.66666666666666" height="47"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="40"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5S-lK-03c">
-                                <rect key="frame" x="300" y="167" width="75" height="28"/>
+                                <rect key="frame" x="301" y="167" width="74" height="28.333333333333343"/>
                                 <string key="text">Км, осталось
 до замены</string>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
@@ -389,7 +389,7 @@ STRAVA</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zc-IB-60R">
-                                <rect key="frame" x="0.0" y="207.66666666666669" width="390" height="515.33333333333326"/>
+                                <rect key="frame" x="0.0" y="208" width="390" height="515"/>
                                 <connections>
                                     <segue destination="17B-CT-MP6" kind="embed" identifier="embedActionCardsTable" id="7Lj-ri-yrn"/>
                                 </connections>
@@ -472,7 +472,7 @@ STRAVA</string>
                                         </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="километров" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abx-Zd-ISf">
                                         <rect key="frame" x="130" y="107" width="114.33333333333331" height="24"/>
