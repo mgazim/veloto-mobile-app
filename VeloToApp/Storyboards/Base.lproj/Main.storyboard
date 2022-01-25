@@ -85,7 +85,7 @@ STRAVA</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВЕЛО ТО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8f-Ok-aad">
-                                <rect key="frame" x="20" y="70" width="164.66666666666666" height="47"/>
+                                <rect key="frame" x="20" y="70" width="175" height="47"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="40"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -116,7 +116,7 @@ STRAVA</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9r-WV-gy2">
-                                        <rect key="frame" x="0.0" y="71.666666666666657" width="54" height="21"/>
+                                        <rect key="frame" x="0.0" y="71.666666666666657" width="56.333333333333336" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -137,13 +137,13 @@ STRAVA</string>
                                         <rect key="frame" x="301" y="107.66666666666666" width="51" height="31"/>
                                     </switch>
                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите адрес" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vjc-vV-Emk">
-                                        <rect key="frame" x="59" y="70.666666666666657" width="237" height="23"/>
+                                        <rect key="frame" x="61.333333333333329" y="70.666666666666657" width="234.66666666666669" height="23"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDM-HU-LXU">
-                                        <rect key="frame" x="0.0" y="133.66666666666669" width="227.33333333333334" height="23.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="133.66666666666669" width="226.33333333333334" height="23.333333333333343"/>
                                         <string key="text">Дополнительные уведомления будут приходить
 незадолго до необходимости обслуживания</string>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
@@ -186,7 +186,7 @@ STRAVA</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMq-X3-wp7">
-                                        <rect key="frame" x="0.0" y="0.0" width="183" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="186" height="36"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                         <state key="normal" title="ВЫЙТИ ИЗ STRAVA">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -447,11 +447,11 @@ STRAVA</string>
             <objects>
                 <viewController id="mV4-NW-OpT" customClass="ActionCardDetailsViewController" customModule="Veloto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MI2-bm-woa">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="461"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-SA-xye">
-                                <rect key="frame" x="0.0" y="171" width="390" height="290"/>
+                                <rect key="frame" x="0.0" y="500" width="390" height="290"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AH-V1-P92">
                                         <rect key="frame" x="345" y="15" width="30" height="30"/>
@@ -460,13 +460,13 @@ STRAVA</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="через каждые" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0au-BE-zVk">
-                                        <rect key="frame" x="30" y="70" width="330" height="21"/>
+                                        <rect key="frame" x="30" y="70.333333333333371" width="330" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Число" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KXN-Fn-wwm">
-                                        <rect key="frame" x="30" y="106" width="90" height="25"/>
+                                        <rect key="frame" x="30" y="106.33333333333337" width="90" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="su0-Ks-Bnd"/>
                                         </constraints>
@@ -475,7 +475,7 @@ STRAVA</string>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="километров" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abx-Zd-ISf">
-                                        <rect key="frame" x="130" y="107" width="114.33333333333331" height="24"/>
+                                        <rect key="frame" x="130" y="107.33333333333337" width="114.33333333333331" height="24"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -503,13 +503,13 @@ STRAVA</string>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя карточки" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZH-Qq-HPT">
-                                        <rect key="frame" x="30" y="30" width="285" height="25"/>
+                                        <rect key="frame" x="30" y="30" width="290" height="25.333333333333329"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Комментарий" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LTf-4L-wlE">
-                                        <rect key="frame" x="30" y="146" width="330" height="19.333333333333343"/>
+                                        <rect key="frame" x="30" y="146.33333333333337" width="330" height="19.333333333333343"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -528,6 +528,7 @@ STRAVA</string>
                                     <constraint firstItem="KXN-Fn-wwm" firstAttribute="leading" secondItem="YUj-SA-xye" secondAttribute="leading" constant="30" id="RzY-Rc-cnK"/>
                                     <constraint firstAttribute="trailing" secondItem="LTf-4L-wlE" secondAttribute="trailing" constant="30" id="Wiw-eX-Ils"/>
                                     <constraint firstItem="LTf-4L-wlE" firstAttribute="top" secondItem="KXN-Fn-wwm" secondAttribute="bottom" constant="15" id="Y6k-Kt-pHQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="NZH-Qq-HPT" secondAttribute="trailing" constant="70" id="ahy-jf-dEO"/>
                                     <constraint firstItem="NZH-Qq-HPT" firstAttribute="top" secondItem="YUj-SA-xye" secondAttribute="top" constant="30" id="bW0-iV-S12"/>
                                     <constraint firstItem="LTf-4L-wlE" firstAttribute="leading" secondItem="YUj-SA-xye" secondAttribute="leading" constant="30" id="cnC-8s-012"/>
                                     <constraint firstAttribute="width" constant="390" id="e2X-Ov-wO9"/>
@@ -535,7 +536,6 @@ STRAVA</string>
                                     <constraint firstItem="0au-BE-zVk" firstAttribute="leading" secondItem="YUj-SA-xye" secondAttribute="leading" constant="30" id="f2q-07-Ibj"/>
                                     <constraint firstItem="KXN-Fn-wwm" firstAttribute="top" secondItem="0au-BE-zVk" secondAttribute="bottom" constant="15" id="g2o-ff-Yyq"/>
                                     <constraint firstItem="0au-BE-zVk" firstAttribute="top" secondItem="NZH-Qq-HPT" secondAttribute="bottom" constant="15" id="n3I-8q-30O"/>
-                                    <constraint firstItem="9AH-V1-P92" firstAttribute="leading" secondItem="NZH-Qq-HPT" secondAttribute="trailing" constant="30" id="tWe-vC-tXI"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -691,7 +691,7 @@ STRAVA</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Kfi-0S-CXn"/>
+        <segue reference="ZMa-AD-NYf"/>
         <segue reference="wdX-Fa-g9c"/>
         <segue reference="5KX-yi-MdS"/>
     </inferredMetricsTieBreakers>
