@@ -7,11 +7,15 @@
 
 import Foundation
 import UIKit
+import Gifu
 
 class LoadingViewController: UIViewController {
     
+    @IBOutlet weak var loadingGifView: GIFImageView!
+    
     override func viewDidLoad() {
-        print("Authorizing...")
+        super.viewDidLoad()
+        loadingGifView.animate(withGIFNamed: "loading-gif.gif")
         StravaClient.client.authorize(resultHandler: { (result) in
             switch result {
                 case .success(let token):

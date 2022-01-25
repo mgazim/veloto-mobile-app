@@ -44,6 +44,7 @@
 		A166EF2E2606565400DFF377 /* ActionCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166EF2D2606565400DFF377 /* ActionCardTableViewCell.swift */; };
 		A166EF312606950100DFF377 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166EF302606950100DFF377 /* SettingsViewController.swift */; };
 		A16E649A2607C8F0004A8E8B /* ActionCardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16E64992607C8F0004A8E8B /* ActionCardDetailsViewController.swift */; };
+		A17F536127A05F1900CD9C03 /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = A17F536027A05F1900CD9C03 /* Gifu */; };
 		A19B231F2622452E00F1A017 /* PropertiesReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19B231E2622452E00F1A017 /* PropertiesReader.swift */; };
 		A19B23232622459000F1A017 /* StravaConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19B23222622459000F1A017 /* StravaConfigurationProvider.swift */; };
 		A19B232626224A7400F1A017 /* StravaConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A19B232526224A7400F1A017 /* StravaConfig.plist */; };
@@ -129,6 +130,7 @@
 			files = (
 				A19CD27A2626B1D300733622 /* SwiftyJSON in Frameworks */,
 				A19CD26B262362F100733622 /* Alamofire in Frameworks */,
+				A17F536127A05F1900CD9C03 /* Gifu in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +298,7 @@
 			packageProductDependencies = (
 				A19CD26A262362F100733622 /* Alamofire */,
 				A19CD2792626B1D300733622 /* SwiftyJSON */,
+				A17F536027A05F1900CD9C03 /* Gifu */,
 			);
 			productName = VeloToApp;
 			productReference = A166EEE226063D0C00DFF377 /* Veloto.app */;
@@ -327,6 +330,7 @@
 			packageReferences = (
 				A19CD269262362F100733622 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A19CD2782626B1D300733622 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				A17F535F27A05F1900CD9C03 /* XCRemoteSwiftPackageReference "Gifu" */,
 			);
 			productRefGroup = A166EEE326063D0C00DFF377 /* Products */;
 			projectDirPath = "";
@@ -610,6 +614,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A17F535F27A05F1900CD9C03 /* XCRemoteSwiftPackageReference "Gifu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kaishin/Gifu.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		A19CD269262362F100733622 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -629,6 +641,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A17F536027A05F1900CD9C03 /* Gifu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A17F535F27A05F1900CD9C03 /* XCRemoteSwiftPackageReference "Gifu" */;
+			productName = Gifu;
+		};
 		A19CD26A262362F100733622 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A19CD269262362F100733622 /* XCRemoteSwiftPackageReference "Alamofire" */;
