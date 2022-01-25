@@ -30,16 +30,14 @@ class LoadingViewController: UIViewController {
                                 AthleteTaskCoreDataWrapper.persistAll(of: athlete.tasks)
                                 self.performSegue(withIdentifier: "toActionCardsFromLoad", sender: self)
                             case .failure(let error):
-                                print(error)
-                                self.showError(title: "Authentication failed", message: error.localizedDescription)
-                                self.performSegue(withIdentifier: "toAuthenticationFromLoad", sender: self)
+                                print("Authentication error: \(error.localizedDescription)")
+                                self.performSegue(withIdentifier: "toAuthFromLoad", sender: self)
                         }
                     }
                 case .failure(let error):
                     // todo: change to proper message
                     print("Authentication error: \(error.localizedDescription)")
-                    self.showError(title: "Authentication failed", message: error.localizedDescription)
-                    self.performSegue(withIdentifier: "toAuthenticationFromLoad", sender: self)
+                    self.performSegue(withIdentifier: "toAuthFromLoad", sender: self)
             }
         })
     }

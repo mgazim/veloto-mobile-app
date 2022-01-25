@@ -13,6 +13,11 @@ class AuthenticationViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func unwindWithSegueToAuthentication(_ segue: UIStoryboardSegue) {
+        if let identifier = segue.identifier {
+            print("Identifier: \(identifier)")
+            // TODO: Show proper alert
+            //showError(title: "Authentication failure", message: "Please try again later")
+        }
     }
     
     override func viewDidLoad() {

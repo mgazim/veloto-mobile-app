@@ -8,7 +8,7 @@
 import UIKit
 
 class UnauthenticationAlertController: UIViewController {
-        
+
     @IBAction func logoutButtonTapped(_ sender: Any) {
         print("Logout tapped")
         //Authentication.deauthorize()
