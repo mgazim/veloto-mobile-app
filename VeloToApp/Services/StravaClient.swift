@@ -47,7 +47,7 @@ extension StravaClient: ASWebAuthenticationPresentationContextProviding {
         if UIApplication.shared.canOpenURL(appUrl) {
             print("Using Strava app")
             currentAuthorizationHandler = resultHandler
-            UIApplication.shared.open(appUrl, options: [:], completionHandler: nil)
+            UIApplication.shared.open(appUrl, options: [:])
         } else {
             print("Using ASWebAuthSession: \(webUrl)")
             authSession = ASWebAuthenticationSession(url: webUrl, callbackURLScheme: configuration.callbackScheme()) { (url, error) in
@@ -62,6 +62,15 @@ extension StravaClient: ASWebAuthenticationPresentationContextProviding {
             authSession?.presentationContextProvider = self
             authSession?.prefersEphemeralWebBrowserSession = true
             authSession?.start()
+        }
+    }
+    
+    public func handleAuthorizationRedirect(_ url: URL) {
+        self.handleAuthorizationRedirect(url) { result in
+            if let currentAuthorizationHandler = self.currentAuthorizationHandler {
+                currentAuthorizationHandler(result)
+                self.currentAuthorizationHandler = nil
+            }
         }
     }
     

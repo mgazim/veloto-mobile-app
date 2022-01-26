@@ -16,7 +16,7 @@ class ActionCardsRootViewController: UIViewController {
             // TODO: Get rid of Russian
             let overallDistance = athlete.overallDistance / 1000
             if overallDistance > 0 {
-                distanceLabel.text = "Пробег - \(overallDistance) км"
+                distanceLabel.text = "Пробег – \(overallDistance) км"
             } else {
                 distanceLabel.text = "Нет данных по пробегу"
             }

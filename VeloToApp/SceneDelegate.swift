@@ -27,6 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let urlContext = URLContexts.first {
             let url = urlContext.url
             print("Received deeplink with url: \(url)")
+            StravaClient.client.handleAuthorizationRedirect(url)
         }
     }
 
