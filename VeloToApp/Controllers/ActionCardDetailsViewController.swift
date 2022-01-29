@@ -65,8 +65,8 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
                             AthleteTaskCoreDataWrapper.persistNew(id: id, name: name, every: meters, remain: 0, comment: comment)
                             self.masterDelegate?.updateInModalViewController(self)
                         case .failure(let error):
-                            // TODO: Show alert!
                             print("Error saving task: \(error)")
+                            Banner.customError(details: Banner.unableToUpdataData, error: error)
                     }
                 }
             case "save" where athleteTask != nil:
@@ -86,6 +86,7 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
                             self.masterDelegate?.updateInModalViewController(self)
                         case .failure(let error):
                             print("Error: \(error.localizedDescription)")
+                            Banner.customError(details: Banner.unableToUpdataData, error: error)
                     }
                 }
             case "close":

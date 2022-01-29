@@ -28,24 +28,20 @@ class LoadingViewController: UIViewController {
                                 print(athlete)
                                 AthleteCoreDataWrapper.persistNew(from: athlete, with: token.athlete.id)
                                 AthleteTaskCoreDataWrapper.persistAll(of: athlete.tasks)
-                                self.performSegue(withIdentifier: "toActionCardsFromLoad", sender: self)
+                                self.performSegue(withIdentifier: SegueIdentifier.fromLoadingToActionCards, sender: self)
                             case .failure(let error):
                                 print("Authentication error: \(error.localizedDescription)")
-                                self.performSegue(withIdentifier: "toAuthFromLoad", sender: self)
+                                Banner.authenticationError(error)
+                                self.performSegue(withIdentifier: SegueIdentifier.fromLoadingToAuthentication, sender: self)
                         }
                     }
                 case .failure(let error):
                     // todo: change to proper message
                     print("Authentication error: \(error.localizedDescription)")
-                    self.performSegue(withIdentifier: "toAuthFromLoad", sender: self)
+                    Banner.authenticationError(error)
+                    self.performSegue(withIdentifier: SegueIdentifier.fromLoadingToAuthentication, sender: self)
             }
         })
-    }
-    
-    fileprivate func showError(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true)
     }
     
 }
