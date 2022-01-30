@@ -39,6 +39,9 @@ class Banner {
     
     public static func showBanner(data: BannerData) {
         let banner = FloatingNotificationBanner(title: data.title, subtitle: data.subtitle, leftView: data.leftView, style: data.style)
+        banner.backgroundColor = .white
+        banner.titleLabel?.textColor = .black
+        banner.subtitleLabel?.textColor = .black
         banner.show(cornerRadius: 10, shadowBlurRadius: 15)
     }
     
