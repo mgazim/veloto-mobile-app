@@ -62,10 +62,10 @@ struct DeauthorizeResponse: Decodable {
 
 struct SummaryAthlete: Decodable {
     let id: Int64
-    let firstname: String
-    let lastname: String
-    let city: String
-    let state: String
+    let firstname: String?
+    let lastname: String?
+    let city: String?
+    let state: String?
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
