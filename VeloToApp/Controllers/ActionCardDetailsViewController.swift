@@ -66,7 +66,7 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
                             self.masterDelegate?.updateInModalViewController(self)
                         case .failure(let error):
                             print("Error saving task: \(error)")
-                            Banner.customError(details: Banner.unableToUpdataData, error: error)
+                            Banner.customError(details: Banner.unableToUpdateData, error: error)
                     }
                 }
             case "save" where athleteTask != nil:
@@ -86,7 +86,7 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
                             self.masterDelegate?.updateInModalViewController(self)
                         case .failure(let error):
                             print("Error: \(error.localizedDescription)")
-                            Banner.customError(details: Banner.unableToUpdataData, error: error)
+                            Banner.customError(details: Banner.unableToUpdateData, error: error)
                     }
                 }
             case "close":

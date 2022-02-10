@@ -15,7 +15,8 @@ class Banner {
     public static let errorTitle = "Ошибка"
     
     public static let unableToLoadData = "Мы не смогли обновить данные с сервера"
-    public static let unableToUpdataData = "Мы не смогли обновить данные на сервере"
+    public static let unableToUpdateData = "Мы не смогли обновить данные на сервере"
+    public static let unableToAuthorize = "Мы не смогли авторизировать вас сейчас. Попробуйте позже"
     
     
     public static func generalError() {
@@ -23,8 +24,12 @@ class Banner {
         showBanner(data: data)
     }
     
-    public static func authenticationError(_ error: Error) {
-        let bannerData = BannerData(title: Banner.errorTitle, subtitle: "Мы не смогли авторизировать вас сейчас – попробуйте позже: \(error.localizedDescription)", style: .danger)
+    public static func authenticationError(_ error: Error? = nil) {
+        var subtitle = unableToAuthorize
+        if let errorMessage = error?.localizedDescription {
+            subtitle += ": \(errorMessage)"
+        }
+        let bannerData = BannerData(title: Banner.errorTitle, subtitle: subtitle, style: .danger)
         showBanner(data: bannerData)
     }
     
