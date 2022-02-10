@@ -15,7 +15,7 @@
 	<key>redirectAddress</key>
 	<string>veloto.ru.com</string>
 	<key>scope</key>
-	<string>read_all</string>
+	<string>read_all,activity:read_all</string>
 	<key>apiUrl</key>
 	<string>https://www.strava.com/api/v3</string>
 	<key>authUrl</key>
