@@ -76,10 +76,28 @@ extension StravaClient: ASWebAuthenticationPresentationContextProviding {
     
     private func handleAuthorizationRedirect(_ url: URL, handler: @escaping AuthorizationHandler) {
         let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        if let code = components?.queryItems?.first(where: { $0.name == "code" })?.value {
-            self.exchangeForToken(code, handler: handler)
+        if !checkScopes(of: components) {
+            // TODO: Add banner!
+            print("No required scopes!")
+            handler(.failure(generateError(failureReason: "No required scopes", response: nil)))
         } else {
-            handler(.failure(generateError(failureReason: "Invalid authorization code", response: nil)))
+            if let code = components?.queryItems?.first(where: { $0.name == "code" })?.value {
+                self.exchangeForToken(code, handler: handler)
+            } else {
+                handler(.failure(generateError(failureReason: "Invalid authorization code", response: nil)))
+            }
+        }
+    }
+    
+    private func checkScopes(of components: URLComponents?) -> Bool {
+        guard let components = components else { return false }
+        if let scopes = components.queryItems?.first(where: { $0.name == "scope" })?.value {
+            let required = Set(configuration.scope()?.split(separator: ",") ?? [])
+            let received = Set(scopes.split(separator: ","))
+            return required.isSubset(of: received)
+        } else {
+            print("No scopes provided!")
+            return false
         }
     }
     
