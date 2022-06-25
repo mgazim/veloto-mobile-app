@@ -24,7 +24,12 @@ struct AthleteCoreDataWrapper: CoreDataWrapper {
     static func new() -> Athlete {
         return CoreDataHelper.new(entityName: entityName)
     }
-    
+
+    static func updateDistance(_ distance: Int64, for athlete: Athlete) {
+        athlete.overallDistance = distance
+        CoreDataHelper.save()
+    }
+
     static func delete(entity: Athlete) {
         CoreDataHelper.delete(entity: entity)
     }

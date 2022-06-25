@@ -19,14 +19,18 @@ class AuthenticationViewController: UIViewController {
         super.viewDidLoad()
         if let athlete = AthleteCoreDataWrapper.get() {
             print("Already authorized with \(athlete), getting up-to-date actions")
-            ServerClient.shared.getAllTasksForUser(athlete.id) { (response) in
+            ServerClient.shared.getAthorizedUserData(athlete.id) { (response) in
                 switch response {
                     case .success(let result):
                         print("Received tasks \(result)")
                         AthleteTaskCoreDataWrapper.retainAll(of: result.tasks)
+                        AthleteCoreDataWrapper.updateDistance(result.distance, for: athlete)
                         self.performSegue(withIdentifier: SegueIdentifier.fromAuthenticationToActionCards, sender: self)
                     case .failure(let error):
-                        Banner.customError(details: Banner.unableToLoadData, error: error)
+                        print("Error getting up-to-date user data: \(error.localizedDescription)")
+                        AthleteCoreDataWrapper.deleteAll()
+                        AthleteTaskCoreDataWrapper.deleteAll()
+                        Banner.generalError()
                 }
             }
         } else {

@@ -12,6 +12,7 @@ class ServerClient {
     
     public typealias CreateUserHandler = (Result<CreateUserResponse, Swift.Error>) -> ()
     public typealias GetTasksHandler = (Result<TasksResponse, Swift.Error>) -> ()
+    public typealias GetAuthUserData = (Result<UserDataResponse, Swift.Error>) -> ()
     public typealias CreateTaskHandler = (Result<CreateTaskResponse, Swift.Error>) -> ()
     public typealias DeleteTaskHandler = (Result<DeleteTaskResponse, Swift.Error>) -> ()
     public typealias UpdateTaskHandler = (Result<CreateTaskResponse, Swift.Error>) -> ()
@@ -50,6 +51,22 @@ class ServerClient {
         }
     }
     
+    public func getAthorizedUserData(_ userId: Int64, handler: @escaping GetAuthUserData) {
+        do {
+            try request(ServerRouter<Dummy>.user_data(userId))?.responseDecodable(of: UserDataResponse.self) {
+                responce in
+                switch responce.result {
+                    case .success(let dataResponse):
+                        handler(.success(dataResponse))
+                    case .failure(let error):
+                        handler(.failure(error))
+                }
+            }
+        } catch let error as NSError {
+            handler(.failure(error))
+        }
+    }
+
     public func createTaskOfUser(userId id: Int64, body: CreateTaskRequest, handler: @escaping CreateTaskHandler) {
         do {
             try request(ServerRouter<CreateTaskRequest>.create_task(userId: id, body: body))?.responseDecodable(of: CreateTaskResponse.self) { response in

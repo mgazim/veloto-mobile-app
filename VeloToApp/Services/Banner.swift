@@ -17,10 +17,10 @@ class Banner {
     public static let unableToLoadData = "Мы не смогли обновить данные с сервера"
     public static let unableToUpdateData = "Мы не смогли обновить данные на сервере"
     public static let unableToAuthorize = "Мы не смогли авторизировать вас сейчас. Попробуйте позже"
-    
+    public static let tryAgainLater = "Попробуйте позже"
     
     public static func generalError() {
-        let data = BannerData(title: errorTitle, subtitle: "Попробуйте позже", style: .danger)
+        let data = BannerData(title: errorTitle, subtitle: tryAgainLater, style: .danger)
         showBanner(data: data)
     }
     
@@ -32,7 +32,7 @@ class Banner {
         let bannerData = BannerData(title: Banner.errorTitle, subtitle: subtitle, style: .danger)
         showBanner(data: bannerData)
     }
-    
+
     public static func customError(details: String?, error: Error?) {
         var subtitle = "\(details ?? "Попробуйте позже")"
         if let error = error {
@@ -42,7 +42,7 @@ class Banner {
         showBanner(data: bannerData)
     }
     
-    public static func showBanner(data: BannerData) {
+    private static func showBanner(data: BannerData) {
         let banner = FloatingNotificationBanner(title: data.title, subtitle: data.subtitle, leftView: data.leftView, style: data.style)
         banner.backgroundColor = .white
         banner.titleLabel?.textColor = .black

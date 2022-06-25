@@ -48,7 +48,7 @@ class ActionCardsTableViewController: UITableViewController {
                         self.updateTableRows()
                     case .failure(let error):
                         print("Error zeroing-out: \(error.localizedDescription)")
-                        Banner.customError(details: Banner.unableToUpdateData, error: error)
+                        Banner.generalError()
                 }
             }
             completionHandler(true)
@@ -71,7 +71,7 @@ class ActionCardsTableViewController: UITableViewController {
                         self.tableView.deleteRows(at: [indexPath], with: .automatic)
                     case .failure(let error):
                         print("Error removing: \(error.localizedDescription)")
-                        Banner.customError(details: Banner.unableToUpdateData, error: error)
+                        Banner.generalError()
                 }
             }
             completionHandler(true)

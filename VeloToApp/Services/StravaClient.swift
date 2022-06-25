@@ -79,7 +79,7 @@ extension StravaClient: ASWebAuthenticationPresentationContextProviding {
         if !checkScopes(of: components) {
             // TODO: Add banner!
             print("No required scopes!")
-            handler(.failure(generateError(failureReason: "No required scopes", response: nil)))
+            handler(.failure(generateError(failureReason: "No required scopes", code: .noScopes)))
         } else {
             if let code = components?.queryItems?.first(where: { $0.name == "code" })?.value {
                 self.exchangeForToken(code, handler: handler)
@@ -187,6 +187,24 @@ extension StravaClient {
         }
         let authUrl = "\(url.absoluteString)?client_id=\(clientId)&redirect_uri=\(callbackScheme)://\(redirectAddress)&response_type=code&scope=\(scope)&state=\(state)"
         return URL(string: authUrl)
+    }
+    
+    public enum ErrorCode: Int {
+        case noScopes = 1
+        
+        func parse(from: Int) -> ErrorCode? {
+            if from == ErrorCode.noScopes.rawValue {
+                return .noScopes
+            }
+            return nil
+        }
+    }
+    
+    private func generateError(failureReason: String, code: ErrorCode?) -> NSError {
+        let errorDomain = "io.velotoapp"
+        let userInfo = [NSLocalizedFailureReasonErrorKey: failureReason]
+        let returnError = NSError(domain: errorDomain, code: code?.rawValue ?? 0, userInfo: userInfo)
+        return returnError
     }
     
     private func generateError(failureReason: String, response: HTTPURLResponse?) -> NSError {

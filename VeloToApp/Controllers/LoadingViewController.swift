@@ -31,14 +31,13 @@ class LoadingViewController: UIViewController {
                                 self.performSegue(withIdentifier: SegueIdentifier.fromLoadingToActionCards, sender: self)
                             case .failure(let error):
                                 print("Authentication error: \(error.localizedDescription)")
-                                Banner.authenticationError()
+                                Banner.generalError()
                                 self.performSegue(withIdentifier: SegueIdentifier.fromLoadingToAuthentication, sender: self)
                         }
                     }
-                case .failure(let error):
-                    // todo: change to proper message
-                    print("Authentication error: \(error.localizedDescription)")
-                    Banner.authenticationError()
+                case .failure(let error as NSError):
+                    print("Authentication error - \(error.code): \(error.localizedDescription)")
+                    Banner.generalError()
                     self.performSegue(withIdentifier: SegueIdentifier.fromLoadingToAuthentication, sender: self)
             }
         })
