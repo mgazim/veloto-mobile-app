@@ -7,17 +7,6 @@
 
 import Foundation
 
-struct Error: Decodable {
-    let code: String
-    let field: String
-    let resource: String
-}
-
-struct Fault: Decodable {
-    let message: String
-    let errors: [Error]
-}
-
 struct OAuthTokenResponse: Decodable {
     let tokenType: String
     let accessToken: String

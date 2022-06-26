@@ -19,6 +19,18 @@ struct CreateUserResponse: Decodable {
     }
 }
 
+struct UserDataResponse: Decodable {
+    let userId: Int64
+    let distance: Int64
+    let tasks: [TaskResponse]
+    
+    private enum CodingKeys: String, CodingKey {
+        case userId = "user"
+        case distance = "mileage"
+        case tasks = "tasks"
+    }
+}
+
 struct TasksResponse: Decodable {
     let tasks: [TaskResponse]
     

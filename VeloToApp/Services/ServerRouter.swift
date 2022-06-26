@@ -14,6 +14,8 @@ enum ServerRouter<T: Encodable> {
     
     case all_tasks(_ userId: Int64)
     
+    case user_data(_ userId: Int64)
+    
     case create_task(userId: Int64, body: CreateTaskRequest)
     
     case delete_task(userId: Int64, taskId: Int64)
@@ -32,8 +34,10 @@ extension ServerRouter : URLRequestConvertible {
         switch self {
             case .create_user(let body):
                 return ("/users", body, nil, .post)
-            case .all_tasks(let id):
-                return ("/tasks", nil, ["user_id": id], .get)
+            case .all_tasks(let userId):
+                return ("/tasks", nil, ["user_id" : userId], .get)
+            case .user_data(let userId):
+                return ("/athlete", nil, ["user_id" : userId], .get)
             case .create_task(let userId, let body):
                 return ("/tasks", body, ["user_id" : userId], .post)
             case .delete_task(let userId, let taskId):

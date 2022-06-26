@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1042F8227A57A4500A1B773 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A1042F8127A57A4500A1B773 /* NotificationBannerSwift */; };
+		A1042F8427A57E0800A1B773 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1042F8327A57E0700A1B773 /* SegueIdentifier.swift */; };
+		A1042F8627A57FD200A1B773 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1042F8527A57FD200A1B773 /* Banner.swift */; };
 		A1103ED22610E05500C6F51A /* ActionCardsRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1103ED12610E05500C6F51A /* ActionCardsRootViewController.swift */; };
 		A11212D127956B9100EDA006 /* MasterModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11212D027956B9100EDA006 /* MasterModalViewController.swift */; };
 		A11D75C02744C6E3004D87A8 /* ServerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D75BF2744C6E2004D87A8 /* ServerClient.swift */; };
@@ -66,6 +69,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1042F8327A57E0700A1B773 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
+		A1042F8527A57FD200A1B773 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		A1103ED12610E05500C6F51A /* ActionCardsRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCardsRootViewController.swift; sourceTree = "<group>"; };
 		A11212D027956B9100EDA006 /* MasterModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterModalViewController.swift; sourceTree = "<group>"; };
 		A11D75BF2744C6E2004D87A8 /* ServerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerClient.swift; sourceTree = "<group>"; };
@@ -129,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19CD27A2626B1D300733622 /* SwiftyJSON in Frameworks */,
+				A1042F8227A57A4500A1B773 /* NotificationBannerSwift in Frameworks */,
 				A19CD26B262362F100733622 /* Alamofire in Frameworks */,
 				A17F536127A05F1900CD9C03 /* Gifu in Frameworks */,
 			);
@@ -223,6 +229,7 @@
 				A1103ED12610E05500C6F51A /* ActionCardsRootViewController.swift */,
 				A155E26D2612E99C00CEE968 /* UnauthenticationAlertController.swift */,
 				A1D4B9832795C5B7003648FF /* LoadingViewController.swift */,
+				A1042F8327A57E0700A1B773 /* SegueIdentifier.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -245,6 +252,7 @@
 				A11D75BF2744C6E2004D87A8 /* ServerClient.swift */,
 				A11D75C52744CBB2004D87A8 /* ServerConfigurationProvider.swift */,
 				A15A7169274B650100032F51 /* ServerRouter.swift */,
+				A1042F8527A57FD200A1B773 /* Banner.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 				A19CD26A262362F100733622 /* Alamofire */,
 				A19CD2792626B1D300733622 /* SwiftyJSON */,
 				A17F536027A05F1900CD9C03 /* Gifu */,
+				A1042F8127A57A4500A1B773 /* NotificationBannerSwift */,
 			);
 			productName = VeloToApp;
 			productReference = A166EEE226063D0C00DFF377 /* Veloto.app */;
@@ -331,6 +340,7 @@
 				A19CD269262362F100733622 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A19CD2782626B1D300733622 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				A17F535F27A05F1900CD9C03 /* XCRemoteSwiftPackageReference "Gifu" */,
+				A1042F8027A57A4500A1B773 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
 			);
 			productRefGroup = A166EEE326063D0C00DFF377 /* Products */;
 			projectDirPath = "";
@@ -405,7 +415,9 @@
 				A166EF2626064C2C00DFF377 /* AuthenticationViewController.swift in Sources */,
 				A1103ED22610E05500C6F51A /* ActionCardsRootViewController.swift in Sources */,
 				A166EEE826063D0C00DFF377 /* SceneDelegate.swift in Sources */,
+				A1042F8627A57FD200A1B773 /* Banner.swift in Sources */,
 				A1D4B9842795C5B7003648FF /* LoadingViewController.swift in Sources */,
+				A1042F8427A57E0800A1B773 /* SegueIdentifier.swift in Sources */,
 				A19CD2972627557E00733622 /* VeloToDataModel.xcdatamodeld in Sources */,
 				A16E649A2607C8F0004A8E8B /* ActionCardDetailsViewController.swift in Sources */,
 				A166EF312606950100DFF377 /* SettingsViewController.swift in Sources */,
@@ -555,6 +567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Veloto/Veloto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P57WFZ72G8;
 				INFOPLIST_FILE = VeloToApp/Info.plist;
@@ -576,6 +589,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Veloto/Veloto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P57WFZ72G8;
 				INFOPLIST_FILE = VeloToApp/Info.plist;
@@ -616,6 +630,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A1042F8027A57A4500A1B773 /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Daltron/NotificationBanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		A17F535F27A05F1900CD9C03 /* XCRemoteSwiftPackageReference "Gifu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kaishin/Gifu.git";
@@ -643,6 +665,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A1042F8127A57A4500A1B773 /* NotificationBannerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1042F8027A57A4500A1B773 /* XCRemoteSwiftPackageReference "NotificationBanner" */;
+			productName = NotificationBannerSwift;
+		};
 		A17F536027A05F1900CD9C03 /* Gifu */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A17F535F27A05F1900CD9C03 /* XCRemoteSwiftPackageReference "Gifu" */;
