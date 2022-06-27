@@ -648,6 +648,9 @@ STRAVA</string>
                             <outlet property="delegate" destination="17B-CT-MP6" id="fMA-K8-OYK"/>
                         </connections>
                     </tableView>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="grv-sn-YoZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <segue destination="mV4-NW-OpT" kind="showDetail" identifier="edit" id="Kfi-0S-CXn"/>
                     </connections>
@@ -693,7 +696,7 @@ STRAVA</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZMa-AD-NYf"/>
+        <segue reference="NHv-lk-duh"/>
         <segue reference="wdX-Fa-g9c"/>
     </inferredMetricsTieBreakers>
     <resources>

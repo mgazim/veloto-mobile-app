@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ActionCardsTableViewController: UITableViewController {
+class ActionCardsTableViewController: UITableViewController, ModalViewController {
+
+    var masterDelegate: ModalViewControllerDelegate?
     
     var selectedRow: Int?
     
@@ -21,6 +23,26 @@ class ActionCardsTableViewController: UITableViewController {
         // Disabling selection for cells
         let view = self.view as! UITableView
         view.allowsSelection = false
+
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+    }
+
+    @objc func refresh(_ sender: AnyObject) {
+        let athlete = AthleteCoreDataWrapper.get()!
+        ServerClient.shared.getAthorizedUserData(athlete.id) { (response) in
+                switch response {
+                    case .success(let result):
+                        print("Received update \(result)")
+                        AthleteTaskCoreDataWrapper.retainAll(of: result.tasks)
+                        AthleteCoreDataWrapper.updateDistance(result.distance, for: athlete)
+                        self.updateTableRows()
+                        self.masterDelegate?.updateInModalViewController(self)
+                    case .failure(let error):
+                        print("Error getting up-to-date user data: \(error.localizedDescription)")
+                        Banner.customError(details: "Не могу обновить данные", error: error)
+                }
+        }
+        self.refreshControl?.endRefreshing()
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {

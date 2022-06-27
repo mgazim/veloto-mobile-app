@@ -7,20 +7,12 @@
 
 import UIKit
 
-class ActionCardsRootViewController: UIViewController {
-
+class ActionCardsRootViewController: UIViewController, ModalViewControllerDelegate {
+    
     @IBOutlet weak var distanceLabel: UILabel!
     
     override func viewDidLoad() {
-        if let athlete = AthleteCoreDataWrapper.get() {
-            // TODO: Get rid of Russian
-            let overallDistance = athlete.overallDistance / 1000
-            if overallDistance > 0 {
-                distanceLabel.text = "Пробег – \(overallDistance) км"
-            } else {
-                distanceLabel.text = "Нет данных по пробегу"
-            }
-        }
+        updateDistanceView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,8 +28,27 @@ class ActionCardsRootViewController: UIViewController {
                 }
             case "embedActionCardsTable":
                 print("embedActionCardsTable in action!")
+                if var controller = segue.destination as? ModalViewController {
+                    controller.masterDelegate = self
+                }
             default:
                 print("Unknown identifier")
+        }
+    }
+
+    func updateInModalViewController(_ sender: ModalViewController) {
+        updateDistanceView()
+    }
+
+    private func updateDistanceView() {
+        if let athlete = AthleteCoreDataWrapper.get() {
+            // TODO: Get rid of Russian
+            let overallDistance = athlete.overallDistance / 1000
+            if overallDistance > 0 {
+                distanceLabel.text = "Пробег – \(overallDistance) км"
+            } else {
+                distanceLabel.text = "Нет данных по пробегу"
+            }
         }
     }
 
