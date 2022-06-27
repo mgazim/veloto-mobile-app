@@ -1,0 +1,87 @@
+
+/* Class = "UILabel"; text = "через каждые"; ObjectID = "0au-BE-zVk"; */
+"0au-BE-zVk.text" = "через каждые";
+
+/* Class = "UIButton"; normalTitle = "Выйти"; ObjectID = "1fG-SO-xHA"; */
+"1fG-SO-xHA.normalTitle" = "Выйти";
+
+/* Class = "UIButton"; normalTitle = "Сохранить"; ObjectID = "4on-Ne-SEH"; */
+"4on-Ne-SEH.normalTitle" = "Сохранить";
+
+/* Class = "UILabel"; text = "ВЕЛО ТО"; ObjectID = "B8f-Ok-aad"; */
+"B8f-Ok-aad.text" = "ВЕЛО ТО";
+
+/* Class = "UILabel"; text = "Без связи с аккаунтом приложение\nне сможет работать"; ObjectID = "EhC-F9-DF6"; */
+"EhC-F9-DF6.text" = "Без связи с аккаунтом приложение\nне сможет работать";
+
+/* Class = "UILabel"; text = "Это необходимо для учета\nпробега вашего\nвелосипеда"; ObjectID = "HnO-ra-JKb"; */
+"HnO-ra-JKb.text" = "Это необходимо для учета\nпробега вашего\nвелосипеда";
+
+/* Class = "UILabel"; text = "ТО"; ObjectID = "ILT-bE-XuU"; */
+"ILT-bE-XuU.text" = "ТО";
+
+/* Class = "UILabel"; text = "Приложение не сможет работать :("; ObjectID = "Jo9-cy-Vyf"; */
+"Jo9-cy-Vyf.text" = "Приложение не сможет работать :(";
+
+/* Class = "UILabel"; text = "Получать заранее"; ObjectID = "K5n-wc-4wW"; */
+"K5n-wc-4wW.text" = "Получать заранее";
+
+/* Class = "UITextField"; placeholder = "Число"; ObjectID = "KXN-Fn-wwm"; */
+"KXN-Fn-wwm.placeholder" = "Число";
+
+/* Class = "UITextField"; placeholder = "Комментарий"; ObjectID = "LTf-4L-wlE"; */
+"LTf-4L-wlE.placeholder" = "Комментарий";
+
+/* Class = "UITextField"; placeholder = "Имя карточки"; ObjectID = "NZH-Qq-HPT"; */
+"NZH-Qq-HPT.placeholder" = "Имя карточки";
+
+/* Class = "UIButton"; normalTitle = "ВЫЙТИ ИЗ STRAVA"; ObjectID = "TMq-X3-wp7"; */
+"TMq-X3-wp7.normalTitle" = "ВЫЙТИ ИЗ STRAVA";
+
+/* Class = "UILabel"; text = "Push"; ObjectID = "VIa-WA-89d"; */
+"VIa-WA-89d.text" = "Push";
+
+/* Class = "UILabel"; text = "Через STRAVA приложение отслеживает пробег вашего велосипеда и напоминает \nо техническом обслуживании."; ObjectID = "Vbu-RS-iiw"; */
+"Vbu-RS-iiw.text" = "Через STRAVA приложение отслеживает пробег вашего велосипеда и напоминает \nо техническом обслуживании.";
+
+/* Class = "UILabel"; text = "километров"; ObjectID = "abx-Zd-ISf"; */
+"abx-Zd-ISf.text" = "километров";
+
+/* Class = "UILabel"; text = "Дополнительные уведомления будут приходить\nнезадолго до необходимости обслуживания"; ObjectID = "cDM-HU-LXU"; */
+"cDM-HU-LXU.text" = "Дополнительные уведомления будут приходить\nнезадолго до необходимости обслуживания";
+
+/* Class = "UILabel"; text = "Пробег – 180 км"; ObjectID = "d69-Mi-Bja"; */
+"d69-Mi-Bja.text" = "Пробег – 180 км";
+
+/* Class = "UILabel"; text = "Comment"; ObjectID = "fR3-7h-m9a"; */
+"fR3-7h-m9a.text" = "Comment";
+
+/* Class = "UIButton"; normalTitle = "Остаться"; ObjectID = "heD-hO-tU3"; */
+"heD-hO-tU3.normalTitle" = "Остаться";
+
+/* Class = "UILabel"; text = "E-mail:"; ObjectID = "l9r-WV-gy2"; */
+"l9r-WV-gy2.text" = "E-mail:";
+
+/* Class = "UILabel"; text = "ВЕЛО ТО"; ObjectID = "n6p-xZ-0eT"; */
+"n6p-xZ-0eT.text" = "ВЕЛО ТО";
+
+/* Class = "UILabel"; text = "ВЫЙТИ ИЗ STRAVA?"; ObjectID = "nLv-o4-CFl"; */
+"nLv-o4-CFl.text" = "ВЫЙТИ ИЗ STRAVA?";
+
+/* Class = "UIButton"; normalTitle = "ВОЙТИ\nВ АККАУНТ\nSTRAVA"; ObjectID = "sos-YZ-9sb"; */
+"sos-YZ-9sb.normalTitle" = "ВОЙТИ\nВ АККАУНТ\nSTRAVA";
+
+/* Class = "UILabel"; text = "ВЕЛО ТО"; ObjectID = "uHw-7u-xvx"; */
+"uHw-7u-xvx.text" = "ВЕЛО ТО";
+
+/* Class = "UILabel"; text = "Action Card Name"; ObjectID = "udU-TJ-lpL"; */
+"udU-TJ-lpL.text" = "Action Card Name";
+
+/* Class = "UITextField"; placeholder = "Введите адрес"; ObjectID = "vjc-vV-Emk"; */
+"vjc-vV-Emk.placeholder" = "Введите адрес";
+
+/* Class = "UILabel"; text = "Км, осталось\nдо замены"; ObjectID = "z5S-lK-03c"; */
+"z5S-lK-03c.text" = "Км, осталось\nдо замены";
+
+/* Class = "UILabel"; text = "УВЕДОМЛЕНИЯ"; ObjectID = "zIV-UU-AU1"; */
+"zIV-UU-AU1.text" = "УВЕДОМЛЕНИЯ";

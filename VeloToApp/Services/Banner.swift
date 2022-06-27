@@ -11,13 +11,10 @@ import NotificationBannerSwift
 
 class Banner {
     
-    // TODO: Get rid of Russian!
-    public static let errorTitle = "Ошибка"
+    public static let errorTitle = NSLocalizedString("error_title", comment: "")
     
-    public static let unableToLoadData = "Мы не смогли обновить данные с сервера"
-    public static let unableToUpdateData = "Мы не смогли обновить данные на сервере"
-    public static let unableToAuthorize = "Мы не смогли авторизировать вас сейчас. Попробуйте позже"
-    public static let tryAgainLater = "Попробуйте позже"
+    public static let unableToAuthorize = NSLocalizedString("unable_to_authoriza", comment: "")
+    public static let tryAgainLater = NSLocalizedString("try_again", comment: "")
     
     public static func generalError() {
         let data = BannerData(title: errorTitle, subtitle: tryAgainLater, style: .danger)
@@ -34,7 +31,7 @@ class Banner {
     }
 
     public static func customError(details: String?, error: Error?) {
-        var subtitle = "\(details ?? "Попробуйте позже")"
+        var subtitle = "\(details ?? tryAgainLater)"
         if let error = error {
             subtitle += " – \(error.localizedDescription)"
         }

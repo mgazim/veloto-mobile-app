@@ -39,7 +39,7 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
                         self.masterDelegate?.updateInModalViewController(self)
                     case .failure(let error):
                         print("Error getting up-to-date user data: \(error.localizedDescription)")
-                        Banner.customError(details: "Не могу обновить данные", error: error)
+                        Banner.customError(details: NSLocalizedString("unable_to_update_data", comment: ""), error: error)
                 }
         }
         self.refreshControl?.endRefreshing()
@@ -119,7 +119,7 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
             cell.kmLabel.text = "\(kmRemain)"
             cell.kmLabel.textColor = .black
         } else {
-            cell.kmLabel.text = "ТО"
+            cell.kmLabel.text = NSLocalizedString("maintenance", comment: "")
             cell.kmLabel.textColor = .systemRed
         }
         return cell

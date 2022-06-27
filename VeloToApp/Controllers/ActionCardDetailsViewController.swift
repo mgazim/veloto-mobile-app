@@ -124,8 +124,7 @@ private extension UITextField {
         toolbar.barStyle = .default
         toolbar.items = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
-            // TODO: Fix Russian
-            UIBarButtonItem(title: "Готово", style: .done, target: onDone.target, action: onDone.action)
+            UIBarButtonItem(title: NSLocalizedString("done", comment: ""), style: .done, target: onDone.target, action: onDone.action)
         ]
         toolbar.sizeToFit()
         self.inputAccessoryView = toolbar

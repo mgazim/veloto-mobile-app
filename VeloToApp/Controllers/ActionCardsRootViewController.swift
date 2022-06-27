@@ -42,12 +42,12 @@ class ActionCardsRootViewController: UIViewController, ModalViewControllerDelega
 
     private func updateDistanceView() {
         if let athlete = AthleteCoreDataWrapper.get() {
-            // TODO: Get rid of Russian
             let overallDistance = athlete.overallDistance / 1000
             if overallDistance > 0 {
-                distanceLabel.text = "Пробег – \(overallDistance) км"
+                let distanceFormat = NSLocalizedString("distance_label", comment: "")
+                distanceLabel.text = String(format: distanceFormat, overallDistance)
             } else {
-                distanceLabel.text = "Нет данных по пробегу"
+                distanceLabel.text = NSLocalizedString("no_distance_data", comment: "")
             }
         }
     }
