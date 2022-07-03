@@ -9,6 +9,8 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    public static let ReloadNotification = "ReloadNotification"
+    
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -51,6 +53,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        print("Entering foreground")
+        NotificationCenter.default.post(name: NSNotification.Name(SceneDelegate.ReloadNotification), object: nil)
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
