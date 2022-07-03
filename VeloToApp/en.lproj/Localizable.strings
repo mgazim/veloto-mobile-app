@@ -1,0 +1,19 @@
+/* 
+  Localizations.strings
+  Veloto
+
+  Created by Максим Газимзянов on 27.06.2022.
+  
+*/
+"velo_to" = "VELOTO";
+"bc_maintenance_lbl" = "BIKES\nMAINTENANCE";
+"login_btn" = "LOG INTO\nSTRAVA";
+"login_comment" = "This is necessary\nto keep track of\nyour bike's mileage";
+"error_title" = "Error";
+"unable_to_authoriza" = "Unable to authorize now. Please try again later.";
+"unable_to_update_data" = "Unable to update now. Please try again later.";
+"try_again" = "Try again later";
+"maintenance" = "MNT";
+"done" = "Done";
+"distance_label" = "Total mileage — %d km";
+"no_distance_data" = "No distance data";

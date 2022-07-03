@@ -1,0 +1,19 @@
+/* 
+  Localizations.strings
+  Veloto
+
+  Created by Максим Газимзянов on 27.06.2022.
+  
+*/
+"velo_to" = "ВЕЛО ТО";
+"bc_maintenance_lbl" = "ТЕХНИЧЕСКОЕ\nОБСЛУЖИВАНИЕ\nВЕЛОСИПЕДОВ";
+"login_btn" = "ВОЙТИ\nВ АККАУНТ\nSTRAVA";
+"login_comment" = "Это необходимо для учета\nпробега вашего\nвелосипеда";
+"error_title" = "Ошибка";
+"unable_to_authoriza" = "Мы не смогли авторизировать вас сейчас. Попробуйте позже.";
+"unable_to_update_data" = "Мы не смогли обновить данные. Попробуйте позже.";
+"try_again" = "Попробуйте позже.";
+"maintenance" = "ТО";
+"done" = "Готово";
+"distance_label" = "Общий пробег — %d км";
+"no_distance_data" = "Нет данных по пробегу";
