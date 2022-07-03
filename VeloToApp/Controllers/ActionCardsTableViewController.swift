@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ActionCardsTableViewController: UITableViewController, ModalViewController {
 
@@ -25,24 +26,31 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
         view.allowsSelection = false
 
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(SceneDelegate.ReloadNotification), object: nil)
     }
 
     @objc func refresh(_ sender: AnyObject) {
-        let athlete = AthleteCoreDataWrapper.get()!
-        ServerClient.shared.getAthorizedUserData(athlete.id) { (response) in
-                switch response {
-                    case .success(let result):
-                        print("Received update \(result)")
-                        AthleteTaskCoreDataWrapper.retainAll(of: result.tasks)
-                        AthleteCoreDataWrapper.updateDistance(result.distance, for: athlete)
-                        self.updateTableRows()
-                        self.masterDelegate?.updateInModalViewController(self)
-                    case .failure(let error):
-                        print("Error getting up-to-date user data: \(error.localizedDescription)")
-                        Banner.customError(details: "Не могу обновить данные", error: error)
-                }
-        }
+        refreshData()
         self.refreshControl?.endRefreshing()
+    }
+
+    @objc private func refreshData() {
+        guard let athlete = AthleteCoreDataWrapper.get() else {
+            return
+        }
+        ServerClient.shared.getAthorizedUserData(athlete.id) { (response) in
+            switch response {
+                case .success(let result):
+                    print("Received update \(result)")
+                    AthleteTaskCoreDataWrapper.retainAll(of: result.tasks)
+                    AthleteCoreDataWrapper.updateDistance(result.distance, for: athlete)
+                    self.updateTableRows()
+                    self.masterDelegate?.updateInModalViewController(self)
+                case .failure(let error):
+                    print("Error getting up-to-date user data: \(error.localizedDescription)")
+                    Banner.customError(details: "Не могу обновить данные", error: error)
+            }
+        }
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
