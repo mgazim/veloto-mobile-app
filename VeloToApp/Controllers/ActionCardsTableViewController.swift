@@ -48,7 +48,7 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
                     self.masterDelegate?.updateInModalViewController(self)
                 case .failure(let error):
                     print("Error getting up-to-date user data: \(error.localizedDescription)")
-                    Banner.customError(details: "Не могу обновить данные", error: error)
+                    Banner.updateDataError()
             }
         }
     }

@@ -14,6 +14,7 @@ class Banner {
     public static let errorTitle = NSLocalizedString("error_title", comment: "")
     
     public static let unableToAuthorize = NSLocalizedString("unable_to_authoriza", comment: "")
+    public static let unableToUpdate = NSLocalizedString("unable_to_update_data", comment: "")
     public static let tryAgainLater = NSLocalizedString("try_again", comment: "")
     
     public static func generalError() {
@@ -30,7 +31,16 @@ class Banner {
         showBanner(data: bannerData)
     }
 
-    public static func customError(details: String?, error: Error?) {
+    public static func updateDataError(_ error: Error? = nil) {
+        var subtitle = unableToUpdate
+        if let errorMessage = error?.localizedDescription {
+            subtitle += ": \(errorMessage)"
+        }
+        let bannerData = BannerData(title: Banner.errorTitle, subtitle: subtitle, style: .danger)
+        showBanner(data: bannerData)
+    }
+
+    public static func customError(details: String?, error: Error? = nil) {
         var subtitle = "\(details ?? tryAgainLater)"
         if let error = error {
             subtitle += " – \(error.localizedDescription)"

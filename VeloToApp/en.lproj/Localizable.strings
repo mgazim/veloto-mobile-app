@@ -9,6 +9,23 @@
 "bc_maintenance_lbl" = "BIKES\nMAINTENANCE";
 "login_btn" = "LOG INTO\nSTRAVA";
 "login_comment" = "This is necessary\nto keep track of\nyour bike's mileage";
+"distance_until_change" = "km left\nbefore maintenance";
+"card_name" = "Card name";
+"every" = "every";
+"num_of" = "Number of";
+"kilometers" = "kilometers";
+"comment" = "Comment";
+"save_btn" = "Save";
+
+"leave_strava" = "LOG OUT FROM STRAVA";
+"app_wont_work" = "The app won't work without it  :(";
+
+"log_out_q" = "Log out from Strava?";
+"log_out_comment" = "The Veloto app tracks your bike's mileage via Strava,\nand reminds you about maintenance.";
+"log_out_comment_unable_to_work" = "The app won't work without an account connection.";
+"log_out_btn" = "Log out";
+"keep_btn" = "Keep logged";
+
 "error_title" = "Error";
 "unable_to_authoriza" = "Unable to authorize now. Please try again later.";
 "unable_to_update_data" = "Unable to update now. Please try again later.";
