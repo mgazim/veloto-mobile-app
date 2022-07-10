@@ -125,7 +125,7 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
         let kmRemain = (actionCard.every - actionCard.remain) / 1000
         if kmRemain > 0 {
             cell.kmLabel.text = "\(kmRemain)"
-            cell.kmLabel.textColor = .black
+            cell.kmLabel.textColor = .label
         } else {
             cell.kmLabel.text = "ТО"
             cell.kmLabel.textColor = .systemRed
