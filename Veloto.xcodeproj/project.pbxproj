@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1009144287B59E3007ADBB5 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = A1009143287B59E3007ADBB5 /* Amplitude */; };
+		A1009146287B5B00007ADBB5 /* AmplitudeConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1009145287B5B00007ADBB5 /* AmplitudeConfig.plist */; };
+		A1009148287B5B36007ADBB5 /* AmplitudeConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1009147287B5B36007ADBB5 /* AmplitudeConfigurationProvider.swift */; };
 		A1042F8227A57A4500A1B773 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A1042F8127A57A4500A1B773 /* NotificationBannerSwift */; };
 		A1042F8427A57E0800A1B773 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1042F8327A57E0700A1B773 /* SegueIdentifier.swift */; };
 		A1042F8627A57FD200A1B773 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1042F8527A57FD200A1B773 /* Banner.swift */; };
@@ -69,6 +72,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1009145287B5B00007ADBB5 /* AmplitudeConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AmplitudeConfig.plist; sourceTree = "<group>"; };
+		A1009147287B5B36007ADBB5 /* AmplitudeConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeConfigurationProvider.swift; sourceTree = "<group>"; };
 		A1042F8327A57E0700A1B773 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		A1042F8527A57FD200A1B773 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		A1103ED12610E05500C6F51A /* ActionCardsRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCardsRootViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +141,7 @@
 				A19CD27A2626B1D300733622 /* SwiftyJSON in Frameworks */,
 				A1042F8227A57A4500A1B773 /* NotificationBannerSwift in Frameworks */,
 				A19CD26B262362F100733622 /* Alamofire in Frameworks */,
+				A1009144287B59E3007ADBB5 /* Amplitude in Frameworks */,
 				A17F536127A05F1900CD9C03 /* Gifu in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +192,7 @@
 				A166EEFC2606434300DFF377 /* roboto */,
 				A19CD257262343DB00733622 /* LICENSE */,
 				A11D75C32744CB63004D87A8 /* ServerConfig.plist */,
+				A1009145287B5B00007ADBB5 /* AmplitudeConfig.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -253,6 +260,7 @@
 				A11D75C52744CBB2004D87A8 /* ServerConfigurationProvider.swift */,
 				A15A7169274B650100032F51 /* ServerRouter.swift */,
 				A1042F8527A57FD200A1B773 /* Banner.swift */,
+				A1009147287B5B36007ADBB5 /* AmplitudeConfigurationProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -308,6 +316,7 @@
 				A19CD2792626B1D300733622 /* SwiftyJSON */,
 				A17F536027A05F1900CD9C03 /* Gifu */,
 				A1042F8127A57A4500A1B773 /* NotificationBannerSwift */,
+				A1009143287B59E3007ADBB5 /* Amplitude */,
 			);
 			productName = VeloToApp;
 			productReference = A166EEE226063D0C00DFF377 /* Veloto.app */;
@@ -341,6 +350,7 @@
 				A19CD2782626B1D300733622 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				A17F535F27A05F1900CD9C03 /* XCRemoteSwiftPackageReference "Gifu" */,
 				A1042F8027A57A4500A1B773 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
+				A1009142287B59E3007ADBB5 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */,
 			);
 			productRefGroup = A166EEE326063D0C00DFF377 /* Products */;
 			projectDirPath = "";
@@ -363,6 +373,7 @@
 				A166EF102606434300DFF377 /* Roboto-Medium.ttf in Resources */,
 				A166EF222606434300DFF377 /* Roboto-Black.ttf in Resources */,
 				A166EF1B2606434300DFF377 /* RobotoCondensed-Regular.ttf in Resources */,
+				A1009146287B5B00007ADBB5 /* AmplitudeConfig.plist in Resources */,
 				A166EF142606434300DFF377 /* Roboto-Regular.ttf in Resources */,
 				A19B232626224A7400F1A017 /* StravaConfig.plist in Resources */,
 				A166EF192606434300DFF377 /* RobotoCondensed-LightItalic.ttf in Resources */,
@@ -399,6 +410,7 @@
 				A19B231F2622452E00F1A017 /* PropertiesReader.swift in Sources */,
 				A19CD255262343A500733622 /* StravaClient.swift in Sources */,
 				A19CD28426274C8C00733622 /* CoreDataHelper.swift in Sources */,
+				A1009148287B5B36007ADBB5 /* AmplitudeConfigurationProvider.swift in Sources */,
 				A15A716A274B650100032F51 /* ServerRouter.swift in Sources */,
 				A11212D127956B9100EDA006 /* MasterModalViewController.swift in Sources */,
 				A1F92C1A2634362B0050B7EE /* AthleteTaskCoreDataWrapper.swift in Sources */,
@@ -630,6 +642,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A1009142287B59E3007ADBB5 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/amplitude/Amplitude-iOS.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		A1042F8027A57A4500A1B773 /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Daltron/NotificationBanner.git";
@@ -665,6 +685,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A1009143287B59E3007ADBB5 /* Amplitude */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1009142287B59E3007ADBB5 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */;
+			productName = Amplitude;
+		};
 		A1042F8127A57A4500A1B773 /* NotificationBannerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A1042F8027A57A4500A1B773 /* XCRemoteSwiftPackageReference "NotificationBanner" */;
