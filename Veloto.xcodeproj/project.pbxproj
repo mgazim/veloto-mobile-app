@@ -63,6 +63,7 @@
 		A19CD27A2626B1D300733622 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = A19CD2792626B1D300733622 /* SwiftyJSON */; };
 		A19CD28426274C8C00733622 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CD28326274C8C00733622 /* CoreDataHelper.swift */; };
 		A19CD2972627557E00733622 /* VeloToDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A19CD2952627557E00733622 /* VeloToDataModel.xcdatamodeld */; };
+		A1A01141287F596C003AB4F7 /* AmplitudeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A01140287F596C003AB4F7 /* AmplitudeService.swift */; };
 		A1A38D84262B8AF0002153FA /* StravaResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A38D83262B8AF0002153FA /* StravaResponses.swift */; };
 		A1A5E275274D867F003038AA /* ServerResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A5E274274D867F003038AA /* ServerResponses.swift */; };
 		A1D36E4C274E35D20052043A /* ParseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D36E4B274E35D20052043A /* ParseUtils.swift */; };
@@ -125,6 +126,7 @@
 		A19CD26E26240D9900733622 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A19CD28326274C8C00733622 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		A19CD2962627557E00733622 /* VeloToDataModel.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = VeloToDataModel.xcdatamodel; sourceTree = "<group>"; };
+		A1A01140287F596C003AB4F7 /* AmplitudeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeService.swift; sourceTree = "<group>"; };
 		A1A38D83262B8AF0002153FA /* StravaResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaResponses.swift; sourceTree = "<group>"; };
 		A1A5E274274D867F003038AA /* ServerResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponses.swift; sourceTree = "<group>"; };
 		A1D36E4B274E35D20052043A /* ParseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseUtils.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				A15A7169274B650100032F51 /* ServerRouter.swift */,
 				A1042F8527A57FD200A1B773 /* Banner.swift */,
 				A1009147287B5B36007ADBB5 /* AmplitudeConfigurationProvider.swift */,
+				A1A01140287F596C003AB4F7 /* AmplitudeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				A11D75C22744C70D004D87A8 /* ServerRequests.swift in Sources */,
 				A19B231F2622452E00F1A017 /* PropertiesReader.swift in Sources */,
 				A19CD255262343A500733622 /* StravaClient.swift in Sources */,
+				A1A01141287F596C003AB4F7 /* AmplitudeService.swift in Sources */,
 				A19CD28426274C8C00733622 /* CoreDataHelper.swift in Sources */,
 				A1009148287B5B36007ADBB5 /* AmplitudeConfigurationProvider.swift in Sources */,
 				A15A716A274B650100032F51 /* ServerRouter.swift in Sources */,

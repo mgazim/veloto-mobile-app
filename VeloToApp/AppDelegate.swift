@@ -16,15 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let apiKey = AmplitudeConfigurationProvider.config.apiKey() {
             // Enable sending automatic session events
             Amplitude.instance().trackingSessionEvents = true
-            // Initialize SDK
-            Amplitude.instance().initializeApiKey(apiKey)
-            // Set userId
             // TODO: Rethink?
             let userId = AmplitudeConfigurationProvider.config.userId() ?? "UNAUTHORIZED"
             print("Using Amplitude userId: \(userId)")
-            Amplitude.instance().setUserId(userId)
-            // Log an event
-            Amplitude.instance().logEvent("app_start")
+            // Initialize SDK with a user Id
+            Amplitude.instance().initializeApiKey(apiKey, userId: userId)
+            // Log start event
+            Amplitude.instance().logEvent(AmplitudeService.appStart)
         } else {
             print("Unable to init Amplitude as apiKey is missing")
         }
