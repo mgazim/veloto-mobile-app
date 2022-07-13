@@ -13,5 +13,6 @@ struct SegueIdentifier {
     public static let fromAuthenticationToActionCards = "toActionCards"
     public static let fromLoadingToAuthentication = "toAuthFromLoad"
     public static let fromLoadingToActionCards = "toActionCardsFromLoad"
+    public static let fromNavigationToActionCards = "toActionCardsFromNavigation"
     
 }

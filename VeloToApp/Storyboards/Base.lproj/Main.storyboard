@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U3c-CP-C9n">
-    <device id="retina6_0" orientation="portrait" appearance="dark"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U3c-CP-C9n">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="5376" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -40,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sos-YZ-9sb">
-                                <rect key="frame" x="20" y="389" width="99" height="76"/>
+                                <rect key="frame" x="20" y="389" width="98" height="76"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                 <state key="normal">
                                     <string key="title">ВОЙТИ
@@ -73,7 +73,7 @@ STRAVA</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="954" y="93"/>
+            <point key="canvasLocation" x="892" y="-124"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="f8l-Bb-mPL">
@@ -89,7 +89,7 @@ STRAVA</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaI-bF-PKR">
-                                <rect key="frame" x="352.66666666666669" y="128.66666666666666" width="17.333333333333314" height="18"/>
+                                <rect key="frame" x="351.33333333333331" y="128.66666666666666" width="18.666666666666686" height="18"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" image="xmark" catalog="system">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -368,7 +368,7 @@ STRAVA</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUJ-Y3-OuD" userLabel="SettingsButton">
-                                <rect key="frame" x="353.66666666666669" y="128.66666666666666" width="21.333333333333314" height="18"/>
+                                <rect key="frame" x="352.33333333333331" y="128.66666666666666" width="22.666666666666686" height="18"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" image="line.3.horizontal" catalog="system">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -558,10 +558,10 @@ STRAVA</string>
             </objects>
             <point key="canvasLocation" x="1844.6153846153845" y="1430.3317535545023"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Root View Controller-->
         <scene sceneID="RU1-AL-uAq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="U3c-CP-C9n" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="U3c-CP-C9n" customClass="NavigationRootViewController" customModule="Veloto" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bbv-ey-I1J">
                         <autoresizingMask key="autoresizingMask"/>
