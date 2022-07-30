@@ -63,6 +63,7 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
                             print("Created new task with id \(id)")
                             // TODO: Ask server to return whole object on create
                             AthleteTaskCoreDataWrapper.persistNew(id: id, name: name, every: meters, remain: 0, comment: comment)
+                            AmplitudeService.shared.createTask(taskId: id)
                             self.masterDelegate?.updateInModalViewController(self)
                         case .failure(let error):
                             print("Error saving task: \(error)")
@@ -83,6 +84,7 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
                             self.athleteTask?.every = every
                             self.athleteTask?.comment = comment
                             CoreDataHelper.save()
+                            AmplitudeService.shared.editTask(taskId: self.athleteTask!.id)
                             self.masterDelegate?.updateInModalViewController(self)
                         case .failure(let error):
                             print("Error: \(error.localizedDescription)")

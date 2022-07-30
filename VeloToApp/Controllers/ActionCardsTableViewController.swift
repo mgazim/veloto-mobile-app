@@ -75,6 +75,7 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
                 switch result {
                     case .success(_):
                         AthleteTaskCoreDataWrapper.cleanRemain(toZeroOut)
+                        AmplitudeService.shared.resetTask(taskId: toZeroOut.id)
                         self.updateTableRows()
                     case .failure(let error):
                         print("Error zeroing-out: \(error.localizedDescription)")
@@ -96,7 +97,9 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
             ServerClient.shared.deleteTaskOfUser(userId: athlete.id, taskId: toRemove.id) { (result) in
                 switch result {
                     case .success(_):
-                        AthleteTaskCoreDataWrapper.deleteById(toRemove.id)
+                        let removedId = toRemove.id
+                        AthleteTaskCoreDataWrapper.deleteById(removedId)
+                        AmplitudeService.shared.deleteTask(taskId: removedId)
                         self.actionCards = self.getActionCardsForCurrentAthlete()
                         self.tableView.deleteRows(at: [indexPath], with: .automatic)
                     case .failure(let error):

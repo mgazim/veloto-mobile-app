@@ -14,6 +14,7 @@ class UnauthenticationAlertController: UIViewController {
         //Authentication.deauthorize()
         AthleteCoreDataWrapper.deleteAll()
         AthleteTaskCoreDataWrapper.deleteAll()
+        AmplitudeService.shared.logout()
         performSegue(withIdentifier: "logout", sender: self)
     }
 

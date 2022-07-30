@@ -28,6 +28,9 @@ class LoadingViewController: UIViewController {
                                 print(athlete)
                                 AthleteCoreDataWrapper.persistNew(from: athlete, with: token.athlete.id)
                                 AthleteTaskCoreDataWrapper.persistAll(of: athlete.tasks)
+                                // TODO: Move event?
+                                AmplitudeService.shared.setUserId()
+                                AmplitudeService.shared.login()
                                 self.performSegue(withIdentifier: SegueIdentifier.fromLoadingToActionCards, sender: self)
                             case .failure(let error):
                                 print("Authentication error: \(error.localizedDescription)")

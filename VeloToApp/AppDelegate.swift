@@ -12,20 +12,7 @@ import Amplitude
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Initializing Amplitude
-        if let apiKey = AmplitudeConfigurationProvider.config.apiKey() {
-            // Enable sending automatic session events
-            Amplitude.instance().trackingSessionEvents = true
-            // TODO: Rethink?
-            let userId = AmplitudeConfigurationProvider.config.userId() ?? "UNAUTHORIZED"
-            print("Using Amplitude userId: \(userId)")
-            // Initialize SDK with a user Id
-            Amplitude.instance().initializeApiKey(apiKey, userId: userId)
-            // Log start event
-            Amplitude.instance().logEvent(AmplitudeService.appStart)
-        } else {
-            print("Unable to init Amplitude as apiKey is missing")
-        }
+        AmplitudeService.shared.initialize()
         return true
     }
 
