@@ -22,7 +22,7 @@ class AuthenticationViewController: UIViewController {
             ServerClient.shared.getAthorizedUserData(athlete.id) { (response) in
                 switch response {
                     case .success(let result):
-                        print("Received tasks \(result)")
+                        print("Received tasks - \(result)")
                         AthleteTaskCoreDataWrapper.retainAll(of: result.tasks)
                         AthleteCoreDataWrapper.updateDistance(result.distance, for: athlete)
                         self.performSegue(withIdentifier: SegueIdentifier.fromAuthenticationToActionCards, sender: self)

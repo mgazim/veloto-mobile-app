@@ -17,11 +17,14 @@ class AmplitudeService {
         if let apiKey = AmplitudeConfigurationProvider.config.apiKey() {
             // Enable sending automatic session events
             Amplitude.instance().trackingSessionEvents = true
-            // TODO: Rethink?
-            let userId = AmplitudeConfigurationProvider.config.userId() ?? "UNAUTHORIZED"
-            print("Using Amplitude userId: \(userId)")
-            // Initialize SDK with a user Id
-            Amplitude.instance().initializeApiKey(apiKey, userId: userId)
+            if let userId = AmplitudeConfigurationProvider.config.userId() {
+                print("Using Amplitude userId: \(userId)")
+                // Initialize SDK with a user Id
+                Amplitude.instance().initializeApiKey(apiKey, userId: userId)
+            } else {
+                // Initialize SDK
+                Amplitude.instance().initializeApiKey(apiKey)
+            }
         } else {
             print("Unable to init Amplitude as apiKey is missing")
         }
@@ -59,7 +62,7 @@ class AmplitudeService {
         log(event: .reset_task, properties: ["id" : taskId])
     }
     
-    public func taskMaintenance(taskId: Int64) {
+    public func maintenance(for taskId: Int64) {
         log(event: .notification, properties: ["id" : taskId])
     }
     
