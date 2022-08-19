@@ -11,7 +11,6 @@ import Alamofire
 class ServerClient {
     
     public typealias CreateUserHandler = (Result<CreateUserResponse, Swift.Error>) -> ()
-    public typealias GetTasksHandler = (Result<TasksResponse, Swift.Error>) -> ()
     public typealias GetAuthUserData = (Result<UserDataResponse, Swift.Error>) -> ()
     public typealias CreateTaskHandler = (Result<CreateTaskResponse, Swift.Error>) -> ()
     public typealias DeleteTaskHandler = (Result<DeleteTaskResponse, Swift.Error>) -> ()
@@ -35,28 +34,13 @@ class ServerClient {
         }
     }
     
-    public func getAllTasksForUser(_ userId: Int64, handler: @escaping GetTasksHandler) {
-        do {
-            try request(ServerRouter<Dummy>.all_tasks(userId))?.responseDecodable(of: TasksResponse.self) {
-                response in
-                switch response.result {
-                    case .success(let dataResponse):
-                        handler(.success(dataResponse))
-                    case .failure(let error):
-                        handler(.failure(error))
-                }
-            }
-        } catch let error as NSError {
-            handler(.failure(error))
-        }
-    }
-    
     public func getAthorizedUserData(_ userId: Int64, handler: @escaping GetAuthUserData) {
         do {
             try request(ServerRouter<Dummy>.user_data(userId))?.responseDecodable(of: UserDataResponse.self) {
                 responce in
                 switch responce.result {
                     case .success(let dataResponse):
+                        
                         handler(.success(dataResponse))
                     case .failure(let error):
                         handler(.failure(error))

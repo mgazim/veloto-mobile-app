@@ -14,13 +14,13 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
     
     var selectedRow: Int?
     
-    var actionCards = [AthleteTask]()
+    var athleteTasks = [AthleteTask]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // TODO: Add activity indicator here
-        self.actionCards = self.getActionCardsForCurrentAthlete()
-        actionCards.sort(by: { ($0.every - $0.remain) < ($1.every - $1.remain) })
+        self.athleteTasks = self.getActionCardsForCurrentAthlete()
+        athleteTasks.sort(by: { ($0.every - $0.remain) < ($1.every - $1.remain) })
         // Disabling selection for cells
         let view = self.view as! UITableView
         view.allowsSelection = false
@@ -69,12 +69,13 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
         
         let zeroOutAction = UIContextualAction(style: .normal, title: "") { (action, view, completionHandler) in
             print("Zero out clicked")
-            let toZeroOut = self.actionCards[indexPath.row]
+            let toZeroOut = self.athleteTasks[indexPath.row]
             let athlete = AthleteCoreDataWrapper.get()!
             ServerClient.shared.cleanRemainForTask(userId: athlete.id, taskId: toZeroOut.id) { (result) in
                 switch result {
                     case .success(_):
                         AthleteTaskCoreDataWrapper.cleanRemain(toZeroOut)
+                        AmplitudeService.shared.resetTask(taskId: toZeroOut.id)
                         self.updateTableRows()
                     case .failure(let error):
                         print("Error zeroing-out: \(error.localizedDescription)")
@@ -91,13 +92,15 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "") { (action, view, completionHandler) in
             print("Delete clicked")
-            let toRemove = self.actionCards[indexPath.row]
+            let toRemove = self.athleteTasks[indexPath.row]
             let athlete = AthleteCoreDataWrapper.get()!
             ServerClient.shared.deleteTaskOfUser(userId: athlete.id, taskId: toRemove.id) { (result) in
                 switch result {
                     case .success(_):
-                        AthleteTaskCoreDataWrapper.deleteById(toRemove.id)
-                        self.actionCards = self.getActionCardsForCurrentAthlete()
+                        let removedId = toRemove.id
+                        AthleteTaskCoreDataWrapper.deleteById(removedId)
+                        AmplitudeService.shared.deleteTask(taskId: removedId)
+                        self.athleteTasks = self.getActionCardsForCurrentAthlete()
                         self.tableView.deleteRows(at: [indexPath], with: .automatic)
                     case .failure(let error):
                         print("Error removing: \(error.localizedDescription)")
@@ -112,17 +115,15 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actionCards.count
+        return athleteTasks.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionCardCell", for: indexPath) as! ActionCardTableViewCell
-        let actionCard = actionCards[indexPath.row]
-        cell.actionNameLabel.text = actionCard.name
-        cell.commentLabel.text = actionCard.comment
-        // On server side we store the amount of km to pass to trigger card activation.
-        // Thus need to display the difference between total and "remain"
-        let kmRemain = (actionCard.every - actionCard.remain) / 1000
+        let task = athleteTasks[indexPath.row]
+        cell.actionNameLabel.text = task.name
+        cell.commentLabel.text = task.comment
+        let kmRemain = VelotoUtils.calculateRemainKmForTask(task)
         if kmRemain > 0 {
             cell.kmLabel.text = "\(kmRemain)"
             cell.kmLabel.textColor = .label
@@ -147,7 +148,7 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
                     print("Error: No row to edit!")
                     return
                 }
-                let actionCard = actionCards[index]
+                let actionCard = athleteTasks[index]
                 let destination = segue.destination as! ActionCardDetailsViewController
                 destination.athleteTask = actionCard
             case "addActionCard":
@@ -168,8 +169,8 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
     }
     
     fileprivate func updateTableRows() {
-        actionCards = self.getActionCardsForCurrentAthlete()
-        actionCards.sort(by: { ($0.every - $0.remain) < ($1.every - $1.remain) })
+        athleteTasks = self.getActionCardsForCurrentAthlete()
+        athleteTasks.sort(by: { ($0.every - $0.remain) < ($1.every - $1.remain) })
         UIView.transition(with: tableView, duration: 0.25, options: .transitionCrossDissolve, animations: { self.tableView.reloadData() }, completion: nil)
     }
     
