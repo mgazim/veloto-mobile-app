@@ -78,11 +78,13 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
                 let request = CreateTaskRequest(name: name, every: every, comment: comment)
                 ServerClient.shared.updateTaskOfUser(userId: athlete.id, taskId: athleteTask!.id, body: request) { (result) in
                     switch result {
-                        case .success(_):
-                            self.athleteTask?.name = name
+                        case .success(let response):
+                            self.athleteTask?.name = response.name
                             // TODO: Cover case when remain > every after update
-                            self.athleteTask?.every = every
-                            self.athleteTask?.comment = comment
+                            self.athleteTask?.every = response.every
+                            // Remain is updated on server side when every is changed
+                            self.athleteTask?.remain = response.remain
+                            self.athleteTask?.comment = response.comment
                             CoreDataHelper.save()
                             AmplitudeService.shared.editTask(taskId: self.athleteTask!.id)
                             self.masterDelegate?.updateInModalViewController(self)
