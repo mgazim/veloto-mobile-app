@@ -7,7 +7,7 @@
 	<key>rootPath</key>
 	<string>/api/v1</string>
 	<key>address</key>
-	<string>veloto.ru.com</string>
+	<string>veloto.tech</string>
 	<key>schema</key>
 	<string>https</string>
 </dict>

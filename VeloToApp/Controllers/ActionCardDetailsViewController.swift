@@ -58,12 +58,10 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
                 let payload = CreateTaskRequest(name: name, every: meters, comment: comment)
                 ServerClient.shared.createTaskOfUser(userId: athlete.id, body: payload) { (result) in
                     switch result {
-                        case .success(let response):
-                            let id = response.id
-                            print("Created new task with id \(id)")
-                            // TODO: Ask server to return whole object on create
-                            AthleteTaskCoreDataWrapper.persistNew(id: id, name: name, every: meters, remain: 0, comment: comment)
-                            AmplitudeService.shared.createTask(taskId: id)
+                        case .success(let createdTask):
+                            print("Created new task for user \(athlete.id) : \(createdTask)")
+                            AthleteTaskCoreDataWrapper.persistNew(id: createdTask.id, name: createdTask.name, every: createdTask.every, remain: createdTask.remain, comment: createdTask.comment ?? "")
+                            AmplitudeService.shared.createTask(taskId: createdTask.id)
                             self.masterDelegate?.updateInModalViewController(self)
                         case .failure(let error):
                             print("Error saving task: \(error)")
@@ -80,7 +78,6 @@ class ActionCardDetailsViewController: UIViewController, ModalViewController {
                     switch result {
                         case .success(let response):
                             self.athleteTask?.name = response.name
-                            // TODO: Cover case when remain > every after update
                             self.athleteTask?.every = response.every
                             // Remain is updated on server side when every is changed
                             self.athleteTask?.remain = response.remain

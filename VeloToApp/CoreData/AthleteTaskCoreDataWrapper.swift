@@ -74,8 +74,8 @@ struct AthleteTaskCoreDataWrapper: CoreDataWrapper {
         return CoreDataHelper.retrieveAll(name: entityName)
     }
     
-    static func cleanRemain(_ task: AthleteTask) {
-        task.remain = 0
+    static func resetRemainFor(task: AthleteTask) {
+        task.remain = task.every
         CoreDataHelper.save()
     }
 

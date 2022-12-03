@@ -19,7 +19,6 @@
 		A11D75C22744C70D004D87A8 /* ServerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D75C12744C70D004D87A8 /* ServerRequests.swift */; };
 		A11D75C42744CB63004D87A8 /* ServerConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A11D75C32744CB63004D87A8 /* ServerConfig.plist */; };
 		A11D75C62744CBB2004D87A8 /* ServerConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D75C52744CBB2004D87A8 /* ServerConfigurationProvider.swift */; };
-		A140CB0F2896D566002FDA09 /* VelotoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140CB0E2896D566002FDA09 /* VelotoUtils.swift */; };
 		A155E26E2612E99C00CEE968 /* UnauthenticationAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A155E26D2612E99C00CEE968 /* UnauthenticationAlertController.swift */; };
 		A15A716A274B650100032F51 /* ServerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A7169274B650100032F51 /* ServerRouter.swift */; };
 		A166EEE626063D0C00DFF377 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166EEE526063D0C00DFF377 /* AppDelegate.swift */; };
@@ -84,7 +83,6 @@
 		A11D75C12744C70D004D87A8 /* ServerRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRequests.swift; sourceTree = "<group>"; };
 		A11D75C32744CB63004D87A8 /* ServerConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServerConfig.plist; sourceTree = "<group>"; };
 		A11D75C52744CBB2004D87A8 /* ServerConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfigurationProvider.swift; sourceTree = "<group>"; };
-		A140CB0E2896D566002FDA09 /* VelotoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VelotoUtils.swift; sourceTree = "<group>"; };
 		A155E26D2612E99C00CEE968 /* UnauthenticationAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticationAlertController.swift; sourceTree = "<group>"; };
 		A15A7169274B650100032F51 /* ServerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRouter.swift; sourceTree = "<group>"; };
 		A166EEE226063D0C00DFF377 /* Veloto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veloto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,7 +283,6 @@
 			children = (
 				A19B231E2622452E00F1A017 /* PropertiesReader.swift */,
 				A1D36E4B274E35D20052043A /* ParseUtils.swift */,
-				A140CB0E2896D566002FDA09 /* VelotoUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -431,7 +428,6 @@
 				A166EF2B26064E5600DFF377 /* ActionCardsTableViewController.swift in Sources */,
 				A19C23AA262EA91800895039 /* AthleteCoreDataWrapper.swift in Sources */,
 				A155E26E2612E99C00CEE968 /* UnauthenticationAlertController.swift in Sources */,
-				A140CB0F2896D566002FDA09 /* VelotoUtils.swift in Sources */,
 				A166EF2626064C2C00DFF377 /* AuthenticationViewController.swift in Sources */,
 				A1103ED22610E05500C6F51A /* ActionCardsRootViewController.swift in Sources */,
 				A166EEE826063D0C00DFF377 /* SceneDelegate.swift in Sources */,

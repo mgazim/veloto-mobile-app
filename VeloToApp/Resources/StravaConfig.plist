@@ -13,7 +13,7 @@
 	<key>callbackScheme</key>
 	<string>veloto</string>
 	<key>redirectAddress</key>
-	<string>veloto.ru.com</string>
+	<string>veloto.tech</string>
 	<key>scope</key>
 	<string>read_all,activity:read_all</string>
 	<key>apiUrl</key>

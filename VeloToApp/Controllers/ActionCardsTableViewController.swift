@@ -74,7 +74,7 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
             ServerClient.shared.cleanRemainForTask(userId: athlete.id, taskId: toZeroOut.id) { (result) in
                 switch result {
                     case .success(_):
-                        AthleteTaskCoreDataWrapper.cleanRemain(toZeroOut)
+                        AthleteTaskCoreDataWrapper.resetRemainFor(task: toZeroOut)
                         AmplitudeService.shared.resetTask(taskId: toZeroOut.id)
                         self.updateTableRows()
                     case .failure(let error):
@@ -123,7 +123,9 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
         let task = athleteTasks[indexPath.row]
         cell.actionNameLabel.text = task.name
         cell.commentLabel.text = task.comment
-        let kmRemain = VelotoUtils.calculateRemainKmForTask(task)
+        // Storing the actual meters remain till maintenance on server side
+        // Handling negative values as "requires maintenance"
+        let kmRemain = task.remain / 1000
         if kmRemain > 0 {
             cell.kmLabel.text = "\(kmRemain)"
             cell.kmLabel.textColor = .label
@@ -170,7 +172,7 @@ class ActionCardsTableViewController: UITableViewController, ModalViewController
     
     fileprivate func updateTableRows() {
         athleteTasks = self.getActionCardsForCurrentAthlete()
-        athleteTasks.sort(by: { ($0.every - $0.remain) < ($1.every - $1.remain) })
+        athleteTasks.sort(by: { $0.remain < $1.remain })
         UIView.transition(with: tableView, duration: 0.25, options: .transitionCrossDissolve, animations: { self.tableView.reloadData() }, completion: nil)
     }
     

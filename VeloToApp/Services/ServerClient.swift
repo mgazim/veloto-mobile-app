@@ -12,8 +12,7 @@ class ServerClient {
     
     public typealias CreateUserHandler = (Result<CreateUserResponse, Swift.Error>) -> ()
     public typealias GetAuthUserData = (Result<UserDataResponse, Swift.Error>) -> ()
-    // TODO: Server to return TaskResponse instead
-    public typealias CreateTaskHandler = (Result<CreateTaskResponse, Swift.Error>) -> ()
+    public typealias CreateTaskHandler = (Result<TaskResponse, Swift.Error>) -> ()
     public typealias DeleteTaskHandler = (Result<DeleteTaskResponse, Swift.Error>) -> ()
     public typealias UpdateTaskHandler = (Result<TaskResponse, Swift.Error>) -> ()
     public typealias CleanRemainForTaskHandler = (Result<CleanTaskResponse, Swift.Error>) -> ()
@@ -54,7 +53,7 @@ class ServerClient {
 
     public func createTaskOfUser(userId id: Int64, body: CreateTaskRequest, handler: @escaping CreateTaskHandler) {
         do {
-            try request(ServerRouter<CreateTaskRequest>.create_task(userId: id, body: body))?.responseDecodable(of: CreateTaskResponse.self) { response in
+            try request(ServerRouter<CreateTaskRequest>.create_task(userId: id, body: body))?.responseDecodable(of: TaskResponse.self) { response in
                 switch response.result {
                     case .success(let dataResponse):
                         handler(.success(dataResponse))
