@@ -7,9 +7,9 @@
 	<key>webUrl</key>
 	<string>https://www.strava.com/oauth/mobile/authorize</string>
 	<key>clientId</key>
-	<string>73902</string>
+	<string></string>
 	<key>clientSecret</key>
-	<string>214fc4243d59bf104ff47a94e261eb2838a413df</string>
+	<string></string>
 	<key>callbackScheme</key>
 	<string>veloto</string>
 	<key>redirectAddress</key>
